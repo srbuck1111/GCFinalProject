@@ -9,14 +9,13 @@
 
 <button onclick="getLocation()">Try It</button>
 
-<button onClick="checkNear()">
-
 <p id="demo"></p>
 
 <script>
 var x = document.getElementById("demo");
 
 function distance(lat1, lon1, lat2, lon2) {
+	
 	  var p = 0.017453292519943295;    // Math.PI / 180
 	  var c = Math.cos;
 	  var a = 0.5 - c((lat2 - lat1) * p)/2 + 
@@ -39,8 +38,11 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
-function checkNear(lat, lng) {
-	if ()
+function checkNear(lat1, lng1, lat2, lng2) {
+	if (distance(lat1, lng1, lat2, lng2) <= 50) {
+		return true;
+	}
+	return false;
 }
 </script>
 
