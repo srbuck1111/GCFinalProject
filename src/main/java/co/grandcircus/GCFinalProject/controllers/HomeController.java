@@ -20,11 +20,11 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView placesAPITest() {
 		HttpHeaders headers = new HttpHeaders();
-		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=200&types=food&name=harbour&key=" + mapKey;
+		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.330522099999996,-83.04686699999999&radius=200&types=food&name=&key=" + mapKey;
 		
 		String test = rt.getForObject(url, String.class);
 		ModelAndView mv = new ModelAndView("index", "placesapitest", url);
-		//System.out.println(test);
+		System.out.println(test);
 		return mv;
 	}
 	
