@@ -2,13 +2,8 @@ package co.grandcircus.GCFinalProject.mappojos;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
 
-	@JsonProperty("text")
 	private String adr_address;
 	private String formatted_address;
 	private String formatted_phone_number;
@@ -26,22 +21,22 @@ public class Result {
 		super();
 	}
 
-	public Result(List<String> address_components, Geometry geometry, String adr_address, String formatted_address,
-			String formatted_phone_number, List<String> types, String url, String vicinity, String icon, String id,
-			String name, String place_id, String reference) {
+	public Result(String adr_address, String formatted_address, String formatted_phone_number, Geometry geometry,
+			String icon, String id, String name, String place_id, String reference, List<String> types, String url,
+			String vicinity) {
 		super();
-		this.geometry = geometry;
 		this.adr_address = adr_address;
 		this.formatted_address = formatted_address;
 		this.formatted_phone_number = formatted_phone_number;
-		this.types = types;
-		this.url = url;
-		this.vicinity = vicinity;
+		this.geometry = geometry;
 		this.icon = icon;
 		this.id = id;
 		this.name = name;
 		this.place_id = place_id;
 		this.reference = reference;
+		this.types = types;
+		this.url = url;
+		this.vicinity = vicinity;
 	}
 
 	public Geometry getGeometry() {
@@ -138,13 +133,6 @@ public class Result {
 
 	public void setReference(String reference) {
 		this.reference = reference;
-	}
-
-	@Override
-	public String toString() {
-		return "Result [geometry=" + geometry + ", adr_address=" + adr_address + ", formatted_address="
-				+ formatted_address + ", formatted_phone_number=" + formatted_phone_number + ", types=" + types
-				+ ", url=" + url + ", vicinity=" + vicinity + "]";
 	}
 
 }
