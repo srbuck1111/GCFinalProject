@@ -17,13 +17,19 @@ public class Result {
 	List<String> types;
 	private String url;
 	private String vicinity;
+	private String icon;
+	private String id;
+	private String name;
+	private String place_id;
+	private String reference;
 
 	public Result() {
 		super();
 	}
 
 	public Result(List<String> address_components, Geometry geometry, String adr_address, String formatted_address,
-			String formatted_phone_number, List<String> types, String url, String vicinity) {
+			String formatted_phone_number, List<String> types, String url, String vicinity, String icon, String id,
+			String name, String place_id, String reference) {
 		super();
 		this.address_components = address_components;
 		this.geometry = geometry;
@@ -33,6 +39,11 @@ public class Result {
 		this.types = types;
 		this.url = url;
 		this.vicinity = vicinity;
+		this.icon = icon;
+		this.id = id;
+		this.name = name;
+		this.place_id = place_id;
+		this.reference = reference;
 	}
 
 	public List<String> getAddress_components() {
@@ -97,6 +108,46 @@ public class Result {
 
 	public void setVicinity(String vicinity) {
 		this.vicinity = vicinity;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPlace_id() {
+		return place_id;
+	}
+
+	public void setPlace_id(String place_id) {
+		this.place_id = place_id;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
 	}
 
 	@Override
