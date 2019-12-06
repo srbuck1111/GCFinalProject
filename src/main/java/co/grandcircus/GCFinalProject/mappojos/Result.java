@@ -2,6 +2,9 @@ package co.grandcircus.GCFinalProject.mappojos;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
 
 	private String adr_address;

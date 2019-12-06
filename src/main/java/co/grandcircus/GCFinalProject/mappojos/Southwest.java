@@ -1,5 +1,8 @@
 package co.grandcircus.GCFinalProject.mappojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Southwest {
 
 	private double lat;
