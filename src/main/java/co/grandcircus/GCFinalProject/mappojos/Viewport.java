@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Viewport {
 
-	private Southwest sWest;
-	private Northeast nEast;
+	private Southwest southwest;
+	private Northeast northeast;
 
 	public Viewport() {
 		super();
@@ -14,29 +14,29 @@ public class Viewport {
 
 	public Viewport(Southwest sWest, Northeast nEast) {
 		super();
-		this.sWest = sWest;
-		this.nEast = nEast;
+		this.southwest = sWest;
+		this.northeast = nEast;
 	}
 
 	public Southwest getsWest() {
-		return sWest;
+		return southwest;
 	}
 
 	public void setsWest(Southwest sWest) {
-		this.sWest = sWest;
+		this.southwest = sWest;
 	}
 
 	public Northeast getnEast() {
-		return nEast;
+		return northeast;
 	}
 
 	public void setnEast(Northeast nEast) {
-		this.nEast = nEast;
+		this.northeast = nEast;
 	}
 
 	@Override
 	public String toString() {
-		return "Viewport [sWest=" + sWest + ", nEast=" + nEast + "]";
+		return "Viewport [sWest=" + southwest + ", nEast=" + northeast + "]";
 	}
 
 }

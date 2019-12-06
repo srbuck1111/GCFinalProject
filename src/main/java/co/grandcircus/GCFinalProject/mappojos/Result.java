@@ -9,19 +9,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Result {
 
 	@JsonProperty("text")
-	List<String> address_components;
-	private Geometry geometry;
 	private String adr_address;
 	private String formatted_address;
 	private String formatted_phone_number;
-	List<String> types;
-	private String url;
-	private String vicinity;
+	private Geometry geometry;
 	private String icon;
 	private String id;
 	private String name;
 	private String place_id;
 	private String reference;
+	List<String> types;
+	private String url;
+	private String vicinity;
 
 	public Result() {
 		super();
@@ -31,7 +30,6 @@ public class Result {
 			String formatted_phone_number, List<String> types, String url, String vicinity, String icon, String id,
 			String name, String place_id, String reference) {
 		super();
-		this.address_components = address_components;
 		this.geometry = geometry;
 		this.adr_address = adr_address;
 		this.formatted_address = formatted_address;
@@ -44,14 +42,6 @@ public class Result {
 		this.name = name;
 		this.place_id = place_id;
 		this.reference = reference;
-	}
-
-	public List<String> getAddress_components() {
-		return address_components;
-	}
-
-	public void setAddress_components(List<String> address_components) {
-		this.address_components = address_components;
 	}
 
 	public Geometry getGeometry() {
@@ -152,9 +142,9 @@ public class Result {
 
 	@Override
 	public String toString() {
-		return "Result [address_components=" + address_components + ", geometry=" + geometry + ", adr_address="
-				+ adr_address + ", formatted_address=" + formatted_address + ", formatted_phone_number="
-				+ formatted_phone_number + ", types=" + types + ", url=" + url + ", vicinity=" + vicinity + "]";
+		return "Result [geometry=" + geometry + ", adr_address=" + adr_address + ", formatted_address="
+				+ formatted_address + ", formatted_phone_number=" + formatted_phone_number + ", types=" + types
+				+ ", url=" + url + ", vicinity=" + vicinity + "]";
 	}
 
 }
