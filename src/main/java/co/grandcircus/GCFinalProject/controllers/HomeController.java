@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.mappojos.Place;
+import co.grandcircus.GCFinalProject.mappojos.Results;
 
 @Controller
 public class HomeController {
@@ -19,7 +20,7 @@ public class HomeController {
 	
 	RestTemplate rt = new RestTemplate();
 	
-	@RequestMapping("/")
+	@RequestMapping("/get-results")
 	public ModelAndView placesAPITest() {
 		HttpHeaders headers = new HttpHeaders();
 		
@@ -28,9 +29,9 @@ public class HomeController {
 		
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=200&types=park&name=&key=" + mapKey;
 		
-		Place test = rt.getForObject(url, Place.class);
-		ModelAndView mv = new ModelAndView("index", "placesapitest", url);
-		System.out.println(test.getResult().get(0).getName());
+		Place response = rt.getForObject(url, Place.class);
+		ModelAndView mv = new ModelAndView("placestest", "listOfResults", response);
+		System.out.println(response.getResult().get(0).getName());
 		return mv;
 	}
 	
