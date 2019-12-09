@@ -1,11 +1,16 @@
 package co.grandcircus.GCFinalProject.controllers;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class VicinityController {
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping("test")
 	public ModelAndView test(String userLat, String userLng, String placeLat, String placeLng) {
@@ -13,6 +18,8 @@ public class VicinityController {
 		double parsedLng = Double.parseDouble(userLng);
 		double parsedPlaceLat = Double.parseDouble(placeLat);
 		double parsedPlaceLng = Double.parseDouble(placeLng);
+		session.setAttribute("userLat", userLat);
+		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
 			return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 		}

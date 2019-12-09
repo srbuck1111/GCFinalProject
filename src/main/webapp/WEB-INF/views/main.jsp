@@ -18,12 +18,13 @@
 			</div>
 			<div class="column">
 				<h1>Side 2</h1>
+				
 				<button onClick="getLocation()">Update Location</button><br/><br/>
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
-					<form action="/test" onsubmit="getLocation();">
-						<input type="hidden" id="userLat" name="userLat"/> 
-						<input type="hidden" id="userLng" name="userLng"/>
+					<form action="/test">
+						<input type="hidden" id="userLat" name="userLat" value="${userLat }"/> 
+						<input type="hidden" id="userLng" name="userLng" value="${userLng }"/>
 						<input type="hidden" name="placeLat" value="${r.geometry.location.lat }"/>
 						<input type="hidden" name="placeLng" value="${r.geometry.location.lng }"/>
 						<input type="submit" value="im here"/>
