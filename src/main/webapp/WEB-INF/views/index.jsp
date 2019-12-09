@@ -45,10 +45,12 @@
 				<h1>Side 2</h1>
 				<button onClick="getLocation()">Get Location</button>
 				<div id="demo"></div>
-				<form onSubmit="getLocation()" action="/test">
-				<input type="hidden" id="userLat" name="userLat"/> 
-				<input type="hidden" id="userLng" name="userLng"/>
-				<input type="submit" value="checkNear"/>
+				<form action="/test" onsubmit="getLocation();">
+					<input type="hidden" id="userLat" name="userLat"/> 
+					<input type="hidden" id="userLng" name="userLng"/>
+					<input type="hidden" name="placeLat" value="42.335847"/>
+					<input type="hidden" name="placeLng" value="-83.049910"/>
+					<input type="submit" value="checkNear"/>
 				</form>
 			</div>
 		</div>
@@ -58,16 +60,6 @@
 		var x = document.getElementById("demo");
 		var userLat = document.getElementById("userLat");
 		var userLng = document.getElementById("userLng");
-
-		function distance(lat1, lon1, lat2, lon2) {
-
-			var p = 0.017453292519943295; // Math.PI / 180
-			var c = Math.cos;
-			var a = 0.5 - c((lat2 - lat1) * p) / 2 + c(lat1 * p) * c(lat2 * p)
-					* (1 - c((lon2 - lon1) * p)) / 2;
-
-			return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-		}
 
 		function getLocation() {
 			if (navigator.geolocation) {
@@ -84,8 +76,8 @@
 		}
 		
 		function sendPosition(position) {
-			document.getElementById("userLat").value = position.coords.latitude;
-			document.getElementById("userLng").value = position.coords.longitude;
+			userLat.value = position.coords.latitude;
+			userLng.value = position.coords.longitude;
 		}
 
 		function checkNear(lat1, lng1, lat2, lng2) {
