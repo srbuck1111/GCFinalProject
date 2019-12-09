@@ -9,6 +9,10 @@
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx" crossorigin="anonymous">
 </head>
 <body>
-
+	<c:forEach var="r" items="${listOfResults.result}">
+		${r.name }<br/>
+		${r.geometry.location.lat }<br/>
+		${r.geometry.location.lng }<br/><br/>
+	</c:forEach>
 </body>
 </html>
