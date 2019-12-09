@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.mappojos.Place;
+
 @Controller
 public class HomeController {
 	
@@ -26,9 +28,9 @@ public class HomeController {
 		
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=200&types=park&name=&key=" + mapKey;
 		
-		String test = rt.getForObject(url, String.class);
+		Place test = rt.getForObject(url, Place.class);
 		ModelAndView mv = new ModelAndView("index", "placesapitest", url);
-		System.out.println(test);
+		System.out.println(test.getResult().get(0).getName());
 		return mv;
 	}
 	

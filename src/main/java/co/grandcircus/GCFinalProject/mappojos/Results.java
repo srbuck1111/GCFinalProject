@@ -5,7 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Result {
+public class Results {
 
 	private String adr_address;
 	private String formatted_address;
@@ -20,11 +20,11 @@ public class Result {
 	private String url;
 	private String vicinity;
 
-	public Result() {
+	public Results() {
 		super();
 	}
 
-	public Result(String adr_address, String formatted_address, String formatted_phone_number, Geometry geometry,
+	public Results(String adr_address, String formatted_address, String formatted_phone_number, Geometry geometry,
 			String icon, String id, String name, String place_id, String reference, List<String> types, String url,
 			String vicinity) {
 		super();

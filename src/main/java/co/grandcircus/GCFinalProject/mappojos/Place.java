@@ -3,37 +3,35 @@ package co.grandcircus.GCFinalProject.mappojos;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Place {
 	
-	private Integer id;
-	List<Result> result;
+	@JsonProperty("results")
+	List<Results> result;
 	
 	public Place() {
 		super();
 	}
 
-	public Place(Integer id, List<Result> result) {
+	public Place(List<Results> result) {
 		super();
-		this.id = id;
 		this.result = result;
 	}
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public List<Result> getResult() {
+	public List<Results> getResult() {
 		return result;
 	}
 
-	public void setResult(List<Result> result) {
+	public void setResult(List<Results> result) {
 		this.result = result;
+	}
+
+	@Override
+	public String toString() {
+		return "result=" + result + "]";
 	}
 	
 }
