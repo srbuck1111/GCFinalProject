@@ -30,7 +30,7 @@ public class HomeController {
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=200&types=park&name=&key=" + mapKey;
 		
 		Place response = rt.getForObject(url, Place.class);
-		ModelAndView mv = new ModelAndView("placestest", "listOfResults", response);
+		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
 		System.out.println(response.getResult().get(0).getName());
 		return mv;
 	}

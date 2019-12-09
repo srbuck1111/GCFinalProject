@@ -34,59 +34,6 @@
 
 </head>
 <body>
-	<div class="jumbotron">
-		<div class="row">
-			<div class="column">
-				<h1>Side 1</h1>
-				
-				<p style="color: red">${error}</p>
-			</div>
-			<div class="column">
-				<h1>Side 2</h1>
-				<button onClick="getLocation()">Get Location</button>
-				<div id="demo"></div>
-				<form action="/test" onsubmit="getLocation();">
-					<input type="hidden" id="userLat" name="userLat"/> 
-					<input type="hidden" id="userLng" name="userLng"/>
-					<input type="hidden" name="placeLat" value="42.335847"/>
-					<input type="hidden" name="placeLng" value="-83.049910"/>
-					<input type="submit" value="checkNear"/>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	<script>
-		var x = document.getElementById("demo");
-		var userLat = document.getElementById("userLat");
-		var userLng = document.getElementById("userLng");
-
-		function getLocation() {
-			if (navigator.geolocation) {
-				//navigator.geolocation.getCurrentPosition(showPosition);
-				navigator.geolocation.getCurrentPosition(sendPosition);
-			} else {
-				x.innerHTML = "Geolocation is not supported by this browser.";
-			}
-		}
-
-		function showPosition(position) {
-			x.innerHTML = "Latitude: " + position.coords.latitude
-					+ "<br>Longitude: " + position.coords.longitude;
-		}
-		
-		function sendPosition(position) {
-			userLat.value = position.coords.latitude;
-			userLng.value = position.coords.longitude;
-		}
-
-		function checkNear(lat1, lng1, lat2, lng2) {
-			if (distance(lat1, lng1, lat2, lng2) <= 50) {
-				return true;
-			}
-			return false;
-		}
-	</script>
-
+	<a href="/get-results" class="btn btn-primary">go to results</a>
 </body>
 </html>
