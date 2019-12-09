@@ -45,12 +45,19 @@
 				<h1>Side 2</h1>
 				<button onClick="getLocation()">Get Location</button>
 				<div id="demo"></div>
+				<form onSubmit="getLocation()" action="/test">
+				<input type="hidden" id="userLat" name="userLat"/> 
+				<input type="hidden" id="userLng" name="userLng"/>
+				<input type="submit" value="checkNear"/>
+				</form>
 			</div>
 		</div>
 	</div>
 	
 	<script>
 		var x = document.getElementById("demo");
+		var userLat = document.getElementById("userLat");
+		var userLng = document.getElementById("userLng");
 
 		function distance(lat1, lon1, lat2, lon2) {
 
@@ -65,6 +72,7 @@
 		function getLocation() {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(showPosition);
+				navigator.geolocation.getCurrentPosition(sendPosition);
 			} else {
 				x.innerHTML = "Geolocation is not supported by this browser.";
 			}
@@ -73,6 +81,11 @@
 		function showPosition(position) {
 			x.innerHTML = "Latitude: " + position.coords.latitude
 					+ "<br>Longitude: " + position.coords.longitude;
+		}
+		
+		function sendPosition(position) {
+			document.getElementById("userLat").value = position.coords.latitude;
+			document.getElementById("userLng").value = position.coords.longitude;
 		}
 
 		function checkNear(lat1, lng1, lat2, lng2) {
