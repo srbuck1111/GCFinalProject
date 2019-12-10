@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class VicinityController {
-	
 	@Autowired
 	HttpSession session;
 
