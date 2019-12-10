@@ -1,2 +1,2 @@
   
-web: node index.jsp
+web: node index.js
