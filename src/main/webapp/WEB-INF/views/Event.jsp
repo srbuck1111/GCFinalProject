@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx" crossorigin="anonymous">
+</head>
+<body>
+<h1>A Goblin or something appeared!</h1>
+<img src="https://kinggames.dk/images/miniatures/reaper/Goblin%20Warrior-p.jpg" alt="Goblin" width="500" height="500">
+<h3>What will you do?</h3>
+<form method="get" action="/fight">
+<a class="btn btn-secondary" href="/Eventresult">Murder that goblin</a>
+</form>
+<form method="get" action="/flee">
+    <a class = "btn btn-danger" href="/" >I am a coward, take me back to the main page</a>
+</form>
+
+</body>
+</html>
