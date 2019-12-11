@@ -21,14 +21,15 @@ public class VicinityController {
 		session.setAttribute("userLat", userLat);
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
-			return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
+			return new ModelAndView("Event");
+		//	return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 		}
 		return new ModelAndView("test", "test", "is not in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 	}
 	
 	private boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {
 		System.out.println(distanceBetween(lat1, lng1, lat2, lng2));
-		if (distanceBetween(lat1, lng1, lat2, lng2) <= .05) {
+		if (distanceBetween(lat1, lng1, lat2, lng2) <= 100000000) {
 			return true;
 		}
 		return false;

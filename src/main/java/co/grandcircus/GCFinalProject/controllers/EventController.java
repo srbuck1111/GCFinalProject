@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 
 @Controller
@@ -12,7 +13,7 @@ public class EventController {
 
 	@Autowired
 	UserRepo userRepo;
-	
+
 	@RequestMapping("/event")
 	public ModelAndView event() {
 		ModelAndView mv = new ModelAndView("Event");
@@ -34,32 +35,40 @@ public class EventController {
 	public ModelAndView fight() {
 		Integer dieRoll = (int) (Math.random() * 20) + 1;
 		// Integer dieRoll = Dice.roll(d)
+
 		if (dieRoll >= 10) {
-			ModelAndView mv = new ModelAndView("Eventresult", "fightWin", "You rolled a " + dieRoll + "; you killed him!");
+			int id = 1;
+			User user = userRepo.findById(id).orElse(null);
+			user.setGold(user.getGold() + 10);
+			userRepo.save(user);
+			ModelAndView mv = new ModelAndView("Eventresult", "fightWin",
+					"You rolled a " + dieRoll + "; you killed him and you have " + user.getGold() + " goooooolddddddd");
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("Eventresult", "fightLose", "You rolled a " + dieRoll + "; you're dead!");
+			int id = 1;
+			User user = userRepo.findById(id).orElse(null);
+			user.setGold(user.getGold() - 5);
+			userRepo.save(user);
+			ModelAndView mv = new ModelAndView("Eventresult", "fightLose",
+					"You rolled a " + dieRoll + "; you're dead, and you have " + user.getGold() + " gooooooldddddd");
 			return mv;
 		}
 	}
-	
-	
 
 	@RequestMapping("/flee")
 	public ModelAndView flee() {
 		ModelAndView mv = new ModelAndView("main", "flee", "You ran away!");
 		return mv;
 	}
-	
+
 	@RequestMapping("/friend")
 	public ModelAndView friend() {
 		Integer dieRoll = (int) (Math.random() * 20) + 1;
 		if (dieRoll >= 6 && dieRoll <= 15) {
-			
-		ModelAndView mv = new ModelAndView("Eventresult", "friend", "You and Gobs are besties now!");
-		return mv;
-		}
-		else {
+
+			ModelAndView mv = new ModelAndView("Eventresult", "friend", "You and Gobs are besties now!");
+			return mv;
+		} else {
 			ModelAndView mv = new ModelAndView("Eventresult", "friend", "Gobs ate you.");
 			return mv;
 		}
