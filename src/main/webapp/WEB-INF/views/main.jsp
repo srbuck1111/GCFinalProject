@@ -16,8 +16,10 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-				<h1>User information</h1>
-				<h1>Side 1</h1>
+			<h3>Hi ${userUser.name }!!</h3>
+				<h3>You have ${userUser.gold} in gold!!</h3>
+				<h3>Where you at, bruhv?</h3>
+				
 				<p style="color: red">${error}</p>
 			</div>
 			<div class="column">

@@ -26,6 +26,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("Eventresult", "gold", user.getGold());
 		return mv;
 	}
+
 	
 	@RequestMapping("/add-user") //HAVE TO ADD AUTOWIRED AND OBJECT ABOVE FOR IT TO WORK
 	public ModelAndView addUser(User addUser) {
