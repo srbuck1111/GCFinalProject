@@ -12,13 +12,14 @@
 <div class="jumbotron">
 		<div class="row">
 			<div class="column">
-				<h1>Side 1</h1>
+				<h1>User information</h1>
+					Displays gold, any other user information we want here
 				
 				<p style="color: red">${error}</p>
 			</div>
 			<div class="column">
 				<h1>Side 2</h1>
-				
+				Test
 				<button onClick="getLocation()">Update Location</button><br/><br/>
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
