@@ -2,6 +2,7 @@ package co.grandcircus.GCFinalProject.controllers;
 
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
@@ -10,10 +11,14 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.mappojos.Place;
-import co.grandcircus.GCFinalProject.mappojos.Results;
+import co.grandcircus.GCFinalProject.model.User;
+import co.grandcircus.GCFinalProject.repo.UserRepo;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	UserRepo userRepo;
 	
 	@Value("${map.key}")
 	String mapKey;
@@ -22,6 +27,8 @@ public class HomeController {
 	
 	@RequestMapping("/get-results")
 	public ModelAndView placesAPITest() {
+		Integer id = 1;
+		User user = userRepo.findById(id).orElse(null);
 		HttpHeaders headers = new HttpHeaders();
 		
 		Double userLat = 42.3359;
@@ -31,6 +38,7 @@ public class HomeController {
 		
 		Place response = rt.getForObject(url, Place.class);
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
+		mv.addObject("userUser", user);
 		System.out.println(response.getResult().get(0).getName());
 		return mv;
 	}

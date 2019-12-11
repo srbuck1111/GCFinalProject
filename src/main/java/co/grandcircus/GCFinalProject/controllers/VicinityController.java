@@ -21,7 +21,8 @@ public class VicinityController {
 		session.setAttribute("userLat", userLat);
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
-			return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
+			return new ModelAndView("Event");
+		//	return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 		}
 		return new ModelAndView("test", "test", "is not in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 	}
