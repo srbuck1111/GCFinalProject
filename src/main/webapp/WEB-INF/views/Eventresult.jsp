@@ -15,7 +15,13 @@
 <body>
 	Event results are displayed here. Loot, result (win/loss) and then a
 	button to return to the main page.
-	<br> ${dieTotal } ${fightOutcome } ${friend}
+	<br> ${dieTotal } ${fightWin } ${fightLose } ${friend}
+	${fightWin. }
+	<br> ${gold }
+	
+	<form method="get" action="/add-gold">
+		<button type="submit">Get loot</button>
+	</form>
 
 	<form method="get" action="/">
 		<button type="submit">Back To Main</button>

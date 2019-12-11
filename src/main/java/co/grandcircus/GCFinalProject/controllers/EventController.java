@@ -1,14 +1,18 @@
 package co.grandcircus.GCFinalProject.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.GCFinalProject.dndpojos.Dice;
+import co.grandcircus.GCFinalProject.repo.UserRepo;
 
 @Controller
 public class EventController {
 
+	@Autowired
+	UserRepo userRepo;
+	
 	@RequestMapping("/event")
 	public ModelAndView event() {
 		ModelAndView mv = new ModelAndView("Event");
@@ -31,13 +35,15 @@ public class EventController {
 		Integer dieRoll = (int) (Math.random() * 20) + 1;
 		// Integer dieRoll = Dice.roll(d)
 		if (dieRoll >= 10) {
-			ModelAndView mv = new ModelAndView("Eventresult", "fightOutcome", "You rolled a " + dieRoll + "; you killed him!");
+			ModelAndView mv = new ModelAndView("Eventresult", "fightWin", "You rolled a " + dieRoll + "; you killed him!");
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("Eventresult", "fightOutcome", "You rolled a " + dieRoll + "; you're dead!");
+			ModelAndView mv = new ModelAndView("Eventresult", "fightLose", "You rolled a " + dieRoll + "; you're dead!");
 			return mv;
 		}
 	}
+	
+	
 
 	@RequestMapping("/flee")
 	public ModelAndView flee() {
