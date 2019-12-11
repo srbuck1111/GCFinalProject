@@ -5,21 +5,35 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
+import co.grandcircus.GCFinalProject.mappojos.UserPlace;
 
 @Controller
 public class VicinityController {
+	
+	
+	RestTemplate rt = new RestTemplate();
+	
 	@Autowired
 	HttpSession session;
 
 	@RequestMapping("test")
-	public ModelAndView test(String userLat, String userLng, String placeLat, String placeLng) {
-		double parsedLat = Double.parseDouble(userLat);
-		double parsedLng = Double.parseDouble(userLng);
+	public ModelAndView test(String placeLat, String placeLng) {
+		
+		String url = "https://www.googleapis.com/geolocation/v1/geolocate?considerIp=true&key=AIzaSyD9VF75FMItSrNRMrcQMqg-ZVxJCtUwjzk";
+		UserPlace request = new UserPlace();
+		UserPlace userPlace = rt.postForObject(url, request, UserPlace.class);
+		
+		double parsedLat = userPlace.getLocation().getLat();
+		double parsedLng = userPlace.getLocation().getLng();
 		double parsedPlaceLat = Double.parseDouble(placeLat);
 		double parsedPlaceLng = Double.parseDouble(placeLng);
-		session.setAttribute("userLat", userLat);
-		session.setAttribute("userLng" ,userLng);
+		
+		session.setAttribute("userLat", parsedLat);
+		session.setAttribute("userLng", parsedLng);
+		
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
 			return new ModelAndView("Event");
 		//	return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
