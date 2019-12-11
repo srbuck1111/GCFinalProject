@@ -16,16 +16,27 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
+<<<<<<< HEAD
+				<h1>User information</h1>
+					Displays gold, any other user information we want here
+				
+=======
 				<h1>Side 1</h1>
 
+>>>>>>> f6b3be969136fe4f97fb6996805824e0eb80dce9
 				<p style="color: red">${error}</p>
 			</div>
 			<div class="column">
 				<h1>Side 2</h1>
+<<<<<<< HEAD
+				Test
+				<button onClick="getLocation()">Update Location</button><br/><br/>
+=======
 
 				<button onClick="getLocation()">Update Location</button>
 				<div id="demo"></div>
 				<br /> <br />
+>>>>>>> f6b3be969136fe4f97fb6996805824e0eb80dce9
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
 					<form action="/test">
