@@ -13,10 +13,13 @@
 <img src="https://kinggames.dk/images/miniatures/reaper/Goblin%20Warrior-p.jpg" alt="Goblin" width="500" height="500">
 <h3>What will you do?</h3>
 <form method="get" action="/fight">
-<a class="btn btn-secondary" href="/Eventresult">Murder that goblin</a>
+<a class="btn btn-danger" href="/fight">Murder that goblin (roll a 10 or above)</a>
 </form>
 <form method="get" action="/flee">
-    <a class = "btn btn-danger" href="/" >I am a coward, take me back to the main page</a>
+    <a class = "btn btn-danger" href="/flee" >I am a coward, take me back to the main page</a>
+</form>
+<form method="get" action="/friend">
+<a class = "btn btn-danger" href="/friend">Try to be friends (roll a 6 through 15)</a>
 </form>
 
 </body>
