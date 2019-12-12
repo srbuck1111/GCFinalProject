@@ -10,46 +10,70 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.Dice;
 import co.grandcircus.GCFinalProject.dndpojos.Encounter;
 import co.grandcircus.GCFinalProject.dndpojos.Unit;
 
 @Controller
 public class DndController {
-	
+
 	@Autowired
 	HttpSession session;
 
 	@RequestMapping("unit-info")
 	public ModelAndView unitInfo() {
-		Unit unit = new Unit();
-		return new ModelAndView("character-info", "unit", unit);
+		return null;
 	}
-	
-	
+
 	@RequestMapping("encounter")
 	public ModelAndView encounter() {
-		ModelAndView view = new ModelAndView("test");
-		//eventually reads from database of encounters by encounterId
-		Unit player = new Unit();
-		Unit enemy1 = new Unit();
-		Unit enemy2 = new Unit();
+		ModelAndView view = new ModelAndView("encounter");
+		// eventually reads from database of encounters by encounterId
+		Unit player = (Unit) session.getAttribute("player");
+		Unit enemy1 = new Unit(3);
+		Unit enemy2 = new Unit(3);
 		List<Unit> enemies = new ArrayList<>();
 		enemies.add(enemy1);
 		enemies.add(enemy2);
 		Encounter e = new Encounter(player, enemies);
-		e.rollInitiative();
 		session.setAttribute("encounter", e);
-		session.setAttribute("test2", "test value 2");
 		return view;
 	}
-	
-	@RequestMapping("encounter/fight")
-	public ModelAndView fight(Encounter encounter) {
-		return null;
+
+	@RequestMapping("event/encounter")
+	public ModelAndView fight() {
+		ModelAndView view = new ModelAndView("encounter");
+		Encounter e = (Encounter) session.getAttribute("encounter");
+		if (e.getPlayer().getHp() > 0) {
+			int playerToHit = Dice.roll(20) + Unit.getModFor(e.getPlayer().getStr());
+			view.addObject("playerDieRoll", playerToHit);
+			if (playerToHit > e.getEnemies().get(0).getAc()) {
+				int playerDmg = Dice.roll(e.getPlayer().getWeapon().getDmg()) + Unit.getModFor(e.getPlayer().getStr());
+				view.addObject("playerDmg", playerDmg);
+			} else {
+				view.addObject("playerMissed", "That doesn't hit!");
+			}
+		} else {
+			return new ModelAndView("redirect:/event-end?win=false");
+		}
+		if (e.getEnemies().get(0).getHp() > 0) {
+			int enemyToHit = Dice.roll(20) + Unit.getModFor(e.getEnemies().get(0).getStr());
+			view.addObject("enemyDieRoll", enemyToHit);
+			if (enemyToHit > e.getPlayer().getAc()) {
+				int enemyDmg = Dice.roll(e.getEnemies().get(0).getWeapon().getDmg()) + Unit.getModFor(e.getEnemies().get(0).getStr());
+				view.addObject("enemyDmg", enemyDmg);
+			} else {
+				view.addObject("enemyMissed", e.getEnemies().get(0).getFirstName() + " doesn't hit!");
+			}
+		} else {
+			return new ModelAndView("redirect:/event-end?win=true");
+		}
+		session.setAttribute("encounter", e);
+		return view;
 	}
-	
+
 	public ModelAndView playerChoice(Encounter encounter) {
 		return null;
 	}
-	
+
 }
