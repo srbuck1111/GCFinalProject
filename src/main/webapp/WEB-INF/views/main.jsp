@@ -11,6 +11,17 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
+	<style>
+	.column {
+  		float: left;
+  		width: 50%;
+	}
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+	</style>
 </head>
 <body>
 	<div class="jumbotron">

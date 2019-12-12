@@ -29,12 +29,12 @@ public class HomeController {
 	public ModelAndView placesAPITest() {
 		Integer id = 1;
 		User user = userRepo.findById(id).orElse(null);
-		HttpHeaders headers = new HttpHeaders();
 		
 		Double userLat = 42.3359;
 		Double userLong = -83.049825;
+		int searchRadius = 200;
 		
-		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=200&types=park&name=&key=" + mapKey;
+		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
 		
 		Place response = rt.getForObject(url, Place.class);
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
