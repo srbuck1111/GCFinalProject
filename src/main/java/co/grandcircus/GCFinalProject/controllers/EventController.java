@@ -66,10 +66,10 @@ public class EventController {
 		Integer dieRoll = (int) (Math.random() * 20) + 1;
 		if (dieRoll >= 6 && dieRoll <= 15) {
 
-			ModelAndView mv = new ModelAndView("Eventresult", "friend", "You and Gobs are besties now!");
+			ModelAndView mv = new ModelAndView("Eventresult", "friend", "You rolled" + dieRoll + " and Gobs are besties now!");
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("Eventresult", "friend", "Gobs ate you.");
+			ModelAndView mv = new ModelAndView("Eventresult", "friend", "You rolled" + dieRoll + " Gobs ate you.");
 			return mv;
 		}
 	}
