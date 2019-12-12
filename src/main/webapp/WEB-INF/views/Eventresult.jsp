@@ -24,13 +24,6 @@ h3 {color:gold;}
 	<br>
 	<h3> Your loot is: ${lootMessage}</h3>
 	
-	<br> ${dieTotal } ${fightWin } ${fightLose }
-	
-	<br>${gold }
-	
-	<form method="get" action="/event-end">
-		<button type="submit">event-end test button</button>
-	</form>
 
 	<form method="get" action="/get-results">
 		<button type="submit" >Back To Home</button>
