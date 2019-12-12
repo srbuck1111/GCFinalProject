@@ -27,26 +27,24 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			<h3>Hi ${userUser.name },</h3>
+			<h2>Hi ${userUser.name },</h2>
 				<h3>you currently have $${userUser.gold} in gold.</h3>
 				<br>
 				
 				<form action="/unit"> 		
-		<input class="btn-primary" type="submit" value="Find a character to battle">
+		<input class="btn-primary" type="submit" value="Create your character">
 		
-				<h1>${player}</h1>
+				<h4> ${player.firstName} ${player.lastName }</h4> <br>
+				<h4></h4>
 				</form>	
 				
-				<form action="/encounter">
-				<input class="btn-primary" type="submit" value="Battle!">
-				</form>
 				
-				<p style="color: red">${error}</p>
 			</div>
 			<div class="column">
 				<h1>Current Location</h1>
 				<button onClick="getLocation()">Update Location</button><br/><br/>
 				<div id="demo"></div>
+				<p style="color: red">${error}</p>
 				<br /> <br />
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>

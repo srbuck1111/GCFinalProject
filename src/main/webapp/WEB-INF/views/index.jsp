@@ -36,7 +36,7 @@
 <body>
 <h1>Welcome to Dungeon Go!</h1>
 
-	<a href="/get-results" class="btn btn-primary">Get Character</a>
+	<a href="/get-results" class="btn btn-primary">Let's Play!</a>
 	<h3></h3>
 	
 </body>
