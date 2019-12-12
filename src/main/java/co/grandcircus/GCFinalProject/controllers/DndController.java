@@ -74,7 +74,10 @@ public class DndController {
 		return view;
 	}
 	
-	
+	@RequestMapping("event/walk")
+	public ModelAndView walk() {
+		return new ModelAndView("redirect:/get-results");
+	}
 
 	public ModelAndView playerChoice(Encounter encounter) {
 		return null;
