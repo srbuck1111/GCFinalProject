@@ -21,7 +21,7 @@ public class VicinityController {
 		session.setAttribute("userLat", userLat);
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
-			return new ModelAndView("Event");
+			return new ModelAndView("redirect:/encounter");
 		}
 		return new ModelAndView("redirect:/get-results"/*, "error", "You are not within range; you are currently " + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng) + " km away from that event."*/);
 	}

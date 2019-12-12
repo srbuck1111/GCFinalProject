@@ -23,9 +23,9 @@
 <a class = "btn btn-danger" href="/friend">Try to be friends (roll a 6 through 15)</a>
 </form>
  -->
- <h3>You ran into ${enemy.firstName }!</h3>
- <a class="btn btn-danger" href="/event/encounter">Don't take chances, fight ${enemy.firstName }</a>
- <a class="btn btn-primary" href="/event/talk">Try to speak to ${enemy.firstName }</a>
+ <h3>You ran into ${encounter.getEnemies().get(0).getFirstName() }!</h3>
+ <a class="btn btn-danger" href="/encounter/fight">Don't take chances, fight ${enemy.firstName }</a>
+ <!--  --><a class="btn btn-primary" href="/event/talk">Try to speak to ${enemy.firstName }</a>
  <a class="btn btn-secondary" href="/event/walk">Walk away</a>
 </body>
 </html>

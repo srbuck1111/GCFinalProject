@@ -27,7 +27,6 @@ public class DndController {
 
 	@RequestMapping("encounter")
 	public ModelAndView encounter() {
-		ModelAndView view = new ModelAndView("encounter");
 		// eventually reads from database of encounters by encounterId
 		Unit player = (Unit) session.getAttribute("player");
 		Unit enemy1 = new Unit(3);
@@ -37,18 +36,20 @@ public class DndController {
 		enemies.add(enemy2);
 		Encounter e = new Encounter(player, enemies);
 		session.setAttribute("encounter", e);
-		return view;
+		return new ModelAndView("Event");
 	}
 
-	@RequestMapping("event/encounter")
+	@RequestMapping("encounter/fight")
 	public ModelAndView fight() {
 		ModelAndView view = new ModelAndView("encounter");
 		Encounter e = (Encounter) session.getAttribute("encounter");
+		System.out.println(e.getPlayer().getHp());
 		if (e.getPlayer().getHp() > 0) {
 			int playerToHit = Dice.roll(20) + Unit.getModFor(e.getPlayer().getStr());
 			view.addObject("playerDieRoll", playerToHit);
 			if (playerToHit > e.getEnemies().get(0).getAc()) {
 				int playerDmg = Dice.roll(e.getPlayer().getWeapon().getDmg()) + Unit.getModFor(e.getPlayer().getStr());
+				e.getEnemies().get(0).setHp(e.getEnemies().get(0).getHp() - playerDmg);
 				view.addObject("playerDmg", playerDmg);
 			} else {
 				view.addObject("playerMissed", "That doesn't hit!");
@@ -61,6 +62,7 @@ public class DndController {
 			view.addObject("enemyDieRoll", enemyToHit);
 			if (enemyToHit > e.getPlayer().getAc()) {
 				int enemyDmg = Dice.roll(e.getEnemies().get(0).getWeapon().getDmg()) + Unit.getModFor(e.getEnemies().get(0).getStr());
+				e.getPlayer().setHp(e.getPlayer().getHp() - enemyDmg);
 				view.addObject("enemyDmg", enemyDmg);
 			} else {
 				view.addObject("enemyMissed", e.getEnemies().get(0).getFirstName() + " doesn't hit!");
