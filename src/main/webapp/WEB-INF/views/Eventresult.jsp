@@ -19,7 +19,6 @@ h3 {color:gold;}
 </style>
 	<h2>${combatMessage}</h2>
 	<br>
-	<br>
 	<img alt="resultImage" src="${URL}">
 	<br>
 	<br>

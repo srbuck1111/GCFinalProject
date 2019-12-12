@@ -313,7 +313,7 @@ public class Unit {
 
 	@Override
 	public String toString() {
-		return "Name: " + firstName + " " + lastName + "\nClass: " + unitClass.getClassName() + "\nWeapon: "
-				+ weapon.getName() + "\nHP: " + hp + " AC:" + ac;
+		return "Name: " + firstName + " " + lastName + "<br> Class: " + unitClass.getClassName() + "<br> Weapon: "
+				+ weapon.getName() + "<br> HP: " + hp + " <br> AC:" + ac;
 	}
 }
