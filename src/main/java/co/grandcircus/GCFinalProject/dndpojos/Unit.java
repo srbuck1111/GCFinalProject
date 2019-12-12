@@ -7,8 +7,15 @@ public class Unit {
 
 	private String firstName;
 	private String lastName;
+	private int str;
+	private int dex;
+	private int con;
+	private int intel;
+	private int wis;
+	private int cha;
 	private int hp;
 	private int ac;
+	private int initiative;
 	private Weapon weapon;
 	private UnitClass unitClass;
 
@@ -98,8 +105,15 @@ public class Unit {
 			UnitClass unitClass) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.str = 10;
+		this.dex = 10;
+		this.con = 10;
+		this.intel = 10;
+		this.wis = 10;
+		this.cha = 10;
 		this.hp = hp;
 		this.ac = ac;
+		this.initiative = 0;
 		this.weapon = weapon;
 		this.unitClass = unitClass;
 	}
@@ -121,6 +135,54 @@ public class Unit {
 		this.lastName = lastName;
 	}
 
+	public int getStr() {
+		return str;
+	}
+
+	public void setStr(int str) {
+		this.str = str;
+	}
+
+	public int getDex() {
+		return dex;
+	}
+
+	public void setDex(int dex) {
+		this.dex = dex;
+	}
+
+	public int getCon() {
+		return con;
+	}
+
+	public void setCon(int con) {
+		this.con = con;
+	}
+
+	public int getIntel() {
+		return intel;
+	}
+
+	public void setIntel(int intel) {
+		this.intel = intel;
+	}
+
+	public int getWis() {
+		return wis;
+	}
+
+	public void setWis(int wis) {
+		this.wis = wis;
+	}
+
+	public int getCha() {
+		return cha;
+	}
+
+	public void setCha(int cha) {
+		this.cha = cha;
+	}
+
 	public int getHp() {
 		return hp;
 	}
@@ -137,6 +199,14 @@ public class Unit {
 		this.ac = ac;
 	}
 
+	public int getInitiative() {
+		return initiative;
+	}
+
+	public void setInitiative(int initiative) {
+		this.initiative = initiative;
+	}
+
 	public Weapon getWeapon() {
 		return weapon;
 	}
@@ -151,6 +221,14 @@ public class Unit {
 
 	public void setUnitClass(UnitClass unitClass) {
 		this.unitClass = unitClass;
+	}
+
+	public Unit hit(Unit target) {
+		int toHit = Dice.roll(20);
+		if (toHit > target.getAc()) {
+			this.dealWeaponDamageTo(target);
+		}
+		return target;
 	}
 
 	public Unit dealWeaponDamageTo(Unit target) {
@@ -196,17 +274,21 @@ public class Unit {
 		firstName = firstNames[(Dice.roll(firstNames.length) - 1)];
 		lastName = lastNames[(Dice.roll(lastNames.length) - 1)];
 	}
-	
+
 	public void assignHp(int level) {
 		int hitDice = hitDie[unitClasses.indexOf(unitClass)];
 		for (int i = 0; i < level; i++) {
 			int hpIncrease = Dice.roll(hitDice);
-			if (hpIncrease > ((hitDice/2) + 1)) {
+			if (hpIncrease > ((hitDice / 2) + 1)) {
 				hp += hpIncrease;
 			} else {
-				hp += ((hitDice/2) + 1);
+				hp += ((hitDice / 2) + 1);
 			}
 		}
+	}
+	
+	public static int getModFor(int modValue) {
+		return (int) Math.floor((modValue / 2) - 5);
 	}
 
 	@Override
