@@ -37,7 +37,7 @@ public class UserController {
 		String enemyFullName = enemyFName + " " + enemyLName;
 		String health = e.getPlayer().getHp() + " / " + e.getPlayer().getMaxHp();
 		
-		if (win = true) {
+		if (win) {
 		user.setGold(user.getGold() + 10);
 		userRepo.save(user);
 		combatResultMessage = "Congratulations! You have brutally murdered " + enemyFullName + "! You  now have " + health + " HP";
