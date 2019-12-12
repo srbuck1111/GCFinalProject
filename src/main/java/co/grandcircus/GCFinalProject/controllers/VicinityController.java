@@ -22,9 +22,9 @@ public class VicinityController {
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
 			return new ModelAndView("Event");
-		//	return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
+		//return new ModelAndView("test", "test", "is in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
 		}
-		return new ModelAndView("test", "test", "is not in area" + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng));
+		return new ModelAndView("test", "test", "You are not within range; you are currently " + distanceBetween(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng) + " km away from the event.");
 	}
 	
 	private boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {

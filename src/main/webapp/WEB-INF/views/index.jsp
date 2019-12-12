@@ -34,6 +34,10 @@
 
 </head>
 <body>
-	<a href="/get-results" class="btn btn-primary">go to results</a>
+<h1>Welcome to Dungeon Go!</h1>
+
+	<a href="/get-results" class="btn btn-primary">Get Character</a>
+	<h3></h3>
+	
 </body>
 </html>
