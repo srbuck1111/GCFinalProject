@@ -23,7 +23,7 @@
 	}
 	</style>
 </head>
-<body>
+<body onload="getLocation()">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
