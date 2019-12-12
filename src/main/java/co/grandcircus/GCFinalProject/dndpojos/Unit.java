@@ -3,7 +3,13 @@ package co.grandcircus.GCFinalProject.dndpojos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Unit {
+	@Autowired
+	HttpSession session;
 
 	private String firstName;
 	private String lastName;

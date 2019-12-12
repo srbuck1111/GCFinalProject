@@ -2,14 +2,16 @@ package co.grandcircus.GCFinalProject.controllers;
 
 import java.util.Random;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.Unit;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
@@ -20,10 +22,24 @@ public class HomeController {
 	@Autowired
 	UserRepo userRepo;
 	
+	@Autowired
+	HttpSession session;
+	
 	@Value("${map.key}")
 	String mapKey;
 	
 	RestTemplate rt = new RestTemplate();
+	
+	@RequestMapping("/unit")
+	public ModelAndView newUnit() {
+		Integer id = 1;
+		User user = userRepo.findById(id).orElse(null);
+		Unit gUnit = new Unit(5);
+		session.setAttribute("player", gUnit);		
+		ModelAndView mv = new ModelAndView("redirect:/get-results");
+		mv.addObject("userUser", user);
+		return mv;
+	}
 	
 	@RequestMapping("/get-results")
 	public ModelAndView placesAPITest() {

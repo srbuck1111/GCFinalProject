@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>D&D Go!</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css"
 	rel="stylesheet"
@@ -27,14 +27,24 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			<h3>Hi ${userUser.name }!!</h3>
-				<h3>You have ${userUser.gold} in gold!!</h3>
-				<h3>Where you at, bruhv?</h3>
+			<h3>Hi ${userUser.name },</h3>
+				<h3>you currently have $${userUser.gold} in gold.</h3>
+				<br>
+				
+				<form action="/unit"> 		
+		<input class="btn-primary" type="submit" value="Find a character to battle">
+		
+				<h1>${player}</h1>
+				</form>	
+				
+				<form action="/encounter">
+				<input class="btn-primary" type="submit" value="Battle!">
+				</form>
 				
 				<p style="color: red">${error}</p>
 			</div>
 			<div class="column">
-				<h1>Side 2</h1>
+				<h1>Current Location</h1>
 				<button onClick="getLocation()">Update Location</button><br/><br/>
 				<div id="demo"></div>
 				<br /> <br />
@@ -46,7 +56,7 @@
 							name="userLng" value="${userLng }" /> <input type="hidden"
 							name="placeLat" value="${r.geometry.location.lat }" /> <input
 							type="hidden" name="placeLng" value="${r.geometry.location.lng }" />
-						<input type="submit" value="im here" />
+						<input type="submit" value="I'm here" />
 					</form>
 					<br />
 				</c:forEach>
