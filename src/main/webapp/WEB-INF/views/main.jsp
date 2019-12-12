@@ -34,7 +34,7 @@
 				<form action="/unit"> 		
 		<input class="btn-primary" type="submit" value="Create your character">
 		
-				<h4> ${player.firstName} ${player.lastName }</h4> <br>
+				<h4>${player } </h4> <br>
 				<h4></h4>
 				</form>	
 				
