@@ -29,8 +29,8 @@ h3 {color:gold;}
 	
 	<br>${gold }
 	
-	<form method="get" action="/add-gold">
-		<button type="submit">Get loot</button>
+	<form method="get" action="/event-end">
+		<button type="submit">event-end test button</button>
 	</form>
 
 	<form method="get" action="/get-results">

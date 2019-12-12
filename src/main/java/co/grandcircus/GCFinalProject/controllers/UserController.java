@@ -21,13 +21,10 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	@RequestMapping("/add-gold")
-	public ModelAndView addGold(Integer id) {
+	@RequestMapping("/event-end")
+	public ModelAndView addGold(boolean win) {
 		Encounter e = (Encounter) session.getAttribute("encounter");
-		
-		boolean win; //can change condition to 'user health > 0' to check user health when entering the page
-		win = false;
-		id = 1;
+		Integer id = 1;
 		User user = userRepo.findById(id).orElse(null);
 		ModelAndView mv = new ModelAndView("Eventresult");
 		String combatResultMessage;
