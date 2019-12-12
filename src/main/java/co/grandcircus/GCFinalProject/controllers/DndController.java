@@ -71,6 +71,8 @@ public class DndController {
 		session.setAttribute("encounter", e);
 		return view;
 	}
+	
+	
 
 	public ModelAndView playerChoice(Encounter encounter) {
 		return null;

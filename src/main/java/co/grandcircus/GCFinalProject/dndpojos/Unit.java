@@ -102,6 +102,7 @@ public class Unit {
 
 	// Constructors
 	public Unit(int level) {
+		this.ac = 10;
 		this.str = 10;
 		this.dex = 10;
 		this.con = 10;
@@ -113,6 +114,7 @@ public class Unit {
 		assignWeapon();
 		assignName();
 		assignMaxHp(level);
+		this.hp = this.maxHp;
 	}
 
 	public Unit(String firstName, String lastName) {
