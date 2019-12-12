@@ -13,6 +13,7 @@ public class Unit {
 	private int intel;
 	private int wis;
 	private int cha;
+	private int maxHp;
 	private int hp;
 	private int ac;
 	private int initiative;
@@ -94,15 +95,21 @@ public class Unit {
 			"Ribin", "SeaFarer", "Tugon", "Ungrth", "Vulcan", "Wonson", "Xartex", "Yobur", "Zevron" };
 
 	// Constructors
-	public Unit() {
+	public Unit(int level) {
+		this.str = 10;
+		this.dex = 10;
+		this.con = 10;
+		this.intel = 10;
+		this.wis = 10;
+		this.cha = 10;
+		this.initiative = 0;
 		assignClass();
 		assignWeapon();
 		assignName();
-		assignHp(6);
+		assignMaxHp(level);
 	}
 
-	public Unit(String firstName, String lastName, int hp, int ac, boolean spellcaster, Weapon weapon,
-			UnitClass unitClass) {
+	public Unit(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.str = 10;
@@ -111,11 +118,7 @@ public class Unit {
 		this.intel = 10;
 		this.wis = 10;
 		this.cha = 10;
-		this.hp = hp;
-		this.ac = ac;
 		this.initiative = 0;
-		this.weapon = weapon;
-		this.unitClass = unitClass;
 	}
 
 	// Getters and Setters
@@ -183,6 +186,14 @@ public class Unit {
 		this.cha = cha;
 	}
 
+	public int getMaxHp() {
+		return maxHp;
+	}
+
+	public void setMaxHp(int maxHp) {
+		this.maxHp = maxHp;
+	}
+
 	public int getHp() {
 		return hp;
 	}
@@ -222,9 +233,10 @@ public class Unit {
 	public void setUnitClass(UnitClass unitClass) {
 		this.unitClass = unitClass;
 	}
+	
+	//method start
 
-	public Unit hit(Unit target) {
-		int toHit = Dice.roll(20);
+	public Unit hit(Unit target, int toHit) {
 		if (toHit > target.getAc()) {
 			this.dealWeaponDamageTo(target);
 		}
@@ -275,14 +287,14 @@ public class Unit {
 		lastName = lastNames[(Dice.roll(lastNames.length) - 1)];
 	}
 
-	public void assignHp(int level) {
+	public void assignMaxHp(int level) {
 		int hitDice = hitDie[unitClasses.indexOf(unitClass)];
 		for (int i = 0; i < level; i++) {
 			int hpIncrease = Dice.roll(hitDice);
 			if (hpIncrease > ((hitDice / 2) + 1)) {
-				hp += hpIncrease;
+				maxHp += hpIncrease; 
 			} else {
-				hp += ((hitDice / 2) + 1);
+				maxHp += ((hitDice / 2) + 1);
 			}
 		}
 	}
