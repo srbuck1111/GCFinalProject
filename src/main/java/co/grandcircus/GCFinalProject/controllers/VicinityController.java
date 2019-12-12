@@ -28,7 +28,7 @@ public class VicinityController {
 	
 	private boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {
 		System.out.println(distanceBetween(lat1, lng1, lat2, lng2));
-		if (distanceBetween(lat1, lng1, lat2, lng2) <= 10.5) {
+		if (distanceBetween(lat1, lng1, lat2, lng2) <= 1) {
 			return true;
 		}
 		return false;
