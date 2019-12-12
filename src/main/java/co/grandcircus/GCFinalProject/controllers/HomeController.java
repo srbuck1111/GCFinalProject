@@ -58,6 +58,7 @@ public class HomeController {
 		System.out.println(response.getResult().get(0).getName());
 		return mv;
 	}
+
 	
 	@RequestMapping("/dnd")
 	public ModelAndView dNDAPITest() {

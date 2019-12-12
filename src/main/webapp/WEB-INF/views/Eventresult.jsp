@@ -13,18 +13,28 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	Event results are displayed here. Loot, result (win/loss) and then a
-	button to return to the main page.
-	<br> ${dieTotal } ${fightWin } ${fightLose } ${friend}
+<style>
+h2 {color:green;}
+h3 {color:gold;}
+</style>
+	<h2>${combatMessage}</h2>
+	<br>
+	<br>
+	<img alt="resultImage" src="${URL}">
+	<br>
+	<br>
+	<h3> Your loot is: ${lootMessage}</h3>
 	
-	<br> ${gold }
+	<br> ${dieTotal } ${fightWin } ${fightLose }
 	
-	<form method="get" action="/add-gold">
-		<button type="submit">Get loot</button>
+	<br>${gold }
+	
+	<form method="get" action="/event-end">
+		<button type="submit">event-end test button</button>
 	</form>
 
-	<form method="get" action="/">
-		<button type="submit">Back To Main</button>
+	<form method="get" action="/get-results">
+		<button type="submit" >Back To Home</button>
 	</form>
 
 
