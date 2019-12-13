@@ -1,9 +1,14 @@
 package co.grandcircus.GCFinalProject.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import co.grandcircus.GCFinalProject.dndpojos.Unit;
 
 @Entity
 public class User {
@@ -11,6 +16,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@OneToMany(mappedBy = "userId")
+	List<Unit> units;
 	private String name;
 	private double gold;
 	private String visited;

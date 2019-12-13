@@ -3,14 +3,25 @@ package co.grandcircus.GCFinalProject.dndpojos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Entity
 public class Unit {
 	@Autowired
 	HttpSession session;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@ManyToOne
+	private Integer userId;
 	private String firstName;
 	private String lastName;
 	private int str;
