@@ -1,9 +1,5 @@
 package co.grandcircus.GCFinalProject.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,24 +8,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.GCFinalProject.dndpojos.Dice;
 import co.grandcircus.GCFinalProject.dndpojos.Monster;
-import co.grandcircus.GCFinalProject.unuseddndpojos.Encounter;
-import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
+import co.grandcircus.GCFinalProject.universalMethods.MonsterMash;
 
 @Controller
 public class DndController {
 
 	@Autowired
 	HttpSession session;
-
+	
+	RestTemplate rt = new RestTemplate();
+	
+	MonsterMash mm = new MonsterMash();
+	
+	@RequestMapping("encounter")
+	public ModelAndView encounter(Integer playerLevel) {
+		ModelAndView mv = new ModelAndView("encounter");
+		Monster m = new Monster();
+		if (playerLevel != null) {
+			m = mm.generateMonsterByLevel(playerLevel);
+		} else {
+			m = mm.generateEasyMonster();
+		}
+		mv.addObject(m);
+		return mv;
+	}
+	
+	/*
 	@RequestMapping("unit-info")
 	public ModelAndView unitInfo() {
 		return null;
 	}
-	
-	RestTemplate rt = new RestTemplate();
-	
+	 
 	@RequestMapping("generate")
 	public ModelAndView generateMonster() {
 		//Going to pull monsters from the API. API pull will be curated. Not all monsters will be possible. 
@@ -96,9 +106,6 @@ public class DndController {
 	public ModelAndView walk() {
 		return new ModelAndView("redirect:/get-results");
 	}
-
-	public ModelAndView playerChoice(Encounter encounter) {
-		return null;
-	}
+	*/
 
 }

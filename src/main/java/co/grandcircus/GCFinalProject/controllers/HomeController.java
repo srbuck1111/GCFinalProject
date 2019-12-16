@@ -15,8 +15,8 @@ import co.grandcircus.GCFinalProject.dndpojos.Classes;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
+import co.grandcircus.GCFinalProject.universalMethods.MonsterMash;
 import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
-import universalMethods.MonsterMash;
 
 @Controller
 public class HomeController {

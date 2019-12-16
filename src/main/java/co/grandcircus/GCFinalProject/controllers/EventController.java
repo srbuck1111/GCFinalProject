@@ -14,6 +14,8 @@ public class EventController {
 	@Autowired
 	UserRepo userRepo;
 
+	
+	/*
 	@RequestMapping("/event")
 	public ModelAndView event() {
 		ModelAndView mv = new ModelAndView("Event");

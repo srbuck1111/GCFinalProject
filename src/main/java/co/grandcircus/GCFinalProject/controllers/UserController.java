@@ -21,6 +21,22 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
+	@RequestMapping("add-user")
+	public ModelAndView createNewUser(String username, String password) {
+		for (User u : userRepo.findAll()) {
+			if (u.getUsername().equals(username)) {
+				System.out.println("taken.");
+				return new ModelAndView("new-user", "error", "username taken, sorry!");
+			}
+		}
+		User newUser = new User(username, password);
+		System.out.println(newUser);
+		userRepo.save(newUser);
+		session.setAttribute("loggedUser", newUser);
+		return new ModelAndView("character-create");
+	}
+	
+	/*
 	@RequestMapping("/event-end")
 	public ModelAndView addGold(boolean win) {
 		Encounter e = (Encounter) session.getAttribute("encounter");
@@ -60,7 +76,7 @@ public class UserController {
 		
 		return mv;
 	}
-
+	
 	
 	@RequestMapping("/add-user") //HAVE TO ADD AUTOWIRED AND OBJECT ABOVE FOR IT TO WORK
 	public ModelAndView addUser(User addUser) {
@@ -68,5 +84,5 @@ public class UserController {
 		return new ModelAndView("redirect:/team-admin");
 		
 	}
-	
+	*/
 }

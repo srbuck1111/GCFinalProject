@@ -25,18 +25,9 @@ public class User {
 		super();
 	}
 
-	// Use to edit
-	public User(String name, String visited) {
-		super();
-		this.username = name;
-		this.password = visited;
-
-	}
-
 	// Use to add
-	public User(Integer id, String name, String password) {
+	public User(String name, String password) {
 		super();
-		this.id = id;
 		this.username = name;
 		this.password = password;
 
