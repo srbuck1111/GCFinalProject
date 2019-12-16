@@ -3,6 +3,9 @@ package co.grandcircus.GCFinalProject.dndpojos;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -11,6 +14,9 @@ import co.grandcircus.GCFinalProject.model.User;
 @Entity
 public class PlayerCharacter {
 
+	@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Integer characterId;
 	@ManyToOne
 	private User user;
 	@OneToMany(mappedBy="playerCharacter")
