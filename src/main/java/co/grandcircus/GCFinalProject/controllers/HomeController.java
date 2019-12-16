@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.Classes;
 import co.grandcircus.GCFinalProject.dndpojos.Unit;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
@@ -73,6 +74,18 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping("/dnd-classes")
+	public ModelAndView dndClassTest() {
+		Random rand = new Random(); 
+		Integer classGet = rand.nextInt(12)+1;
+		String url = "http://dnd5eapi.co/api/classes/" + classGet + "/";
+	
+		Classes response = rt.getForObject(url, Classes.class);
+		ModelAndView mv = new ModelAndView("dnd", "dndclassapitest", response);
+		System.out.println(response);
+		return mv;
+		
+	}
 	
 	
 
