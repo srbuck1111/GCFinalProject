@@ -1,4 +1,4 @@
-package universalMethods;
+package co.grandcircus.GCFinalProject.universalMethods;
 
 import java.util.ArrayList;
 
@@ -127,10 +127,10 @@ public class MonsterMash {
 	public Monster generateMonsterByLevel(int playerLevel) {
 		Monster gMonster = new Monster();
 
-		if (playerLevel >= 3 && playerLevel < 5) {
+		if (playerLevel >= 4 && playerLevel < 10) {
 
 			gMonster = generateMediumMonster();
-		} else if (playerLevel <= 2) {
+		} else if (playerLevel <= 3) {
 
 			gMonster = generateEasyMonster();
 		} else {

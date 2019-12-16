@@ -30,14 +30,6 @@ public class User {
 	}
 
 
-	
-	// Use to add
-	public User(String userName, String userPassword) {
-		super();
-		this.username = userName;
-		this.password = userPassword;
-
-	}
 
 	
 	
@@ -48,6 +40,13 @@ public class User {
 	}
 	
 	
+
+	// Use to add
+	public User(String name, String password) {
+		super();
+		this.username = name;
+		this.password = password;
+	}
 
 	public User(Integer id, List<PlayerCharacter> playerCharacters, String username, String password) {
 		super();

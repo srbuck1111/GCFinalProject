@@ -5,64 +5,56 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>D&D Go!</title>
+<title>Insert title here</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
-	<style>
-	.column {
-  		float: left;
-  		width: 50%;
-	}
-	.row:after {
-	  content: "";
-	  display: table;
-	  clear: both;
-	}
-	</style>
+</head>
+<div class="jumbotron">
+	<h1 class="display-2">
+		<center>Select Your Character!</center>
+	</h1>
+</div>
+<style>
+.column {
+	float: left;
+	width: 50%;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+</style>
 </head>
 <body onload="getLocation()">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			 	<h2>Hi ${playerCharacter.firstName },</h2>
-				<h3>you currently have $${playerCharacter.gold} in gold.</h3>
+				<h2>Character Select</h2>
+				<h3></h3>
 				<br>
-				
-				<form action="/unit"> 		
-		<input class="btn-primary" type="submit" value="Create your character">
-		
-				<h4>${player } </h4> <br>
-				<h4></h4>
-				</form>	
-				
-				
+				<form action="/character-select">
+					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
+					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
+					<select name="characterId">
+						<c:forEach var="c" items="${displayCharacters}">
+							<option value="${c.characterId}">${c.getFirstName() }</option>
+						</c:forEach>
+					</select>
+					<input type="submit" value="Choose Character"/>
+				</form>
 			</div>
-			<div class="column">
-				<h1>Current Location</h1>
-				<button on="getLocation()">Update Location</button><br/><br/>
-				<div id="demo"></div>
-				<p style="color: red">${error}</p>
-				<br /> <br />
-				<c:forEach var="r" items="${listOfResults.result}">
-					<h3>${r.name }</h3>
-					<form action="/test">
-						<input type="hidden" id="userLat" name="userLat"
-							value="${userLat }" /> <input type="hidden" id="userLng"
-							name="userLng" value="${userLng }" /> <input type="hidden"
-							name="placeLat" value="${r.geometry.location.lat }" /> <input
-							type="hidden" name="placeLng" value="${r.geometry.location.lng }" />
-						<input type="submit" value="I'm here" />
-					</form>
-					<br />
-				</c:forEach>
-			</div>
+
+			<form action="/unit">
+				<input class="btn-primary" type="submit"
+					value="Create a new character!">
+			</form>
 		</div>
 	</div>
-
-
 	<script>
 		var x = document.getElementById("demo");
 		var userLat = document.getElementById("userLat");
@@ -76,7 +68,8 @@
 
 		function getLocation() {
 			if (navigator.geolocation) {
-				navigator.geolocation.watchPosition(showPosition, error, options);
+				navigator.geolocation.watchPosition(showPosition, error,
+						options);
 				//navigator.geolocation.getCurrentPosition(sendPosition);
 				navigator.geolocation.watchPosition(success, error, options);
 			} else {
@@ -90,15 +83,15 @@
 		}
 
 		function success(position) {
-			
+
 			console.log("High Accuracy works?");
-			
+
 			userLat.value = position.coords.latitude;
 			userLng.value = position.coords.longitude;
 		}
-		
+
 		function error() {
-			console.log("failed");	
+			console.log("failed");
 		}
 
 		function checkNear(lat1, lng1, lat2, lng2) {
@@ -108,6 +101,5 @@
 			return false;
 		}
 	</script>
-
 </body>
 </html>

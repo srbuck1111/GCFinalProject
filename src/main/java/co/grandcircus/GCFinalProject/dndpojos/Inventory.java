@@ -16,5 +16,49 @@ public class Inventory {
 	private PlayerCharacter playerCharacter;
 	private int equipmentId;
 	private int qty;
+	
+	public Inventory() {
+		super();
+	}
 
+	public Inventory(int inventoryId, PlayerCharacter playerCharacter, int equipmentId, int qty) {
+		super();
+		this.inventoryId = inventoryId;
+		this.playerCharacter = playerCharacter;
+		this.equipmentId = equipmentId;
+		this.qty = qty;
+	}
+
+	public int getInventoryId() {
+		return inventoryId;
+	}
+
+	public void setInventoryId(int inventoryId) {
+		this.inventoryId = inventoryId;
+	}
+
+	public PlayerCharacter getPlayerCharacter() {
+		return playerCharacter;
+	}
+
+	public void setPlayerCharacter(PlayerCharacter playerCharacter) {
+		this.playerCharacter = playerCharacter;
+	}
+
+	public int getEquipmentId() {
+		return equipmentId;
+	}
+
+	public void setEquipmentId(int equipmentId) {
+		this.equipmentId = equipmentId;
+	}
+
+	public int getQty() {
+		return qty;
+	}
+
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
+	
 }
