@@ -6,8 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
+import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 
 @Entity
 public class User {
@@ -15,32 +16,29 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	//@OneToMany(mappedBy = "userId")
-	//List<Unit> units;
-	private String name;
-	private double gold;
-	private String visited;
+	@OneToMany(mappedBy = "user")
+	List<PlayerCharacter> playerCharacter;
+	private String username;
+	private String password;
 
 	public User() {
 		super();
 	}
 
 	// Use to edit
-	public User(String name, double gold, String visited) {
+	public User(String name, String visited) {
 		super();
-		this.name = name;
-		this.gold = gold;
-		this.visited = visited;
+		this.username = name;
+		this.password = visited;
 
 	}
 
 	// Use to add
-	public User(Integer id, String name, double gold, String visited) {
+	public User(Integer id, String name, String password) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.gold = gold;
-		this.visited = visited;
+		this.username = name;
+		this.password = password;
 
 	}
 
@@ -53,32 +51,24 @@ public class User {
 	}
 
 	public String getName() {
-		return name;
+		return username;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.username = name;
 	}
 
-	public double getGold() {
-		return gold;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setGold(double gold) {
-		this.gold = gold;
-	}
-
-	public String getVisited() {
-		return visited;
-	}
-
-	public void setVisited(String visited) {
-		this.visited = visited;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", gold=" + gold + ", visited=" + visited + "]";
+		return "User [id=" + id + ", name=" + username + "]";
 	}
 
 }
