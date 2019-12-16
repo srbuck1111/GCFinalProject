@@ -32,6 +32,7 @@ public class User {
 		super();
 	}
 
+<<<<<<< HEAD
 	
 	// Use to add
 	public User(String userName, String userPassword) {
@@ -47,6 +48,12 @@ public class User {
 		super();
 		this.id = id;
 		this.username = username;
+=======
+	// Use to add
+	public User(String name, String password) {
+		super();
+		this.username = name;
+>>>>>>> 45fe6f93fce6582926d352a6ea26cabef20f18cd
 		this.password = password;
 	}
 

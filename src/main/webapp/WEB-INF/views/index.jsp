@@ -56,6 +56,8 @@
 
 	<a href="/get-results" class="btn btn-primary">${userInfo } Let's Play!</a>
 	<h3></h3>
+	<a href="/character-select" class="btn btn-primary">Test button for characterSelect!</a>
+	<h3></h3>
 	
 	</div>
 	</div>
