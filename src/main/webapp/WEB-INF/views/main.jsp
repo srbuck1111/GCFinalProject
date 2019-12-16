@@ -27,8 +27,8 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			<h2>Hi ${userUser.name },</h2>
-				<h3>you currently have $${userUser.gold} in gold.</h3>
+			 	<h2>Hi ${playerCharacter.firstName },</h2>
+				<h3>you currently have $${playerCharacter.gold} in gold.</h3>
 				<br>
 				
 				<form action="/unit"> 		

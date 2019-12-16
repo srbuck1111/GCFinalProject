@@ -16,12 +16,16 @@ import co.grandcircus.GCFinalProject.dndpojos.Classes;
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
+import co.grandcircus.GCFinalProject.repo.CharacterRepo;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 import co.grandcircus.GCFinalProject.universalMethods.MonsterMash;
 import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	CharacterRepo cr;
 	
 	@Autowired
 	UserRepo userRepo;
@@ -80,33 +84,31 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping("save-location")
-	public ModelAndView saveLocation(String userLat, String userLng) {
+	@RequestMapping("/characterSelect")
+	public ModelAndView charSelectPage(Integer id) {
+		
+		User user = userRepo.findById(id).orElse(null);
+		List<PlayerCharacter> userList = user.getPlayerCharacters();
+		ModelAndView mv = new ModelAndView("characterSelect", "displayCharacters", userList);
+		return mv;
+	}
+
+	@RequestMapping("/character-select")
+	public ModelAndView characterSelect(int characterId, String userLat, String userLng) {
 		double parsedLat = Double.parseDouble(userLat);
 		double parsedLng = Double.parseDouble(userLng);
 		session.setAttribute("userLat", parsedLat);
 		session.setAttribute("userLng" ,parsedLng);
 		
+		System.out.println(characterId);
+		
+		cr.findById(characterId);
+		PlayerCharacter currentP = cr.findById(characterId).orElse(null);
+		
+		session.setAttribute("playerCharacter", currentP);
+		
 		ModelAndView mv = new ModelAndView("redirect:/get-results");
-		return mv;
-	}
-	@RequestMapping("/characterSelect")
-	public ModelAndView charSelectPage() {
 		
-		ModelAndView mv = new ModelAndView("characterSelect");
-		return mv;
-	}
-
-	@RequestMapping("/character-select")
-	public ModelAndView characterSelect() {
-		Integer id = 1;
-		User user = userRepo.findById(id).orElse(null);
-		List<PlayerCharacter> userList = user.getPlayerCharacters();
-		
-		//use user.getCharacterList() to obtain the list of characters for this user
-		
-		
-		ModelAndView mv = new ModelAndView("characterSelect", "displayCharacters", userList);
 		return mv;
 	}
 	

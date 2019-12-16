@@ -37,19 +37,15 @@
 				<h2>Character Select</h2>
 				<h3></h3>
 				<br>
-				<c:forEach var="c" items="${displayCharacters}">
-					<form action="/character-select">
-						<select>
-							<option value="Character1">${c.getFirstName() }</option>
-						</select>
-					</form>
-				</c:forEach>
-				<br>
-				<form action="save-location">
-					<input type="hidden" id="userLat" name="userLat"
-						value="${userLat }" /> <input type="hidden" id="userLng"
-						name="userLng" value="${userLng }" /> <input type="hidden" /> <input
-						type="submit" value="Main" />
+				<form action="/character-select">
+					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
+					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
+					<select name="characterId">
+						<c:forEach var="c" items="${displayCharacters}">
+							<option value="${c.characterId}">${c.getFirstName() }</option>
+						</c:forEach>
+					</select>
+					<input type="submit" value="Choose Character"/>
 				</form>
 			</div>
 
@@ -58,53 +54,52 @@
 					value="Create a new character!">
 			</form>
 		</div>
+	</div>
+	<script>
+		var x = document.getElementById("demo");
+		var userLat = document.getElementById("userLat");
+		var userLng = document.getElementById("userLng");
 
-		<script>
-			var x = document.getElementById("demo");
-			var userLat = document.getElementById("userLat");
-			var userLng = document.getElementById("userLng");
+		var options = {
+			enableHighAccuracy : true,
+			timeout : 5000,
+			maximumAge : 0
+		};
 
-			var options = {
-				enableHighAccuracy : true,
-				timeout : 5000,
-				maximumAge : 0
-			};
-
-			function getLocation() {
-				if (navigator.geolocation) {
-					navigator.geolocation.watchPosition(showPosition, error,
-							options);
-					//navigator.geolocation.getCurrentPosition(sendPosition);
-					navigator.geolocation
-							.watchPosition(success, error, options);
-				} else {
-					x.innerHTML = "Geolocation is not supported by this browser.";
-				}
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.watchPosition(showPosition, error,
+						options);
+				//navigator.geolocation.getCurrentPosition(sendPosition);
+				navigator.geolocation.watchPosition(success, error, options);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
 			}
+		}
 
-			function showPosition(position) {
-				x.innerHTML = "Latitude: " + position.coords.latitude
-						+ "<br>Longitude: " + position.coords.longitude;
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude
+					+ "<br>Longitude: " + position.coords.longitude;
+		}
+
+		function success(position) {
+
+			console.log("High Accuracy works?");
+
+			userLat.value = position.coords.latitude;
+			userLng.value = position.coords.longitude;
+		}
+
+		function error() {
+			console.log("failed");
+		}
+
+		function checkNear(lat1, lng1, lat2, lng2) {
+			if (distance(lat1, lng1, lat2, lng2) <= 50) {
+				return true;
 			}
-
-			function success(position) {
-
-				console.log("High Accuracy works?");
-
-				userLat.value = position.coords.latitude;
-				userLng.value = position.coords.longitude;
-			}
-
-			function error() {
-				console.log("failed");
-			}
-
-			function checkNear(lat1, lng1, lat2, lng2) {
-				if (distance(lat1, lng1, lat2, lng2) <= 50) {
-					return true;
-				}
-				return false;
-			}
-		</script>
+			return false;
+		}
+	</script>
 </body>
 </html>
