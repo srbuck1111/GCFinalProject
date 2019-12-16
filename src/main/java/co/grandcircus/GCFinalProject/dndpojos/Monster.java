@@ -27,6 +27,7 @@ private Integer constitution;
 private Integer intelligence;
 private Integer wisdom;
 private Integer charisma;
+private String imageUrl;
 
 @JsonProperty("damage_vulnerabilities")
 private String damageVulnerabilities;
@@ -152,6 +153,15 @@ public void setCharisma(Integer charisma) {
 	this.charisma = charisma;
 }
 
+
+public String getImageUrl() {
+	return imageUrl;
+}
+
+public void setImageUrl(String imageUrl) {
+	this.imageUrl = imageUrl;
+}
+
 public String getDamageVulnerabilities() {
 	return damageVulnerabilities;
 }
@@ -183,6 +193,8 @@ public Integer getChallengeRating() {
 public void setChallengeRating(Integer challengeRating) {
 	this.challengeRating = challengeRating;
 }
+
+
 
 public Monster(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,
 		String hitDice, Integer strength, Integer dexterity, Integer constitution, Integer intelligence, Integer wisdom,
