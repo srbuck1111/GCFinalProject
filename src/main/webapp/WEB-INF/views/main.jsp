@@ -42,7 +42,7 @@
 			</div>
 			<div class="column">
 				<h1>Current Location</h1>
-				<button onClick="getLocation()">Update Location</button><br/><br/>
+				<button on="getLocation()">Update Location</button><br/><br/>
 				<div id="demo"></div>
 				<p style="color: red">${error}</p>
 				<br /> <br />

@@ -1,5 +1,6 @@
 package co.grandcircus.GCFinalProject.controllers;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Classes;
+import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
@@ -72,8 +74,8 @@ public class HomeController {
 		System.out.println(response.getResult().get(0).getName());
 		
 		
-		//MonsterMash test = new MonsterMash();
-		//test.generateMonsterByLevel(8);
+		MonsterMash test = new MonsterMash();
+		test.generateMonsterByLevel(8);
 		
 		return mv;
 	}
@@ -89,14 +91,24 @@ public class HomeController {
 		return mv;
 	}
 	@RequestMapping("/characterSelect")
-	public ModelAndView event() {
-		Integer id = 1;
-		User user = userRepo.findById(id).orElse(null);
-		//use user.getCharacterList() to obtain the list of characters for this user
+	public ModelAndView charSelectPage() {
+		
 		ModelAndView mv = new ModelAndView("characterSelect");
 		return mv;
 	}
 
+	@RequestMapping("/character-select")
+	public ModelAndView characterSelect() {
+		Integer id = 1;
+		User user = userRepo.findById(id).orElse(null);
+		List<PlayerCharacter> userList = user.getPlayerCharacters();
+		
+		//use user.getCharacterList() to obtain the list of characters for this user
+		
+		
+		ModelAndView mv = new ModelAndView("characterSelect", "displayCharacters", userList);
+		return mv;
+	}
 	
 	@RequestMapping("/dnd")
 	public ModelAndView dNDAPITest() {
