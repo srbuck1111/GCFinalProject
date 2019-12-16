@@ -52,7 +52,7 @@ public class UserController {
 		String health = e.getPlayer().getHp() + " / " + e.getPlayer().getMaxHp();
 
 		if (win) {
-			user.setGold(user.getGold() + 10);
+		//	user.setGold(user.getGold() + 10);
 			userRepo.save(user);
 			combatResultMessage = "Congratulations! You have brutally murdered " + enemyFullName + "! You  now have "
 					+ health + " HP";
@@ -62,8 +62,8 @@ public class UserController {
 
 		else {
 
-			mv.addObject(user.getGold() - 10);
-			userRepo.save(user);
+		//	mv.addObject(user.getGold() - 10);
+		userRepo.save(user);
 			combatResultMessage = "You have been shamefully defeated in combat by " + enemyFullName
 					+ " and their trusty " + enemyWeapon + ". And " + enemyFName + " only had " + enemyHP
 					+ " health remaining. Shame!";
@@ -110,11 +110,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping("/add-user") // HAVE TO ADD AUTOWIRED AND OBJECT ABOVE FOR IT TO WORK
-	public ModelAndView addUser(User addUser) {
-		userRepo.save(addUser);
-		return new ModelAndView("redirect:/team-admin");
 
-	}
+	
 
 }
