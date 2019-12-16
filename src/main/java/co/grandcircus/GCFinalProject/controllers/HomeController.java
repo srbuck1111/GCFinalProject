@@ -85,9 +85,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/characterSelect")
-	public ModelAndView charSelectPage(Integer id) {
+	public ModelAndView charSelectPage() {
 		
-		User user = userRepo.findById(id).orElse(null);
+		User user = (User) session.getAttribute("loggedUser");
 		List<PlayerCharacter> userList = user.getPlayerCharacters();
 		ModelAndView mv = new ModelAndView("characterSelect", "displayCharacters", userList);
 		return mv;
