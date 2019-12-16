@@ -17,7 +17,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@OneToMany(mappedBy = "user")
-	List<PlayerCharacter> playerCharacter;
+	List<PlayerCharacter> playerCharacters;
 	private String username;
 	private String password;
 
@@ -58,12 +58,12 @@ public class User {
 		this.username = name;
 	}
 
-	public List<PlayerCharacter> getPlayerCharacter() {
-		return playerCharacter;
+	public List<PlayerCharacter> getPlayerCharacters() {
+		return playerCharacters;
 	}
 
-	public void setPlayerCharacter(List<PlayerCharacter> playerCharacter) {
-		this.playerCharacter = playerCharacter;
+	public void setPlayerCharacters(List<PlayerCharacter> playerCharacters) {
+		this.playerCharacters = playerCharacters;
 	}
 
 	public String getPassword() {
