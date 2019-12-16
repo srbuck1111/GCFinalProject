@@ -8,11 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
+import co.grandcircus.GCFinalProject.repo.UserRepo;
+
+
 
 @Entity
 public class User {
 
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -25,21 +32,31 @@ public class User {
 		super();
 	}
 
-	// Use to edit
-	public User(String name, String visited) {
+	
+	// Use to add
+	public User(String userName, String userPassword) {
 		super();
-		this.username = name;
-		this.password = visited;
+		this.username = userName;
+		this.password = userPassword;
 
 	}
 
-	// Use to add
-	public User(Integer id, String name, String password) {
+	
+	
+	public User(Integer id, String username, String password) {
 		super();
 		this.id = id;
-		this.username = name;
+		this.username = username;
 		this.password = password;
+	}
 
+
+	public User(Integer id, List<PlayerCharacter> playerCharacters, String username, String password) {
+		super();
+		this.id = id;
+		this.playerCharacters = playerCharacters;
+		this.username = username;
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -50,20 +67,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String name) {
-		this.username = name;
-	}
-
 	public List<PlayerCharacter> getPlayerCharacters() {
 		return playerCharacters;
 	}
 
 	public void setPlayerCharacters(List<PlayerCharacter> playerCharacters) {
 		this.playerCharacters = playerCharacters;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -76,84 +93,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + username + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
 
 }
 
-/*
- * 
- * @Entity
-public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	@OneToMany(mappedBy = "userId")
-	List<Unit> units;
-	private String name;
-	private double gold;
-	private String visited;
-
-	public User() {
-		super();
-	}
-
-	// Use to edit
-	public User(String name, double gold, String visited) {
-		super();
-		this.name = name;
-		this.gold = gold;
-		this.visited = visited;
-
-	}
-
-	// Use to add
-	public User(Integer id, String name, double gold, String visited) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.gold = gold;
-		this.visited = visited;
-
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getGold() {
-		return gold;
-	}
-
-	public void setGold(double gold) {
-		this.gold = gold;
-	}
-
-	public String getVisited() {
-		return visited;
-	}
-
-	public void setVisited(String visited) {
-		this.visited = visited;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", gold=" + gold + ", visited=" + visited + "]";
-	}
-
-}
-*/

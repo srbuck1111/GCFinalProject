@@ -11,16 +11,15 @@ import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 import co.grandcircus.GCFinalProject.unuseddndpojos.Encounter;
 
-
 @Controller
 public class UserController {
 
 	@Autowired
 	UserRepo userRepo;
-	
+
 	@Autowired
 	HttpSession session;
-	
+
 	@RequestMapping("/event-end")
 	public ModelAndView addGold(boolean win) {
 		Encounter e = (Encounter) session.getAttribute("encounter");
@@ -36,37 +35,66 @@ public class UserController {
 		String enemyWeapon = e.getEnemies().get(0).getWeapon().getName();
 		String enemyFullName = enemyFName + " " + enemyLName;
 		String health = e.getPlayer().getHp() + " / " + e.getPlayer().getMaxHp();
-		
+
 		if (win) {
-		user.setGold(user.getGold() + 10);
-		userRepo.save(user);
-		combatResultMessage = "Congratulations! You have brutally murdered " + enemyFullName + "! You  now have " + health + " HP";
-		lootChange = "+ 10 Gold! Don't spend it all in one place!";
-		combatResultImage = "https://us.123rf.com/450wm/jagcz/jagcz1703/jagcz170300036/73559722-champion-golden-trophy-isolated-on-black-background-concept-of-success-and-achievement-.jpg?ver=6";
+			user.setGold(user.getGold() + 10);
+			userRepo.save(user);
+			combatResultMessage = "Congratulations! You have brutally murdered " + enemyFullName + "! You  now have "
+					+ health + " HP";
+			lootChange = "+ 10 Gold! Don't spend it all in one place!";
+			combatResultImage = "https://us.123rf.com/450wm/jagcz/jagcz1703/jagcz170300036/73559722-champion-golden-trophy-isolated-on-black-background-concept-of-success-and-achievement-.jpg?ver=6";
 		}
-		
+
 		else {
-			
-		mv.addObject(user.getGold() - 10);
-		userRepo.save(user);
-		combatResultMessage = "You have been shamefully defeated in combat by " + enemyFullName + " and their trusty " + enemyWeapon + ". And " + enemyFName + " only had " + enemyHP + " health remaining. Shame!";
-		lootChange = "- 10 Gold...";
-		combatResultImage = "https://carlisletheacarlisletheatre.org/images/headstone-clipart-1.png";
-		e.getPlayer().setHp(e.getPlayer().getMaxHp());
+
+			mv.addObject(user.getGold() - 10);
+			userRepo.save(user);
+			combatResultMessage = "You have been shamefully defeated in combat by " + enemyFullName
+					+ " and their trusty " + enemyWeapon + ". And " + enemyFName + " only had " + enemyHP
+					+ " health remaining. Shame!";
+			lootChange = "- 10 Gold...";
+			combatResultImage = "https://carlisletheacarlisletheatre.org/images/headstone-clipart-1.png";
+			e.getPlayer().setHp(e.getPlayer().getMaxHp());
 		}
 		mv.addObject("combatMessage", combatResultMessage);
 		mv.addObject("lootMessage", lootChange);
 		mv.addObject("URL", combatResultImage);
-		
+
 		return mv;
 	}
 
-	
-	@RequestMapping("/add-user") //HAVE TO ADD AUTOWIRED AND OBJECT ABOVE FOR IT TO WORK
-	public ModelAndView addUser(User addUser) {
-		userRepo.save(addUser);
-		return new ModelAndView("redirect:/team-admin");
-		
+	@RequestMapping("/new-user")
+	public ModelAndView newUserView(String userName, String userPassword) {
+		return new ModelAndView("new-user");
 	}
+
+	@RequestMapping("add-user")
+	public ModelAndView addUser(String userName, String userPassword) {
+		User user = new User();
+		if (userRepo.findByUsername(userName) != null) {
+			return new ModelAndView("new-user", "userExists", "User already exists, please try a different username");
+		} else {
+			user.setUsername(userName);
+			user.setPassword(userPassword);
+			userRepo.save(user);
+			return new ModelAndView("index", "userInfo", "Welcome " + user.getUsername() + "!");
+		}
+
+	}
+
+	@RequestMapping("login")
+	public ModelAndView login(String userName, String userPassword) {
+
+		if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {
+				User loggedUser = userRepo.findByUsername(userName);
+				session.setAttribute("loggedUser", loggedUser);
+			return new ModelAndView("redirect:/characterSelect");
+			} else {
+				return new ModelAndView("index", "wrongPassword", "Incorrect Password");
+			}
+		
+
 	
+	}
+
 }

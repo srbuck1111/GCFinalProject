@@ -36,8 +36,28 @@
 <body>
 <h1>Welcome to Dungeon Go!</h1>
 
-	<a href="/get-results" class="btn btn-primary">Let's Play!</a>
+
+<div class="container">
+		<div class="jumbotron">
+		
+<form action="/login">
+	
+		Username <input type="text" name="userName" size="22" required>
+		Password <input type="text" name="userPassword" size="22" required> 
+		
+		<input class="btn-primary" type="submit" value="Login">
+	<br>
+	${wrongPassword }
+	${noUserName }
+	
+	</form>
+
+<a href="/new-user" class="btn btn-primary">Create new user</a>
+
+	<a href="/get-results" class="btn btn-primary">${userInfo } Let's Play!</a>
 	<h3></h3>
 	
+	</div>
+	</div>
 </body>
 </html>
