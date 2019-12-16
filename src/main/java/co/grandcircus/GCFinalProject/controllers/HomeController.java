@@ -15,6 +15,7 @@ import co.grandcircus.GCFinalProject.dndpojos.Unit;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
+import universalMethods.MonsterMash;
 
 @Controller
 public class HomeController {
@@ -56,6 +57,11 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
 		mv.addObject("userUser", user);
 		System.out.println(response.getResult().get(0).getName());
+		
+		
+		MonsterMash test = new MonsterMash();
+		test.generateMonsterByLevel(8);
+		
 		return mv;
 	}
 

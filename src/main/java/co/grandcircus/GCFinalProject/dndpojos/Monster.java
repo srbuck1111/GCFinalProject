@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Monsters {
+public class Monster {
 	
 private Integer index;
 private String name;
@@ -184,7 +184,7 @@ public void setChallengeRating(Integer challengeRating) {
 	this.challengeRating = challengeRating;
 }
 
-public Monsters(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,
+public Monster(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,
 		String hitDice, Integer strength, Integer dexterity, Integer constitution, Integer intelligence, Integer wisdom,
 		Integer charisma, String damageVulnerabilities, String damageResistances, String damageImmunities,
 		Integer challengeRating) {
@@ -209,14 +209,14 @@ public Monsters(Integer index, String name, String size, String type, String ali
 	this.challengeRating = challengeRating;
 }
 
-public Monsters() {
+public Monster() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
 @Override
 public String toString() {
-	return "Monsters [index=" + index + ", name=" + name + ", size=" + size + ", type=" + type + ", alignment="
+	return "Monster [index=" + index + ", name=" + name + ", size=" + size + ", type=" + type + ", alignment="
 			+ alignment + ", ac=" + ac + ", hp=" + hp + ", hitDice=" + hitDice + ", strength=" + strength
 			+ ", dexterity=" + dexterity + ", constitution=" + constitution + ", intelligence=" + intelligence
 			+ ", wisdom=" + wisdom + ", charisma=" + charisma + ", damageVulnerabilities=" + damageVulnerabilities

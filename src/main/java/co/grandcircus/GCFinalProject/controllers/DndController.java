@@ -8,10 +8,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Dice;
 import co.grandcircus.GCFinalProject.dndpojos.Encounter;
+import co.grandcircus.GCFinalProject.dndpojos.Monster;
 import co.grandcircus.GCFinalProject.dndpojos.Unit;
 
 @Controller
@@ -23,6 +25,21 @@ public class DndController {
 	@RequestMapping("unit-info")
 	public ModelAndView unitInfo() {
 		return null;
+	}
+	
+	RestTemplate rt = new RestTemplate();
+	
+	@RequestMapping("generate")
+	public ModelAndView generateMonster() {
+		//Going to pull monsters from the API. API pull will be curated. Not all monsters will be possible. 
+		Integer monsterNum = 1;
+		String url = "http://dnd5eapi.co/api/monster/" + monsterNum + "/";
+		//Monster response = rt.getForObject(url, Monster.class);
+		String response = rt.getForObject(url, String.class);
+		
+		ModelAndView mv = new ModelAndView("index", "monsterCall", response);
+		System.out.println(response);
+		return mv;
 	}
 
 	@RequestMapping("encounter")

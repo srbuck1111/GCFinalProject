@@ -12,15 +12,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity
+//@Entity
 public class Unit {
 	@Autowired
 	HttpSession session;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToOne
+	
+	//@ManyToOne
 	private Integer userId;
 	private String firstName;
 	private String lastName;
