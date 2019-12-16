@@ -50,12 +50,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setName(String name) {
+	public void setUsername(String name) {
 		this.username = name;
+	}
+
+	public List<PlayerCharacter> getPlayerCharacter() {
+		return playerCharacter;
+	}
+
+	public void setPlayerCharacter(List<PlayerCharacter> playerCharacter) {
+		this.playerCharacter = playerCharacter;
 	}
 
 	public String getPassword() {
