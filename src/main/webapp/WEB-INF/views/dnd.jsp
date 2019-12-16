@@ -12,5 +12,6 @@
 <br> <a href="/dnd" class="btn btn-danger"
 			style="float: right;">Go to DND test API page</a> <!-- move to index.jsp -->
 ${dndapitest }
+${dndclassapitest }
 </body>
 </html>
