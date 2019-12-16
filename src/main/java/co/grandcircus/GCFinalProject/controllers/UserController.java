@@ -41,16 +41,17 @@ public class UserController {
 
 	@RequestMapping("login")
 	public ModelAndView login(String userName, String userPassword) {
-
+if (userRepo.findByUsername(userName) != null) {
 		if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {
 			User loggedUser = userRepo.findByUsername(userName);
 		session.setAttribute("loggedUser", loggedUser);
 			return new ModelAndView("characterSelect", "loggedUser", loggedUser);
 		} else {
 			return new ModelAndView("index", "wrongPassword", "Incorrect Password");
+		}} else {
+			return new ModelAndView("index", "noUserName", "That username doesn't exist");
 		}
-
-	}
+	}}
 	
 
-}
+
