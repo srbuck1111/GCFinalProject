@@ -24,7 +24,10 @@
 }
 </style>
 </head>
-<body>
+<body onLoad="checkEnemyAlive()">
+	<form id="enemyAliveCheck" action="get-results">
+		<input type="hidden" value="${monster.hp }" id="monsterHp">
+	</form>
 	<div class="jumbotron">
 		<div class="row">
 		
@@ -37,6 +40,7 @@
 
 			<div class="column">
 				<h4>RollsAndStuf</h4>
+				
 			</div>
 
 			<div class="column">
@@ -45,5 +49,15 @@
 			
 		</div>
 	</div>
+	
+	<script>
+	
+		function checkEnemyAlive() {
+			if (document.getElementById("monsterHp").value <= 0) {
+				document.getElementById("enemyAliveCheck").submit();
+			}
+		}
+	
+	</script>
 </body>
 </html>
