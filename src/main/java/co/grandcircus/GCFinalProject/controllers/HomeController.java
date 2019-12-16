@@ -46,23 +46,54 @@ public class HomeController {
 	@RequestMapping("/get-results")
 	public ModelAndView placesAPITest() {
 		Integer id = 1;
-		User user = userRepo.findById(id).orElse(null);
-		
 		Double userLat = 42.3359;
 		Double userLong = -83.049825;
-		int searchRadius = 200;
+		//Double userLat;
+		//Double userLong;
+		
+		User user = userRepo.findById(id).orElse(null);
+		
+		if (session.getAttribute("userLat") != null) {
+			userLat = (Double) session.getAttribute("userLat");
+		}
+		if (session.getAttribute("userLong") != null) {
+			userLong = (Double) session.getAttribute("userLong");
+		}
+		
+		int searchRadius = 250;
 		
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
 		
 		Place response = rt.getForObject(url, Place.class);
+		String responseString = rt.getForObject(url, String.class);
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
 		mv.addObject("userUser", user);
+		System.out.println(responseString);
 		System.out.println(response.getResult().get(0).getName());
 		
 		
-		MonsterMash test = new MonsterMash();
-		test.generateMonsterByLevel(8);
+		//MonsterMash test = new MonsterMash();
+		//test.generateMonsterByLevel(8);
 		
+		return mv;
+	}
+	
+	@RequestMapping("save-location")
+	public ModelAndView saveLocation(String userLat, String userLng) {
+		double parsedLat = Double.parseDouble(userLat);
+		double parsedLng = Double.parseDouble(userLng);
+		session.setAttribute("userLat", parsedLat);
+		session.setAttribute("userLng" ,parsedLng);
+		
+		ModelAndView mv = new ModelAndView("redirect:/get-results");
+		return mv;
+	}
+	@RequestMapping("/characterSelect")
+	public ModelAndView event() {
+		Integer id = 1;
+		User user = userRepo.findById(id).orElse(null);
+		//use user.getCharacterList() to obtain the list of characters for this user
+		ModelAndView mv = new ModelAndView("characterSelect");
 		return mv;
 	}
 
