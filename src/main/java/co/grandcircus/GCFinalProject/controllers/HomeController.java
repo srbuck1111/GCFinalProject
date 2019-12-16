@@ -12,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Classes;
-import co.grandcircus.GCFinalProject.dndpojos.Unit;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
+import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
 import universalMethods.MonsterMash;
 
 @Controller

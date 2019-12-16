@@ -1,6 +1,8 @@
-package co.grandcircus.GCFinalProject.dndpojos;
+package co.grandcircus.GCFinalProject.unuseddndpojos;
 
 import java.util.List;
+
+import co.grandcircus.GCFinalProject.dndpojos.Dice;
 
 public class Encounter {
 

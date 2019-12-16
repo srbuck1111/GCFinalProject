@@ -1,4 +1,4 @@
-package co.grandcircus.GCFinalProject.dndpojos;
+package co.grandcircus.GCFinalProject.unuseddndpojos;
 
 public class Weapon {
 

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.GCFinalProject.dndpojos.Encounter;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
+import co.grandcircus.GCFinalProject.unuseddndpojos.Encounter;
 
 
 @Controller

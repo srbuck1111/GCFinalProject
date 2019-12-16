@@ -14,13 +14,13 @@ public class Level {
 	//private List<Feature> features;
 	//private ClassSpecific class_specific;
 	@JsonProperty("class")
-	private Class clss;
+	private Classes clss;
 	
 	public Level() {
 		super();
 	}
 
-	public Level(String _id, int level, int ability_score_bonuses, int prof_bonus, Class clss) {
+	public Level(String _id, int level, int ability_score_bonuses, int prof_bonus, Classes clss) {
 		super();
 		this._id = _id;
 		this.level = level;
@@ -61,11 +61,11 @@ public class Level {
 		this.prof_bonus = prof_bonus;
 	}
 
-	public Class getClss() {
+	public Classes getClss() {
 		return clss;
 	}
 
-	public void setClss(Class clss) {
+	public void setClss(Classes clss) {
 		this.clss = clss;
 	}
 	

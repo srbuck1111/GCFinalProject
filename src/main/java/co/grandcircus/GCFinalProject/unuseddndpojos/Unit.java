@@ -1,4 +1,4 @@
-package co.grandcircus.GCFinalProject.dndpojos;
+package co.grandcircus.GCFinalProject.unuseddndpojos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import co.grandcircus.GCFinalProject.dndpojos.Dice;
 
 //@Entity
 public class Unit {

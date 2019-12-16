@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import co.grandcircus.GCFinalProject.dndpojos.Unit;
+import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
 
 @Entity
 public class User {

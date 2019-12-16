@@ -13,9 +13,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Dice;
-import co.grandcircus.GCFinalProject.dndpojos.Encounter;
 import co.grandcircus.GCFinalProject.dndpojos.Monster;
-import co.grandcircus.GCFinalProject.dndpojos.Unit;
+import co.grandcircus.GCFinalProject.unuseddndpojos.Encounter;
+import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
 
 @Controller
 public class DndController {
