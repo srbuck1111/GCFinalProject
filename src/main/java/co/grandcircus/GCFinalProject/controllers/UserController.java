@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
-import co.grandcircus.GCFinalProject.unuseddndpojos.Encounter;
 
 @Controller
 public class UserController {
@@ -45,15 +44,13 @@ public class UserController {
 
 		if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {
 			User loggedUser = userRepo.findByUsername(userName);
-			session.setAttribute("loggedUser", loggedUser);
-			return new ModelAndView("redirect:/characterSelect");
+		session.setAttribute("loggedUser", loggedUser);
+			return new ModelAndView("characterSelect", "loggedUser", loggedUser);
 		} else {
 			return new ModelAndView("index", "wrongPassword", "Incorrect Password");
 		}
 
 	}
-
-
 	
 
 }
