@@ -61,6 +61,10 @@ public class User {
 	public void setPlayerCharacters(List<PlayerCharacter> playerCharacters) {
 		this.playerCharacters = playerCharacters;
 	}
+	
+	public void addPlayerCharacter(PlayerCharacter playerCharacter) {
+		this.playerCharacters.add(playerCharacter);
+	}
 
 	public String getUsername() {
 		return username;

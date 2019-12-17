@@ -25,7 +25,7 @@
 </style>
 </head>
 <body onLoad="checkPointBuy()">
-<form action="/new-character" onSubmit="checkPointBuy()">
+<form action="/add-character" onSubmit="checkPointBuy()">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
@@ -47,6 +47,7 @@
 				<br/>
 				Points Remaining:<br/>
 				<input type="text" id="pointsRemaining"/>
+				<input type="submit" value="Create"/>
 				<div id="alertHigh" style="color:red"></div>
 				<div id="alertLow" style="color:red"></div>
 			</div>

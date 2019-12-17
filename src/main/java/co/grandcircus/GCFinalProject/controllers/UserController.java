@@ -1,10 +1,13 @@
 package co.grandcircus.GCFinalProject.controllers;
 
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 
@@ -36,7 +39,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping("login")
+	@PostMapping("login")
 	public ModelAndView login(String userName, String userPassword) {
 		if (userRepo.findByUsername(userName) != null) {
 			if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {

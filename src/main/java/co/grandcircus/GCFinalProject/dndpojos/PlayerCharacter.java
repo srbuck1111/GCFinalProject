@@ -1,6 +1,5 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,13 +34,27 @@ public class PlayerCharacter {
 	private int str;	
 	private int dex;
 	private int con;
-	
 	private int intel;
 	private int wis;
 	private int cha;
 
 	public PlayerCharacter() {
 		super();
+	}
+	
+	
+	public PlayerCharacter(String firstName, String lastName, int classId, int str, int dex, int con, int intel,
+			int wis, int cha) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.classId = classId;
+		this.str = str;
+		this.dex = dex;
+		this.con = con;
+		this.intel = intel;
+		this.wis = wis;
+		this.cha = cha;
 	}
 
 	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String firstName, String lastName,
@@ -220,21 +233,6 @@ public class PlayerCharacter {
 
 	public static int getModFor(int modValue) {
 		return (int) Math.floor((modValue / 2) - 5);
-	}
-	
-	
-	public PlayerCharacter(String firstName, String lastName, int classId, int str, int dex, int con, int intel,
-			int wis, int cha) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.classId = classId;
-		this.str = str;
-		this.dex = dex;
-		this.con = con;
-		this.intel = intel;
-		this.wis = wis;
-		this.cha = cha;
 	}
 
 	public void ImageUrl(PlayerCharacter playChar) {

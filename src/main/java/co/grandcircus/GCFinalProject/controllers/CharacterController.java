@@ -15,16 +15,20 @@ import co.grandcircus.GCFinalProject.dndpojos.Classes;
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.CharacterRepo;
+import co.grandcircus.GCFinalProject.repo.UserRepo;
 
 @Controller
 public class CharacterController {
-	
+
 	@Autowired
 	HttpSession session;
-	
+
 	@Autowired
 	CharacterRepo cr;
-	
+
+	@Autowired
+	UserRepo ur;
+
 	RestTemplate rt = new RestTemplate();
 
 	@RequestMapping("new-character")
@@ -39,15 +43,24 @@ public class CharacterController {
 		mv.addObject("classes", classes);
 		return mv;
 	}
-	
-	//character creation method that passes to character-select
+
+	// character creation method that passes to character-select
 	@RequestMapping("add-character")
+	// public ModelAndView addCharacter(String firstName, String lastName, int
+	// classIndex, int str, int con, int dex, int intel, int wis, int cha) {
 	public ModelAndView addCharacter(PlayerCharacter pc) {
-		ModelAndView mv = new ModelAndView("characterSelect");
 		User loggedUser = (User) session.getAttribute("loggedUser");
-		
+		pc.setAc(15);
+		pc.setGold(100);
+		pc.setHpMax(50);
+		pc.setHp(pc.getHpMax());
+		pc.setUser(loggedUser);
+		pc.setWeaponId(1);
+		pc.setLevelId(1);
+		loggedUser.addPlayerCharacter(pc);
 		cr.save(pc);
-		return mv;
+		session.setAttribute("loggedUser", loggedUser);
+		return new ModelAndView("redirect:/characterSelect");
 	}
-	
+
 }
