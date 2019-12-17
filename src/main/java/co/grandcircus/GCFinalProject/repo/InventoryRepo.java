@@ -11,5 +11,5 @@ public interface InventoryRepo extends JpaRepository<Inventory, Integer> {
 
 	
 	List<Inventory> findByPlayerCharacter(PlayerCharacter playerCharacter);
-	
+
 }

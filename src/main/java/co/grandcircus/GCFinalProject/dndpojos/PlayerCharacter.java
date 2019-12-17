@@ -19,7 +19,7 @@ public class PlayerCharacter {
 	private Integer characterId;
 	@ManyToOne
 	private User user;
-	@OneToMany(mappedBy = "playerCharacter")
+	@OneToMany(mappedBy = "playerCharacter", orphanRemoval=true)
 	private List<Inventory> inventory;
 	private String imageUrl;
 	private String firstName;
