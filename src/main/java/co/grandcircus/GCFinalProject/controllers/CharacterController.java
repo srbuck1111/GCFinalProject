@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Classes;
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
+import co.grandcircus.GCFinalProject.mappojos.Location;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.CharacterRepo;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
@@ -30,7 +31,32 @@ public class CharacterController {
 	UserRepo ur;
 
 	RestTemplate rt = new RestTemplate();
+	
+	@RequestMapping("/characterSelect")
+	public ModelAndView charSelectPage() {
+		
+		User user = (User) session.getAttribute("loggedUser");
+		List<PlayerCharacter> userList = user.getPlayerCharacters();
+		ModelAndView mv = new ModelAndView("characterSelect", "displayCharacters", userList);
+		return mv;
+	}
 
+	@RequestMapping("/character-select")
+	public ModelAndView characterSelect(int characterId, String userLat, String userLng) {
+		double parsedLat = Double.parseDouble(userLat);
+		double parsedLng = Double.parseDouble(userLng);
+		Location userLocation = new Location(parsedLat, parsedLng);
+		session.setAttribute("userLocation", userLocation);
+		
+		PlayerCharacter currentP = cr.findById(characterId).orElse(null);
+		
+		session.setAttribute("playerCharacter", currentP);
+		
+		ModelAndView mv = new ModelAndView("redirect:/get-results");
+		
+		return mv;
+	}
+	
 	@RequestMapping("new-character")
 	public ModelAndView newCharacter() {
 		ModelAndView mv = new ModelAndView("character-create");
@@ -44,10 +70,7 @@ public class CharacterController {
 		return mv;
 	}
 
-	// character creation method that passes to character-select
 	@RequestMapping("add-character")
-	// public ModelAndView addCharacter(String firstName, String lastName, int
-	// classIndex, int str, int con, int dex, int intel, int wis, int cha) {
 	public ModelAndView addCharacter(PlayerCharacter pc) {
 		User loggedUser = (User) session.getAttribute("loggedUser");
 		pc.setAc(15);
