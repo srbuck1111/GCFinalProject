@@ -67,7 +67,7 @@
 			if (document.getElementById("monsterHp").value <= 0) {
 				document.getElementById("enemyAliveCheck").submit();
 			}
-			if (document.getElementById("userTurn")) {
+			if (document.getElementById("userTurn").value == 1) {
 				document.getElementById("attackBtn").style.visibility = "visible";
 				document.getElementById("fleeBtn").style.visibility = "visible";
 				document.getElementById("defendBtn").style.visibility = "hidden";

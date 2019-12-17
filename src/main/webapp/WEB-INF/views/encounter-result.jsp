@@ -19,5 +19,6 @@
 	<c:if test="${!win }">
 		<h2><c:out value="You were slain."/></h2>
 	</c:if>
+	<a href="/get-results">back to main</a>
 </body>
 </html>

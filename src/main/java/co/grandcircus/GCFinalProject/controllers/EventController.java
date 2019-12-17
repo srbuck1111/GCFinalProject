@@ -53,7 +53,7 @@ public class EventController {
 			return mvEnd;
 		}
 		session.setAttribute("monster", m);
-		mv.addObject("userTurn", false);
+		mv.addObject("userTurn", 0);
 		mv.addObject("text", text);
 		return mv;
 	}
@@ -81,7 +81,8 @@ public class EventController {
 			mvEnd.addObject("win", false);
 			return mvEnd;
 		}
-		mv.addObject("userTurn", true);
+		session.setAttribute("playerCharacter", pc);
+		mv.addObject("userTurn", 1);
 		mv.addObject("text", text);
 		return mv;
 	}

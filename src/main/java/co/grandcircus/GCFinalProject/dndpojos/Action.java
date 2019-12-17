@@ -24,7 +24,8 @@ public class Action {
 		this.attackBonus = attackBonus;
 		this.desc = desc;
 		this.name = name;
-	}
+		this.damageDice = null;
+		}
 
 	public Action(int damageBonus, String damageDice, int attackBonus, String desc, String name) {
 		super();

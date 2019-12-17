@@ -248,7 +248,7 @@ public class Monster {
 	
 	public Action getDamagingAction() {
 		for (Action a : actions) {
-			if (!a.getDamageDice().isEmpty()) {
+			if (a.getDamageDice() != null) {
 				return a;
 			}
 		}
