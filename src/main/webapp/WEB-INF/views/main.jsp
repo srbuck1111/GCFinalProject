@@ -27,19 +27,19 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			 	<h2>Hi ${playerCharacter.firstName },</h2>
+			 	<h2>Hi ${playerCharacter.firstName } ${playerCharacter.lastName },</h2>
 				<h3>you currently have $${playerCharacter.gold} in gold.</h3>
 				<br>
 				
-				<form action="/unit"> 		
-		<input class="btn-primary" type="submit" value="Create your character">
+				<form action="/new-character"> 		
+		<input class="btn btn-outline-primary" type="submit" value="Create another character">
 		
 				<h4>${player } </h4> <br>
 				<h4></h4>
 				</form>	
 				
 				<form action="/inventory-list"> 		
-		<input class="btn-primary" type="submit" value="View Your Inventory">
+		<input class="btn btn-outline-primary" type="submit" value="View Your Inventory">
 		
 				
 				</form>	

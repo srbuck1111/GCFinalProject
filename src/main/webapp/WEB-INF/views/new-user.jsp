@@ -45,7 +45,7 @@ ${userExists }
 		Username <input type="text" name="userName" size="22" required>
 		Password <input type="password" name="userPassword" size="22" required> 
 		Confirm Password <input type="password" name="userPassword2" size="22" required> 
-		<input class="btn-primary" type="submit" value="Add User">
+		<input class="btn btn-outline-primary" type="submit" value="Add User">
 	<br>
 	
 	
