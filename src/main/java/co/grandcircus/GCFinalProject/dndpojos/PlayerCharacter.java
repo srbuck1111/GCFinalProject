@@ -1,5 +1,6 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -238,7 +239,7 @@ public class PlayerCharacter {
 
 	public void ImageUrl(PlayerCharacter playChar) {
 		
-		playChar.setImageUrl("");
+		playChar.setImageUrl("");		
 		
 		String image1Barbarian = "https://i.pinimg.com/originals/79/e8/e7/79e8e7927401d5e3d18a40e3d92fbf5a.jpg";
 		String image2Bard = "https://i.pinimg.com/originals/b7/67/06/b76706585d4902f560e0a7c475011581.jpg";
@@ -252,6 +253,43 @@ public class PlayerCharacter {
 		String image10Sorcerer = "https://art.ngfiles.com/images/728000/728595_tyrellesmithart_dnd-star-sorcerer-commission.jpg?f1544651079";
 		String image11Warlock = "https://i.pinimg.com/originals/8a/58/a9/8a58a964b2fa14a844ad18c5d5f3056f.jpg";
 		String image12Wizard = "https://gamemakerstuff.files.wordpress.com/2014/12/moiraine-damodred-by-westling.jpg";
+		
+		if (playChar.getCharacterId()==1) {
+			playChar.setImageUrl(image1Barbarian);
+		}
+		if (playChar.getCharacterId()==2) {
+			playChar.setImageUrl(image2Bard);
+		}
+		if (playChar.getCharacterId()==3) {
+			playChar.setImageUrl(image3Cleric);
+		}
+		if (playChar.getCharacterId()==4) {
+			playChar.setImageUrl(image4Druid);
+		}
+		if (playChar.getCharacterId()==5) {
+			playChar.setImageUrl(image5Fighter);
+		}
+		if (playChar.getCharacterId()==6) {
+			playChar.setImageUrl(image6Monk);
+		}
+		if (playChar.getCharacterId()==7) {
+			playChar.setImageUrl(image7Paladin);
+		}
+		if (playChar.getCharacterId()==8) {
+			playChar.setImageUrl(image8Ranger);
+		}
+		if (playChar.getCharacterId()==9) {
+			playChar.setImageUrl(image9Rogue);
+		}
+		if (playChar.getCharacterId()==10) {
+			playChar.setImageUrl(image10Sorcerer);
+		}
+		if (playChar.getCharacterId()==11) {
+			playChar.setImageUrl(image11Warlock);
+		}
+		if (playChar.getCharacterId()==12) {
+			playChar.setImageUrl(image12Wizard);
+		}
 		
 		
 	}
