@@ -12,6 +12,7 @@ public class Classes {
 	private String name;
 	@JsonProperty("hit_die")
 	private Integer hitDie;
+	
 	public Classes() {
 		super();
 	}
@@ -50,8 +51,5 @@ public class Classes {
 	public String toString() {
 		return "Classes [id=" + id + ", index=" + index + ", name=" + name + ", hitDie=" + hitDie + "]";
 	}
-	
 
-	
-	
 }

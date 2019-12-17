@@ -72,7 +72,7 @@ public class EventController {
 		} else {
 			text += "Not enough to get through your defences!";
 		}
-		if (pc.getHp() < 0) {
+		if (pc.getHp() <= 0) {
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			text = "With a " + toHit + " to hit, dealing " + dmg + ", the" + m.getName() + " has slayed you.";
 			mvEnd.addObject("win", false);
@@ -81,6 +81,11 @@ public class EventController {
 		mv.addObject("userTurn", true);
 		mv.addObject("text", text);
 		return mv;
+	}
+	
+	@RequestMapping("encounter/flee")
+	public ModelAndView flee() {
+		return new ModelAndView("redirect:/get-results");
 	}
 
 	/*

@@ -10,12 +10,8 @@ import javax.persistence.OneToMany;
 
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 
-
-
 @Entity
 public class User {
-
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,18 +25,12 @@ public class User {
 		super();
 	}
 
-
-
-	
-	
 	public User(Integer id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 	}
 	
-	
-
 	// Use to add
 	public User(String name, String password) {
 		super();

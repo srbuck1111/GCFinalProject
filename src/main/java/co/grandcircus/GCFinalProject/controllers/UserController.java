@@ -19,9 +19,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 
-
 	@RequestMapping("/new-user")
-	public ModelAndView newUserView(String userName, String userPassword) {
+	public ModelAndView newUserView() {
 		return new ModelAndView("new-user");
 	}
 
@@ -41,17 +40,16 @@ public class UserController {
 
 	@RequestMapping("login")
 	public ModelAndView login(String userName, String userPassword) {
-if (userRepo.findByUsername(userName) != null) {
-		if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {
-			User loggedUser = userRepo.findByUsername(userName);
-		session.setAttribute("loggedUser", loggedUser);
-			return new ModelAndView("characterSelect", "loggedUser", loggedUser);
+		if (userRepo.findByUsername(userName) != null) {
+			if (userRepo.findByUsername(userName).getPassword().equals(userPassword)) {
+				User loggedUser = (User) userRepo.findByUsername(userName);
+				session.setAttribute("loggedUser", loggedUser);
+				return new ModelAndView("characterSelect");
+			} else {
+				return new ModelAndView("index", "wrongPassword", "Incorrect Password");
+			}
 		} else {
-			return new ModelAndView("index", "wrongPassword", "Incorrect Password");
-		}} else {
 			return new ModelAndView("index", "noUserName", "That username doesn't exist");
 		}
-	}}
-	
-
-
+	}
+}

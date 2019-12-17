@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Monster;
+import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.universalMethods.MonsterMash;
 
 @Controller
@@ -22,14 +23,15 @@ public class DndController {
 	MonsterMash mm = new MonsterMash();
 	
 	@RequestMapping("encounter")
-	public ModelAndView encounter(Integer playerLevel) {
+	public ModelAndView encounter() {
+		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
+		Integer playerLevel = pc.getLevelId();
 		ModelAndView mv = new ModelAndView("encounter");
 		Monster m = new Monster();
 		if (playerLevel != null) {
 			m = mm.generateMonsterByLevel(playerLevel);
-		} else {
-			m = mm.generateEasyMonster();
-		}
+		} 
+		session.setAttribute("monster", m);
 		mv.addObject(m);
 		return mv;
 	}

@@ -81,7 +81,6 @@
 				alertLow.innerHTML = "your character will immediately die with those stats!<br/>We suggest at least a 6 in all stats, but a 1 is minimum.";
 			}
 		}
-		
 	</script>
 </body>
 </html>

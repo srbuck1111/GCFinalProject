@@ -18,7 +18,6 @@ public class Equipment {
 	// private List<Property> properties;
 
 	// Weapon variables
-
 	@JsonProperty("weapon_category")
 	private String weaponCategory;
 	@JsonProperty("weapon_range")
@@ -26,7 +25,6 @@ public class Equipment {
 	@JsonProperty("category_range")
 	private String categoryRange;
 	private Damage damage;
-	// private Damage damage;
 	// private Range range;
 
 	// Armor variables

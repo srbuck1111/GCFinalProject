@@ -41,7 +41,7 @@
 					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
 					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
 					<select name="characterId">
-						<c:forEach var="c" items="${displayCharacters}">
+						<c:forEach var="c" items="${loggedUser.playerCharacters}">
 							<option value="${c.characterId}">${c.getFirstName() }</option>
 						</c:forEach>
 					</select>
