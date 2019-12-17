@@ -289,7 +289,6 @@ public class PlayerCharacter {
 			playChar.setImageUrl(image12Wizard);
 		}
 		
-		
 	}
 
 }

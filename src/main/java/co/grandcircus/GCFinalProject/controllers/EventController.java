@@ -42,6 +42,7 @@ public class EventController {
 			}
 			dmg += PlayerCharacter.getModFor(pc.getStr());
 			text += "With a " + toHit + " you are able to deal " + dmg + " damage!";
+			m.setHp(m.getHp() - dmg);
 		} else {
 			text += "With a " + toHit + " you are unable to hit the " + m.getName();
 		}
@@ -51,6 +52,7 @@ public class EventController {
 			mvEnd.addObject("win", true);
 			return mvEnd;
 		}
+		session.setAttribute("monster", m);
 		mv.addObject("userTurn", false);
 		mv.addObject("text", text);
 		return mv;
@@ -69,6 +71,7 @@ public class EventController {
 		if (toHit > pc.getAc()) {
 			dmg = a.getRolledDamage();
 			text += "The " + a.getName() + " attack gets through, dealing " + dmg + " damage!";
+			pc.setHp(pc.getHp() - dmg);
 		} else {
 			text += "Not enough to get through your defences!";
 		}
