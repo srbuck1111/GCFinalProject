@@ -34,7 +34,7 @@ ${userInfo}
  <script> 
           
             // Function to check Whether both passwords 
-            // is same or not. 
+            // are the  same or not. 
             function checkPassword(form) { 
                 password1 = form.userPassword.value; 
                 password2 = form.userPassword2.value; 

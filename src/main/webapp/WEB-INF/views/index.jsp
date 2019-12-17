@@ -54,8 +54,8 @@
 
 <a href="/new-user" class="btn btn-primary">Create new user</a>
 
-	<a href="/get-results" class="btn btn-primary">${userInfo } Let's Play!</a>
-	<h3></h3>
+	<!--  <a href="/get-results" class="btn btn-primary">${userInfo } Let's Play!</a>
+	<h3></h3> -->
 	<a href="/character-select" class="btn btn-primary">Test button for characterSelect!</a>
 	<h3></h3>
 	<a href="/character-select" class="btn btn-primary">Test button for characterSelect!</a>

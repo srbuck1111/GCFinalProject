@@ -38,6 +38,11 @@
 				<h4></h4>
 				</form>	
 				
+				<form action="/inventory-list"> 		
+		<input class="btn-primary" type="submit" value="View Your Inventory">
+		
+				
+				</form>	
 				
 			</div>
 			<div class="column">
