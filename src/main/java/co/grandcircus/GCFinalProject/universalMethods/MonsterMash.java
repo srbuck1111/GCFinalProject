@@ -39,7 +39,7 @@ public class MonsterMash {
 		// Going to pull monsters from the API. API pull will be curated. Not all
 		// monsters will be possible.
 		ArrayList<Integer> monList = new ArrayList();
-		monList.add(203); // Skeleton url https://66.media.tumblr.com/30712624c9a9593f25c8a72e828a9d30/tumblr_mo9yxqu6Ej1qlq9poo7_1280.jpg
+		monList.add(259); // Skeleton
 		monList.add(325); // Zombie url https://www.animationmagazine.net/wordpress/wp-content/uploads/substance-source2.jpg
 		monList.add(177); // Imp url https://i.pinimg.com/originals/e2/15/f1/e215f1d8d2f64f5d9d5f451b6f440f64.jpg
 		monList.add(150); // Goblin url https://cdn.inprnt.com/thumbs/1f/91/1f914374bb51d27e176a8fee0ff7fddb.jpg?response-cache-control=max-age=2628000
