@@ -9,9 +9,26 @@
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp" crossorigin="anonymous">
 </head>
 <body>
+Inventory List
+${inventoryList }
 
 
+<table class="table">
+			<tr>
+				<th>Inventory ID</th>
+				<th>Equipment ID</th>
+				<th>QTY</th>
+				<th>Player_ID</th>
+			</tr>
 
+			<c:forEach var="inv" items="${inventoryList }">
+				<tr>
+					<td>${inv.inventoryId }</td>
+					<td>${inv.equipmentId }</td>
+					<td>${inv.qty }</td>
+
+						
+			</c:forEach>
 
 </body>
 </html>

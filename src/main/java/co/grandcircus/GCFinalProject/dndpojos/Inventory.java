@@ -60,5 +60,13 @@ public class Inventory {
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
+
+	@Override
+	public String toString() {
+		return "Inventory [inventoryId=" + inventoryId + ", playerCharacter=" + playerCharacter + ", equipmentId="
+				+ equipmentId + ", qty=" + qty + "]";
+	}
+	
+	
 	
 }
