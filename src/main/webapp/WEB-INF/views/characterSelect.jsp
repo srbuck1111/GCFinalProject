@@ -37,7 +37,7 @@
 				<h2>Character Select</h2>
 				<h3></h3>
 				<br>
-				<form action="/character-select">
+				<form action="/character-select" onSubmit="getLocation()">
 					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
 					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
 					<select name="characterId">
