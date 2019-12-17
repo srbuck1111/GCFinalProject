@@ -48,9 +48,10 @@ public class EventController {
 		if (m.getHp() < 0) {
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			text = "With a " + toHit + " to hit, dealing " + dmg + ", you slayed the " + m.getName() + "!";
-			mvEnd.addObject("win", false);
+			mvEnd.addObject("win", true);
 			return mvEnd;
 		}
+		mv.addObject("userTurn", false);
 		mv.addObject("text", text);
 		return mv;
 	}
@@ -77,6 +78,7 @@ public class EventController {
 			mvEnd.addObject("win", false);
 			return mvEnd;
 		}
+		mv.addObject("userTurn", true);
 		mv.addObject("text", text);
 		return mv;
 	}
