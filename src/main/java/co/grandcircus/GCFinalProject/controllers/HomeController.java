@@ -104,12 +104,7 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping("inventory-list")
-	public ModelAndView viewInventory(int characterId) {
-		PlayerCharacter pc = new PlayerCharacter();
-		
-		return new ModelAndView("Inventory");
-	}
+	
 
 }
 	
