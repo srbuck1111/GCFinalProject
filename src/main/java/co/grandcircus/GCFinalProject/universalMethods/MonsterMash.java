@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.GCFinalProject.dndpojos.Monster;
+import co.grandcircus.GCFinalProject.mappojos.Place;
 
 public class MonsterMash {
 
