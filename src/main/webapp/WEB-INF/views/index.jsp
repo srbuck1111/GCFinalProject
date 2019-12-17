@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome!</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css"
 	rel="stylesheet"
@@ -40,26 +40,22 @@
 <div class="container">
 		<div class="jumbotron">
 		
-<form action="/login">
+<form method="post" action="/login">
 	
 		Username <input type="text" name="userName" size="22" required>
-		Password <input type="text" name="userPassword" size="22" required> 
+		Password <input type="password" name="userPassword" size="22" required> 
 		
-		<input class="btn-primary" type="submit" value="Login">
+		<input class="btn btn-outline-primary" type="submit" value="Login">
+	
+<a href="/new-user" class="btn btn-outline-primary">Create new user</a>
 	<br>
 	${wrongPassword }
 	${noUserName }
 	
 	</form>
+<br>
 
-<a href="/new-user" class="btn btn-primary">Create new user</a>
 
-	<!--  <a href="/get-results" class="btn btn-primary">${userInfo } Let's Play!</a>
-	<h3></h3> -->
-	<a href="/character-select" class="btn btn-primary">Test button for characterSelect!</a>
-	<h3></h3>
-	<a href="/character-select" class="btn btn-primary">Test button for characterSelect!</a>
-	<h3></h3>
 	
 	</div>
 	</div>
