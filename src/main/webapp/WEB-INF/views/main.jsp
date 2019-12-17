@@ -40,8 +40,6 @@
 				
 				<form action="/inventory-list"> 		
 		<input class="btn btn-outline-primary" type="submit" value="View Your Inventory">
-		
-				
 				</form>	
 				
 			</div>

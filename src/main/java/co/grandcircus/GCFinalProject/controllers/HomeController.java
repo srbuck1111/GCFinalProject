@@ -102,7 +102,6 @@ public class HomeController {
 		
 		System.out.println(characterId);
 		
-		cr.findById(characterId);
 		PlayerCharacter currentP = cr.findById(characterId).orElse(null);
 		
 		session.setAttribute("playerCharacter", currentP);
