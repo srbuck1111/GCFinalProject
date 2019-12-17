@@ -15,17 +15,17 @@
 <body>
 	<table class="table">
 		<tr>
-			<th>Inventory ID</th>
-			<th>Equipment ID</th>
+			<th>Item Name</th>
+			<th>Hi</th>
 			<th>QTY</th>
 			
 		</tr>
 
-		<c:forEach var="inv" items="${equipmentList }">
+		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 			<tr>
-				<td>${inv.inventoryId }</td>
-				<td>${inv.equipmentId }</td>
-				<td>${inv.qty }</td>
+				<td>${inv.name }</td>
+			<td>Hi</td>
+				<td>Hi</td>
 		</c:forEach> 
 	</table> 
 </body>

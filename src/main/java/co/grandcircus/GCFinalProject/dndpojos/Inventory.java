@@ -11,29 +11,29 @@ public class Inventory {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int inventoryId;
+	private Integer inventoryId;
 	@ManyToOne
 	private PlayerCharacter playerCharacter;
-	private int equipmentId;
-	private int qty;
+	private Integer equipmentId;
+	private Integer qty;
 	
 	public Inventory() {
 		super();
 	}
 
-	public Inventory(int inventoryId, PlayerCharacter playerCharacter, int equipmentId, int qty) {
+	
+	public Inventory(PlayerCharacter playerCharacter, Integer equipmentId, Integer qty) {
 		super();
-		this.inventoryId = inventoryId;
 		this.playerCharacter = playerCharacter;
 		this.equipmentId = equipmentId;
 		this.qty = qty;
 	}
 
-	public int getInventoryId() {
+	public Integer getInventoryId() {
 		return inventoryId;
 	}
 
-	public void setInventoryId(int inventoryId) {
+	public void setInventoryId(Integer inventoryId) {
 		this.inventoryId = inventoryId;
 	}
 
@@ -45,19 +45,19 @@ public class Inventory {
 		this.playerCharacter = playerCharacter;
 	}
 
-	public int getEquipmentId() {
+	public Integer getEquipmentId() {
 		return equipmentId;
 	}
 
-	public void setEquipmentId(int equipmentId) {
+	public void setEquipmentId(Integer equipmentId) {
 		this.equipmentId = equipmentId;
 	}
 
-	public int getQty() {
+	public Integer getQty() {
 		return qty;
 	}
 
-	public void setQty(int qty) {
+	public void setQty(Integer qty) {
 		this.qty = qty;
 	}
 
@@ -66,6 +66,8 @@ public class Inventory {
 		return "Inventory [inventoryId=" + inventoryId + ", playerCharacter=" + playerCharacter + ", equipmentId="
 				+ equipmentId + ", qty=" + qty + "]";
 	}
+
+
 	
 	
 	
