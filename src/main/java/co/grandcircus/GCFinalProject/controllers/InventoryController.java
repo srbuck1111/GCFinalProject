@@ -41,6 +41,7 @@ public class InventoryController {
 		 */
 		List<Inventory> inventory = inventoryRepo.findByPlayerCharacter(pc);
 
+		
 		return new ModelAndView("InventoryList", "equipmentList", inventory);
 	}
 

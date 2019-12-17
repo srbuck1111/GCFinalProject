@@ -38,6 +38,8 @@
 				<h6>${playerCharacter.firstName } ${playerCharacter.lastName }</h6>
 				<h6>Hp: ${playerCharacter.hp }</h6>
 				<h6>Ac: ${playerCharacter.ac }</h6>
+				<br><br><br>
+				<img alt="Player Image" src="${playerCharacter.imageUrl}">
 				<a id="attackBtn" class="btn" href="/encounter/attack">Attack</a>
 				<a id="fleeBtn" class="btn" href="/encounter/flee">Flee</a>
 				<a id="defendBtn" class="btn" href="/encounter/defend">Defend</a>
@@ -51,6 +53,9 @@
 			<div class="column">
 				<h4>EnemyDeets</h4>
 				<h6>${monster.name }</h6>
+				<br><br><br>
+				<img alt="Enemy Image" src="${monster.imageUrl}">
+				
 			</div>
 			
 		</div>

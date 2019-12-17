@@ -34,7 +34,7 @@ public class HomeController {
 	@Autowired
 	HttpSession session;
 	
-	@Value("${map.key}")
+	@Value("${map.key}") //Google Places API key
 	String mapKey;
 	
 	RestTemplate rt = new RestTemplate();
@@ -50,11 +50,11 @@ public class HomeController {
 			userLat = userLocation.getLat();
 			userLng = userLocation.getLng();
 		} else {
-			//userLat = 42.3359;			
+			//userLat = 42.3359; test coords for Grand Circus		
 			//userLng = -83.049825;
 		}
 		
-		int searchRadius = 250;
+		int searchRadius = 250; //in meters
 		
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLng + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
 		
@@ -66,7 +66,7 @@ public class HomeController {
 		
 		for (int i = 0; i < response.getResult().size()-1; i++) {
 			if (theseAreClose(response.getResult().get(i).getGeometry().getLocation().getLat(), response.getResult().get(i).getGeometry().getLocation().getLng(), response.getResult().get(i+1).getGeometry().getLocation().getLat(), response.getResult().get(i+1).getGeometry().getLocation().getLng()  ))
-					response.getResult().remove(i+1);
+					response.getResult().remove(i+1); //Checks if the next item on the list is close to the current item. If so, removes second item from the list
 		}
 
 
@@ -100,8 +100,9 @@ public class HomeController {
 		Location userLocation = new Location(parsedLat, parsedLng);
 		session.setAttribute("userLocation", userLocation);
 		
-		System.out.println(characterId);
+		//System.out.println(characterId);
 		
+
 		PlayerCharacter currentP = cr.findById(characterId).orElse(null);
 		
 		session.setAttribute("playerCharacter", currentP);
