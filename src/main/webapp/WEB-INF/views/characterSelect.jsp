@@ -14,7 +14,8 @@
 </head>
 <div class="jumbotron">
 	<h1 class="display-2">
-		<center>Select Your Character!</center>
+	
+		<center>Welcome, ${loggedUser.username }! Select Your Character!</center>
 	</h1>
 </div>
 <style>
@@ -49,7 +50,7 @@
 				</form>
 			</div>
 
-			<form action="/unit">
+			<form action="/new-character">
 				<input class="btn-primary" type="submit"
 					value="Create a new character!">
 			</form>
