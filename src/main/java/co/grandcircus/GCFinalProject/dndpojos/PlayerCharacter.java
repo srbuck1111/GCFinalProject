@@ -30,7 +30,7 @@ public class PlayerCharacter {
 	private int hpMax;
 	private int hp;
 	private int ac;
-	private int str;
+	private int str;	
 	private int dex;
 	private int con;
 	// could be added later if spells are a thing

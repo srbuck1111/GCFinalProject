@@ -17,12 +17,16 @@ import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.CharacterRepo;
+import co.grandcircus.GCFinalProject.repo.InventoryRepo;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 import co.grandcircus.GCFinalProject.universalMethods.MonsterMash;
 import co.grandcircus.GCFinalProject.unuseddndpojos.Unit;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	InventoryRepo inventoryRepo;
 	
 	@Autowired
 	CharacterRepo cr;
@@ -79,7 +83,7 @@ public class HomeController {
 		
 		
 		MonsterMash test = new MonsterMash();
-		test.generateMonsterByLevel(8);
+		test.generateMonsterByLevel(8);	
 		
 		return mv;
 	}
@@ -135,10 +139,14 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("dnd", "dndclassapitest", response);
 		System.out.println(response);
 		return mv;
+		}
+	
+	@RequestMapping("inventory-list")
+	public ModelAndView viewInventory(int characterId) {
+		PlayerCharacter pc = new PlayerCharacter();
 		
+		return new ModelAndView("Inventory");
 	}
-	
-	
 
 }
 	
