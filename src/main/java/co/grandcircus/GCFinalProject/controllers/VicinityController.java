@@ -26,7 +26,7 @@ public class VicinityController {
 		return new ModelAndView("redirect:/get-results?error=true");
 	}
 	
-	private boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {
+	public boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {
 		System.out.println(distanceBetween(lat1, lng1, lat2, lng2));
 		if (distanceBetween(lat1, lng1, lat2, lng2) <= 100/*km*/) {
 			return true;
@@ -34,7 +34,7 @@ public class VicinityController {
 		return false;
 	}
 	
-	private double distanceBetween(double lat1, double lng1, double lat2, double lng2) {
+	public double distanceBetween(double lat1, double lng1, double lat2, double lng2) {
 
 		double p = 0.017453292519943295; // Math.PI / 180
 		double a = 0.5 - Math.cos((lat2 - lat1) * p) / 2 + Math.cos(lat1 * p) * Math.cos(lat2 * p)

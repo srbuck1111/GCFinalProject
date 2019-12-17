@@ -239,18 +239,18 @@ public class PlayerCharacter {
 		
 		playChar.setImageUrl("");		
 		
-		String image1Barbarian = "https://i.pinimg.com/originals/79/e8/e7/79e8e7927401d5e3d18a40e3d92fbf5a.jpg";
-		String image2Bard = "https://i.pinimg.com/originals/b7/67/06/b76706585d4902f560e0a7c475011581.jpg";
-		String image3Cleric = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ebd4f388-fdcd-4303-86da-31396215c27a/d73s117-ff32a473-9bc9-4476-9a27-553034047925.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ViZDRmMzg4LWZkY2QtNDMwMy04NmRhLTMxMzk2MjE1YzI3YVwvZDczczExNy1mZjMyYTQ3My05YmM5LTQ0NzYtOWEyNy01NTMwMzQwNDc5MjUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.v8Moou75IVWe4xwQ867TtW9tHEKug6GM1vCe71OEdV8";
-		String image4Druid = "https://cdn.inprnt.com/thumbs/2b/c6/2bc66e5566d1a9cec38ed09b2972829a.jpg?response-cache-control=max-age=2628000";
-		String image5Fighter = "https://i.pinimg.com/originals/ab/c5/5e/abc55e9762ab0ff3c74e9535f173f20e.jpg";
+		String image1Barbarian = "http://theclubgaming-dnd.weebly.com/uploads/2/5/8/4/25842993/__________7865239.jpg";
+		String image2Bard = "https://i.imgur.com/q3hCNFH.png?1";
+		String image3Cleric = "https://i.pinimg.com/474x/f0/61/f0/f061f0fd6e54c0ce039d2a027f49ad7f.jpg";
+		String image4Druid = "https://cdn.shopify.com/s/files/1/0149/6074/files/2878a3e23fda623c014101fef9b68f7d_large.jpg?16434614543346989591";
+		String image5Fighter = "https://images-na.ssl-images-amazon.com/images/I/91vhxVAAm3L._SY500_.jpg";
 		String image6Monk = "https://i.pinimg.com/originals/36/59/2f/36592fd42f169c1a2bf1fffc6e497f04.jpg";
-		String image7Paladin = "https://i.pinimg.com/originals/5f/b9/b5/5fb9b5ba8efb5131ba7e17b15127fcdc.jpg";
-		String image8Ranger = "https://i.pinimg.com/736x/c1/ca/1a/c1ca1a34ff6d691379a50d6cf92461ff.jpg";
-		String image9Rogue = "https://qph.fs.quoracdn.net/main-qimg-6b0073cd73a77f8ea5527212e93259b6";
-		String image10Sorcerer = "https://art.ngfiles.com/images/728000/728595_tyrellesmithart_dnd-star-sorcerer-commission.jpg?f1544651079";
+		String image7Paladin = "https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_500/https://www.nonfictiongaming.com/wp-content/uploads/2019/03/Paladin-Oath.jpg";
+		String image8Ranger = "https://66.media.tumblr.com/f15337277637c931ad7e5c9c317a6ea8/tumblr_pghws3NiQh1xr1wnro1_400.jpg";
+		String image9Rogue = "https://artfiles.alphacoders.com/613/thumb-6138.jpg";
+		String image10Sorcerer = "https://2static.fjcdn.com/pictures/Character_299e4d_5838805.jpg";
 		String image11Warlock = "https://i.pinimg.com/originals/8a/58/a9/8a58a964b2fa14a844ad18c5d5f3056f.jpg";
-		String image12Wizard = "https://gamemakerstuff.files.wordpress.com/2014/12/moiraine-damodred-by-westling.jpg";
+		String image12Wizard = "https://i.pinimg.com/474x/8f/d0/87/8fd0878d7e43b85da2342a1fbad4af8f.jpg";
 		
 		if (playChar.getCharacterId()==1) {
 			playChar.setImageUrl(image1Barbarian);

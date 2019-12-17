@@ -34,7 +34,7 @@ public class HomeController {
 	@Autowired
 	HttpSession session;
 	
-	@Value("${map.key}")
+	@Value("${map.key}") //Google Places API key
 	String mapKey;
 	
 	RestTemplate rt = new RestTemplate();
@@ -50,17 +50,25 @@ public class HomeController {
 			userLat = userLocation.getLat();
 			userLng = userLocation.getLng();
 		} else {
-			//userLat = 42.3359;			
+			//userLat = 42.3359; test coords for Grand Circus		
 			//userLng = -83.049825;
 		}
 		
-		int searchRadius = 250;
+		int searchRadius = 250; //in meters
 		
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLng + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
 		
 		Place response = rt.getForObject(url, Place.class);
 		
 		//String responseString = rt.getForObject(url, String.class);
+		
+		//Place curatedResponseList = new Place();
+		
+		for (int i = 0; i < response.getResult().size()-1; i++) {
+			if (theseAreClose(response.getResult().get(i).getGeometry().getLocation().getLat(), response.getResult().get(i).getGeometry().getLocation().getLng(), response.getResult().get(i+1).getGeometry().getLocation().getLat(), response.getResult().get(i+1).getGeometry().getLocation().getLng()  ))
+					response.getResult().remove(i+1); //Checks if the next item on the list is close to the current item. If so, removes second item from the list
+		}
+
 
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
 		mv.addObject("userUser", user);
@@ -92,9 +100,9 @@ public class HomeController {
 		Location userLocation = new Location(parsedLat, parsedLng);
 		session.setAttribute("userLocation", userLocation);
 		
-		System.out.println(characterId);
+		//System.out.println(characterId);
 		
-		cr.findById(characterId);
+
 		PlayerCharacter currentP = cr.findById(characterId).orElse(null);
 		
 		session.setAttribute("playerCharacter", currentP);
@@ -104,7 +112,21 @@ public class HomeController {
 		return mv;
 	}
 	
+	public boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {
+		System.out.println(distanceBetween(lat1, lng1, lat2, lng2));
+		if (distanceBetween(lat1, lng1, lat2, lng2) <= 100/*km*/) {
+			return true;
+		}
+		return false;
+	}
 	
+	public double distanceBetween(double lat1, double lng1, double lat2, double lng2) {
+
+		double p = 0.017453292519943295; // Math.PI / 180
+		double a = 0.5 - Math.cos((lat2 - lat1) * p) / 2 + Math.cos(lat1 * p) * Math.cos(lat2 * p)
+				* (1 - Math.cos((lng2 - lng1) * p)) / 2;
+		return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+	}
 
 }
 	
