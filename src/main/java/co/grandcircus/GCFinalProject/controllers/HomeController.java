@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
+import co.grandcircus.GCFinalProject.mappojos.Location;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.CharacterRepo;
@@ -40,26 +41,27 @@ public class HomeController {
 	
 	@RequestMapping("/get-results")
 	public ModelAndView placesAPITest() {
-		Integer id = 1;
-		Double userLat = 42.3359;
-		Double userLong = -83.049825;
+		Double userLat = 0.0;
+		Double userLng = 0.0;
+		User user = (User) session.getAttribute("loggedUser");
+		Location userLocation = (Location) session.getAttribute("userLocation");
 		
-		User user = userRepo.findById(id).orElse(null);
-		
-		if (session.getAttribute("userLat") != null) {
-			userLat = (Double) session.getAttribute("userLat");
-		}
-		if (session.getAttribute("userLong") != null) {
-			userLong = (Double) session.getAttribute("userLong");
+		if (userLocation != null) {
+			userLat = userLocation.getLat();
+			userLng = userLocation.getLng();
+		} else {
+			//userLat = 42.3359;			
+			//userLng = -83.049825;
 		}
 		
 		int searchRadius = 250;
 		
-		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLong + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
+		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat + "," + userLng + "&radius=" + searchRadius + "&types=park&name=&key=" + mapKey;
 		
 		Place response = rt.getForObject(url, Place.class);
 		
-		String responseString = rt.getForObject(url, String.class);
+		//String responseString = rt.getForObject(url, String.class);
+
 		ModelAndView mv = new ModelAndView("main", "listOfResults", response);
 		mv.addObject("userUser", user);
 		
@@ -87,8 +89,8 @@ public class HomeController {
 	public ModelAndView characterSelect(int characterId, String userLat, String userLng) {
 		double parsedLat = Double.parseDouble(userLat);
 		double parsedLng = Double.parseDouble(userLng);
-		session.setAttribute("userLat", parsedLat);
-		session.setAttribute("userLng" ,parsedLng);
+		Location userLocation = new Location(parsedLat, parsedLng);
+		session.setAttribute("userLocation", userLocation);
 		
 		System.out.println(characterId);
 		
