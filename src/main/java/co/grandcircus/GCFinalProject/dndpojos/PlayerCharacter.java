@@ -193,6 +193,30 @@ public class PlayerCharacter {
 		this.con = con;
 	}
 	
+	public int getIntel() {
+		return intel;
+	}
+
+	public void setIntel(int intel) {
+		this.intel = intel;
+	}
+
+	public int getWis() {
+		return wis;
+	}
+
+	public void setWis(int wis) {
+		this.wis = wis;
+	}
+
+	public int getCha() {
+		return cha;
+	}
+
+	public void setCha(int cha) {
+		this.cha = cha;
+	}
+
 	public static int getModFor(int modValue) {
 		return (int) Math.floor((modValue / 2) - 5);
 	}
@@ -214,7 +238,7 @@ public class PlayerCharacter {
 
 	public void ImageUrl(PlayerCharacter playChar) {
 		
-		playChar.setImageUrl(playChar.getClassId());
+		playChar.setImageUrl("");
 		
 		String image1Barbarian = "https://i.pinimg.com/originals/79/e8/e7/79e8e7927401d5e3d18a40e3d92fbf5a.jpg";
 		String image2Bard = "https://i.pinimg.com/originals/b7/67/06/b76706585d4902f560e0a7c475011581.jpg";
