@@ -1,245 +1,258 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Monster {
+
+	private Integer index;
+	private String name;
+	private String size;
+	private String type;
+	private String alignment;
+
+	@JsonProperty("armor_class")
+	private Integer ac;
+
+	@JsonProperty("hit_points")
+	private Integer hp;
+
+	@JsonProperty("hit_dice")
+	private String hitDice;
+
+	private Integer strength;
+	private Integer dexterity;
+	private Integer constitution;
+	private Integer intelligence;
+	private Integer wisdom;
+	private Integer charisma;
+	private String imageUrl;
+
+	@JsonProperty("damage_vulnerabilities")
+	private String damageVulnerabilities;
+
+	@JsonProperty("damage_resistances")
+	private String damageResistances;
+
+	@JsonProperty("damage_immunities")
+	private String damageImmunities;
+
+	@JsonProperty("challenge_rating")
+	private Integer challengeRating;
 	
-private Integer index;
-private String name;
-private String size;
-private String type;
-private String alignment;
+	private List<Action> actions;
 
-@JsonProperty("armor_class")
-private Integer ac;
+	public Integer getIndex() {
+		return index;
+	}
 
-@JsonProperty("hit_points")
-private Integer hp;
+	public void setIndex(Integer index) {
+		this.index = index;
+	}
 
-@JsonProperty("hit_dice")
-private String hitDice;
+	public String getName() {
+		return name;
+	}
 
-private Integer strength;
-private Integer dexterity;
-private Integer constitution;
-private Integer intelligence;
-private Integer wisdom;
-private Integer charisma;
-private String imageUrl;
+	public void setName(String name) {
+		this.name = name;
+	}
 
-@JsonProperty("damage_vulnerabilities")
-private String damageVulnerabilities;
+	public String getSize() {
+		return size;
+	}
 
-@JsonProperty("damage_resistances")
-private String damageResistances;
+	public void setSize(String size) {
+		this.size = size;
+	}
 
-@JsonProperty("damage_immunities")
-private String damageImmunities;
+	public String getType() {
+		return type;
+	}
 
-@JsonProperty("challenge_rating")
-private Integer challengeRating;
+	public void setType(String type) {
+		this.type = type;
+	}
 
-public Integer getIndex() {
-	return index;
-}
+	public String getAlignment() {
+		return alignment;
+	}
 
-public void setIndex(Integer index) {
-	this.index = index;
-}
+	public void setAlignment(String alignment) {
+		this.alignment = alignment;
+	}
 
-public String getName() {
-	return name;
-}
+	public Integer getAc() {
+		return ac;
+	}
 
-public void setName(String name) {
-	this.name = name;
-}
+	public void setAc(Integer ac) {
+		this.ac = ac;
+	}
 
-public String getSize() {
-	return size;
-}
+	public Integer getHp() {
+		return hp;
+	}
 
-public void setSize(String size) {
-	this.size = size;
-}
+	public void setHp(Integer hp) {
+		this.hp = hp;
+	}
 
-public String getType() {
-	return type;
-}
+	public String getHitDice() {
+		return hitDice;
+	}
 
-public void setType(String type) {
-	this.type = type;
-}
+	public void setHitDice(String hitDice) {
+		this.hitDice = hitDice;
+	}
 
-public String getAlignment() {
-	return alignment;
-}
+	public Integer getStrength() {
+		return strength;
+	}
 
-public void setAlignment(String alignment) {
-	this.alignment = alignment;
-}
+	public void setStrength(Integer strength) {
+		this.strength = strength;
+	}
 
-public Integer getAc() {
-	return ac;
-}
+	public Integer getDexterity() {
+		return dexterity;
+	}
 
-public void setAc(Integer ac) {
-	this.ac = ac;
-}
+	public void setDexterity(Integer dexterity) {
+		this.dexterity = dexterity;
+	}
 
-public Integer getHp() {
-	return hp;
-}
+	public Integer getConstitution() {
+		return constitution;
+	}
 
-public void setHp(Integer hp) {
-	this.hp = hp;
-}
+	public void setConstitution(Integer constitution) {
+		this.constitution = constitution;
+	}
 
-public String getHitDice() {
-	return hitDice;
-}
+	public Integer getIntelligence() {
+		return intelligence;
+	}
 
-public void setHitDice(String hitDice) {
-	this.hitDice = hitDice;
-}
+	public void setIntelligence(Integer intelligence) {
+		this.intelligence = intelligence;
+	}
 
-public Integer getStrength() {
-	return strength;
-}
+	public Integer getWisdom() {
+		return wisdom;
+	}
 
-public void setStrength(Integer strength) {
-	this.strength = strength;
-}
+	public void setWisdom(Integer wisdom) {
+		this.wisdom = wisdom;
+	}
 
-public Integer getDexterity() {
-	return dexterity;
-}
+	public Integer getCharisma() {
+		return charisma;
+	}
 
-public void setDexterity(Integer dexterity) {
-	this.dexterity = dexterity;
-}
+	public void setCharisma(Integer charisma) {
+		this.charisma = charisma;
+	}
 
-public Integer getConstitution() {
-	return constitution;
-}
+	public String getImageUrl() {
+		return imageUrl;
+	}
 
-public void setConstitution(Integer constitution) {
-	this.constitution = constitution;
-}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
-public Integer getIntelligence() {
-	return intelligence;
-}
+	public String getDamageVulnerabilities() {
+		return damageVulnerabilities;
+	}
 
-public void setIntelligence(Integer intelligence) {
-	this.intelligence = intelligence;
-}
+	public void setDamageVulnerabilities(String damageVulnerabilities) {
+		this.damageVulnerabilities = damageVulnerabilities;
+	}
 
-public Integer getWisdom() {
-	return wisdom;
-}
+	public String getDamageResistances() {
+		return damageResistances;
+	}
 
-public void setWisdom(Integer wisdom) {
-	this.wisdom = wisdom;
-}
+	public void setDamageResistances(String damageResistances) {
+		this.damageResistances = damageResistances;
+	}
 
-public Integer getCharisma() {
-	return charisma;
-}
+	public String getDamageImmunities() {
+		return damageImmunities;
+	}
 
-public void setCharisma(Integer charisma) {
-	this.charisma = charisma;
-}
+	public void setDamageImmunities(String damageImmunities) {
+		this.damageImmunities = damageImmunities;
+	}
 
+	public Integer getChallengeRating() {
+		return challengeRating;
+	}
 
-public String getImageUrl() {
-	return imageUrl;
-}
+	public void setChallengeRating(Integer challengeRating) {
+		this.challengeRating = challengeRating;
+	}
 
-public void setImageUrl(String imageUrl) {
-	this.imageUrl = imageUrl;
-}
+	public List<Action> getActions() {
+		return actions;
+	}
 
-public String getDamageVulnerabilities() {
-	return damageVulnerabilities;
-}
+	public void setActions(List<Action> actions) {
+		this.actions = actions;
+	}
 
-public void setDamageVulnerabilities(String damageVulnerabilities) {
-	this.damageVulnerabilities = damageVulnerabilities;
-}
+	public Monster(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,
+			String hitDice, Integer strength, Integer dexterity, Integer constitution, Integer intelligence,
+			Integer wisdom, Integer charisma, String damageVulnerabilities, String damageResistances,
+			String damageImmunities, Integer challengeRating, List<Action> actions) {
+		super();
+		this.index = index;
+		this.name = name;
+		this.size = size;
+		this.type = type;
+		this.alignment = alignment;
+		this.ac = ac;
+		this.hp = hp;
+		this.hitDice = hitDice;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.constitution = constitution;
+		this.intelligence = intelligence;
+		this.wisdom = wisdom;
+		this.charisma = charisma;
+		this.damageVulnerabilities = damageVulnerabilities;
+		this.damageResistances = damageResistances;
+		this.damageImmunities = damageImmunities;
+		this.challengeRating = challengeRating;
+		this.actions = actions;
+	}
 
-public String getDamageResistances() {
-	return damageResistances;
-}
+	public Monster() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-public void setDamageResistances(String damageResistances) {
-	this.damageResistances = damageResistances;
-}
-
-public String getDamageImmunities() {
-	return damageImmunities;
-}
-
-public void setDamageImmunities(String damageImmunities) {
-	this.damageImmunities = damageImmunities;
-}
-
-public Integer getChallengeRating() {
-	return challengeRating;
-}
-
-public void setChallengeRating(Integer challengeRating) {
-	this.challengeRating = challengeRating;
-}
-
-
-
-public Monster(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,
-		String hitDice, Integer strength, Integer dexterity, Integer constitution, Integer intelligence, Integer wisdom,
-		Integer charisma, String damageVulnerabilities, String damageResistances, String damageImmunities,
-		Integer challengeRating) {
-	super();
-	this.index = index;
-	this.name = name;
-	this.size = size;
-	this.type = type;
-	this.alignment = alignment;
-	this.ac = ac;
-	this.hp = hp;
-	this.hitDice = hitDice;
-	this.strength = strength;
-	this.dexterity = dexterity;
-	this.constitution = constitution;
-	this.intelligence = intelligence;
-	this.wisdom = wisdom;
-	this.charisma = charisma;
-	this.damageVulnerabilities = damageVulnerabilities;
-	this.damageResistances = damageResistances;
-	this.damageImmunities = damageImmunities;
-	this.challengeRating = challengeRating;
-}
-
-public Monster() {
-	super();
-	// TODO Auto-generated constructor stub
-}
-
-@Override
-public String toString() {
-	return "Monster [index=" + index + ", name=" + name + ", size=" + size + ", type=" + type + ", alignment="
-			+ alignment + ", ac=" + ac + ", hp=" + hp + ", hitDice=" + hitDice + ", strength=" + strength
-			+ ", dexterity=" + dexterity + ", constitution=" + constitution + ", intelligence=" + intelligence
-			+ ", wisdom=" + wisdom + ", charisma=" + charisma + ", damageVulnerabilities=" + damageVulnerabilities
-			+ ", damageResistances=" + damageResistances + ", damageImmunities=" + damageImmunities
-			+ ", challengeRating=" + challengeRating + "]";
-}
-
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "Monster [index=" + index + ", name=" + name + ", size=" + size + ", type=" + type + ", alignment="
+				+ alignment + ", ac=" + ac + ", hp=" + hp + ", hitDice=" + hitDice + ", strength=" + strength
+				+ ", dexterity=" + dexterity + ", constitution=" + constitution + ", intelligence=" + intelligence
+				+ ", wisdom=" + wisdom + ", charisma=" + charisma + ", damageVulnerabilities=" + damageVulnerabilities
+				+ ", damageResistances=" + damageResistances + ", damageImmunities=" + damageImmunities
+				+ ", challengeRating=" + challengeRating + "]";
+	}
+	
+	public Action getDamagingAction() {
+		for (Action a : actions) {
+			if (!a.getDamageDice().isEmpty()) {
+				return a;
+			}
+		}
+		return null;
+	}
 
 }

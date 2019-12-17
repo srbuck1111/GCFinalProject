@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Equipment {
 
-
 	@JsonProperty("_id")
 	private String id;
 	private int index;
@@ -26,6 +25,7 @@ public class Equipment {
 	private String weaponRange;
 	@JsonProperty("category_range")
 	private String categoryRange;
+	private Damage damage;
 	// private Damage damage;
 	// private Range range;
 
@@ -45,7 +45,7 @@ public class Equipment {
 	}
 
 	public Equipment(String id, int index, String name, String equipmentCategory, double weight, String url,
-			Cost cost, String weaponCategory, String weaponRange, String categoryRange) {
+			Cost cost, String weaponCategory, String weaponRange, String categoryRange, Damage damage) {
 		super();
 		this.id = id;
 		this.index = index;
@@ -57,6 +57,7 @@ public class Equipment {
 		this.weaponCategory = weaponCategory;
 		this.weaponRange = weaponRange;
 		this.categoryRange = categoryRange;
+		this.damage = damage;
 	}
 
 	public Equipment(String id, int index, String name, String equipmentCategory, double weight, String url,
@@ -153,6 +154,14 @@ public class Equipment {
 
 	public void setCategoryRange(String categoryRange) {
 		this.categoryRange = categoryRange;
+	}
+
+	public Damage getDamage() {
+		return damage;
+	}
+
+	public void setDamage(Damage damage) {
+		this.damage = damage;
 	}
 
 	public String getArmorCategory() {

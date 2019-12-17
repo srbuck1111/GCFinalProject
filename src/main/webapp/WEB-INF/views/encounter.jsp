@@ -24,9 +24,11 @@
 }
 </style>
 </head>
-<body onLoad="checkEnemyAlive()">
+<body onLoad="load()">
+	<!-- this checks if the enemy is alive and redirects to main if it's dead -->
 	<form id="enemyAliveCheck" action="get-results">
 		<input type="hidden" value="${monster.hp }" id="monsterHp">
+		<input type="hidden" value="${userTurn }" id="userTurn">
 	</form>
 	<div class="jumbotron">
 		<div class="row">
@@ -36,15 +38,19 @@
 				<h6>${playerCharacter.firstName } ${playerCharacter.lastName }</h6>
 				<h6>Hp: ${playerCharacter.hp }</h6>
 				<h6>Ac: ${playerCharacter.ac }</h6>
+				<a id="attackBtn" class="btn" href="/encounter/attack">Attack</a>
+				<a id="fleeBtn" class="btn" href="/encounter/flee">Flee</a>
+				<a id="defendBtn" class="btn" href="/encounter/defend">Defend</a>
 			</div>
 
 			<div class="column">
 				<h4>RollsAndStuf</h4>
-				
+				${text }
 			</div>
 
 			<div class="column">
 				<h4>EnemyDeets</h4>
+				<h6>${monster.name }</h6>
 			</div>
 			
 		</div>
@@ -52,9 +58,18 @@
 	
 	<script>
 	
-		function checkEnemyAlive() {
+		function load() {
 			if (document.getElementById("monsterHp").value <= 0) {
 				document.getElementById("enemyAliveCheck").submit();
+			}
+			if (document.getElementById("userTurn")) {
+				document.getElementById("attackBtn").style.visibility = "visible";
+				document.getElementById("fleeBtn").style.visibility = "visible";
+				document.getElementById("defendBtn").style.visibility = "hidden";
+			} else {
+				document.getElementById("attackBtn").style.visibility = "hidden";
+				document.getElementById("fleeBtn").style.visibility = "hidden";
+				document.getElementById("defendBtn").style.visibility = "visible";
 			}
 		}
 	

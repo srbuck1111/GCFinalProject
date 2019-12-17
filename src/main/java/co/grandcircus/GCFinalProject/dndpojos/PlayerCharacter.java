@@ -15,45 +15,51 @@ import co.grandcircus.GCFinalProject.model.User;
 public class PlayerCharacter {
 
 	@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Integer characterId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer characterId;
 	@ManyToOne
 	private User user;
-	@OneToMany(mappedBy="playerCharacter")
+	@OneToMany(mappedBy = "playerCharacter")
 	private List<Inventory> inventory;
 	private String firstName;
 	private String lastName;
+	private int weaponId;
 	private int levelId;
 	private int classId;
 	private int gold;
 	private int hpMax;
 	private int hp;
 	private int ac;
-//	private int str;
-//	private int dex;
-//	private int con;
+	private int str;
+	private int dex;
+	private int con;
+	// could be added later if spells are a thing
 //	private int intel;
 //	private int wis;
 //	private int cha;
-	
+
 	public PlayerCharacter() {
 		super();
 	}
 
 	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String firstName, String lastName,
-			int levelId, int classId, int gold, int hpMax, int hp, int ac) {
+			int weaponId, int levelId, int classId, int gold, int hpMax, int hp, int ac, int str, int dex, int con) {
 		super();
 		this.characterId = characterId;
 		this.user = user;
 		this.inventory = inventory;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.weaponId = weaponId;
 		this.levelId = levelId;
 		this.classId = classId;
 		this.gold = gold;
 		this.hpMax = hpMax;
 		this.hp = hp;
 		this.ac = ac;
+		this.str = str;
+		this.dex = dex;
+		this.con = con;
 	}
 
 	public Integer getCharacterId() {
@@ -94,6 +100,14 @@ public class PlayerCharacter {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public int getWeaponId() {
+		return weaponId;
+	}
+
+	public void setWeaponId(int weaponId) {
+		this.weaponId = weaponId;
 	}
 
 	public int getLevelId() {
@@ -143,5 +157,33 @@ public class PlayerCharacter {
 	public void setAc(int ac) {
 		this.ac = ac;
 	}
+
+	public int getStr() {
+		return str;
+	}
+
+	public void setStr(int str) {
+		this.str = str;
+	}
+
+	public int getDex() {
+		return dex;
+	}
+
+	public void setDex(int dex) {
+		this.dex = dex;
+	}
+
+	public int getCon() {
+		return con;
+	}
+
+	public void setCon(int con) {
+		this.con = con;
+	}
 	
+	public static int getModFor(int modValue) {
+		return (int) Math.floor((modValue / 2) - 5);
+	}
+
 }
