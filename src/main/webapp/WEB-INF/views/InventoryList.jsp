@@ -14,9 +14,6 @@
 <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative'
 	rel='stylesheet'>
 <style>
-
-
-
 h1 {
 	font-family: 'Cinzel Decorative';
 	font-size: 75px;
@@ -37,6 +34,28 @@ td {
 	width: 250px;
 }
 </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="/get-results">Dungeon Go!</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarColor02" aria-controls="navbarColor02"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarColor02">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="/get-results">Home
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link" href="/characterSelect">Select Character</a></li>
+			<li class="nav-item"><a class="nav-link" href=""></a></li>
+			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+		</ul>
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit"><a href="/">Logout</a></button>
+		
+
+	</div>
+</nav>
 </head>
 
 
@@ -45,7 +64,7 @@ td {
 	<div class="container">
 
 		<h1 align="center">Inventory</h1>
-		
+
 		${weaponSet }
 		<table class="table">
 			<tr>
@@ -63,16 +82,12 @@ td {
 								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
 								class='btn btn-outline-primary btn-wide'><c:out
 									value="Equip Weapon"></c:out></a>
-						</c:if>
-						<c:if test="${playerCharacter.weaponId==inv.index }"><c:out value="Equipped"></c:out></c:if></td>
+						</c:if> <c:if test="${playerCharacter.weaponId==inv.index }">
+							<c:out value="Equipped"></c:out>
+						</c:if></td>
 				</tr>
 			</c:forEach>
 		</table>
-
-		<div style="text-align: left">
-			<a href="/get-results" class="btn btn-outline-primary btn-wide">Back
-				to Main</a>
-		</div>
 	</div>
 	</div>
 
