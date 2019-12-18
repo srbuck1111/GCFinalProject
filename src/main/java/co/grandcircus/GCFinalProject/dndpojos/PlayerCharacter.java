@@ -206,7 +206,7 @@ public class PlayerCharacter {
 		RestTemplate rt = new RestTemplate();
 		String url = "http://www.dnd5eapi.co/api/classes/" + classId;
 		Classes clss = rt.getForObject(url, Classes.class);
-		this.hpMax = clss.getHitDie() /* + Dice.roll(clss.getHitDie()) + 2 * getModFor(con)*/;
+		this.hpMax = clss.getHitDie() + Dice.roll(clss.getHitDie()) + 2 * getModFor(con);
 	}
 
 	public int getHp() {

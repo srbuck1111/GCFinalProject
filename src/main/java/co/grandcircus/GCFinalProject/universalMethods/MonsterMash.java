@@ -53,14 +53,9 @@ public class MonsterMash {
 		// Monster response = rt.getForObject(url, Monster.class);
 
 		Monster response = rt.getForObject(url, Monster.class);
+		List<Integer> lootTable = new ArrayList<Integer>();
 		if (response.getIndex()==259) {
 			response.setImageUrl("https://artfiles.alphacoders.com/593/thumb-59316.jpg");
-			List<Integer> lootTable = new ArrayList<Integer>();
-			lootTable.add(2);
-			lootTable.add(22);
-			lootTable.add(28);
-			lootTable.add(129);
-			response.setLootTable(lootTable);
 		} if (response.getIndex()==325) {
 			response.setImageUrl("https://i.pinimg.com/originals/f2/ce/5d/f2ce5d196f7f5658fec067c8f1de1bbe.jpg");
 		} if (response.getIndex()==177) {
@@ -68,6 +63,12 @@ public class MonsterMash {
 		} if (response.getIndex()==150) {
 			response.setImageUrl("https://i.imgur.com/TrQZup7.png");
 		}
+		lootTable.add(2);
+		lootTable.add(22);
+		lootTable.add(28);
+		lootTable.add(40);
+		lootTable.add(129);
+		response.setLootTable(lootTable);
 
 		String responseTest = rt.getForObject(url, String.class);
 		System.out.println(responseTest);
@@ -161,12 +162,12 @@ public class MonsterMash {
 	public Monster generateMonsterByLevel(int playerLevel) {
 		Monster gMonster = new Monster();
 
-		if (playerLevel >= 4 && playerLevel < 10) {
-
-			gMonster = generateMediumMonster();
-		} else if (playerLevel <= 3) {
+		if (playerLevel < 4) {
 
 			gMonster = generateEasyMonster();
+		} else if (playerLevel < 6) {
+
+			gMonster = generateMediumMonster();
 		} else {
 
 			gMonster = generateHardMonster();
