@@ -37,19 +37,22 @@ font-size: 20px;
 <div class="container">
 	
 		<center><h1>Inventory</h1></center>
-	<table width="75%" class="table" >
+		<a href="/equip-item" class="btn btn-outline-primary">Hi</a>
+	<table class="table" >
 		<tr>
 			<th><h4>Item Name</h4></th>
-			<th><h4>Equip?</h4></th>
-			
+			<th><h4>Equip?</h4></th>	
+			<th><h4>Equip Test</h4>
 		</tr>
-
 		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
-			<tr>
+		<tr>
 				<td>${inv.name }</td>
-			<td><input class="btn btn-outline-primary" type="submit" value="Equip"></td>
+				<td><input class="btn btn-outline-primary" type="submit" value="Equip - ${inv.name }"></td>
+				<td><a href="/equip?eType=${inv.equipmentCategory }&eId=${inv.index}" class="btn btn-outline-primary">Test</a></td>
+		</tr>
 		</c:forEach> 
+	
 	</table> 
-	</div></div>
+	</div>
 </body>
 </html>

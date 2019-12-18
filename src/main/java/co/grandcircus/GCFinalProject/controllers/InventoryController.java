@@ -49,5 +49,13 @@ public class InventoryController {
 		return new ModelAndView("InventoryList", "equipmentList", equipmentList);
 
 	}
+	
+	@RequestMapping("equip")
+	public ModelAndView equipItem(String eType, Integer eId) {
+	//	PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
+		//pc.setWeaponId();
+		return new ModelAndView("InventoryList");
+		
+	}
 
 }
