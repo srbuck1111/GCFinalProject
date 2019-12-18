@@ -333,40 +333,40 @@ public class PlayerCharacter {
 		String image11Warlock = "https://i.pinimg.com/originals/8a/58/a9/8a58a964b2fa14a844ad18c5d5f3056f.jpg";
 		String image12Wizard = "https://i.pinimg.com/474x/8f/d0/87/8fd0878d7e43b85da2342a1fbad4af8f.jpg";
 		
-		if (getCharacterId()==1) {
+		if (getClassId()==1) {
 			setImageUrl(image1Barbarian);
 		}
-		if ( getCharacterId()==2) {
+		if ( getClassId()==2) {
 			 setImageUrl(image2Bard);
 		}
-		if ( getCharacterId()==3) {
+		if ( getClassId()==3) {
 			 setImageUrl(image3Cleric);
 		}
-		if ( getCharacterId()==4) {
+		if ( getClassId()==4) {
 			 setImageUrl(image4Druid);
 		}
-		if ( getCharacterId()==5) {
+		if ( getClassId()==5) {
 			 setImageUrl(image5Fighter);
 		}
-		if ( getCharacterId()==6) {
+		if ( getClassId()==6) {
 			 setImageUrl(image6Monk);
 		}
-		if ( getCharacterId()==7) {
+		if ( getClassId()==7) {
 			 setImageUrl(image7Paladin);
 		}
-		if ( getCharacterId()==8) {
+		if ( getClassId()==8) {
 			 setImageUrl(image8Ranger);
 		}
-		if ( getCharacterId()==9) {
+		if ( getClassId()==9) {
 			 setImageUrl(image9Rogue);
 		}
-		if ( getCharacterId()==10) {
+		if ( getClassId()==10) {
 			 setImageUrl(image10Sorcerer);
 		}
-		if ( getCharacterId()==11) {
+		if ( getClassId()==11) {
 			 setImageUrl(image11Warlock);
 		}
-		if ( getCharacterId()==12) {
+		if ( getClassId()==12) {
 			 setImageUrl(image12Wizard);
 		}
 		
