@@ -63,7 +63,7 @@ width: 50%}
 				<form action="/character-select" onSubmit="getLocation()">
 					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
 					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
-					<select name="characterId">
+					<select class="btn btn-outline-primary" name="characterId">
 						<c:forEach var="c" items="${loggedUser.playerCharacters}">
 							<option value="${c.characterId}">${c.getFirstName() } ${c.getLastName()}</option>
 						</c:forEach>
