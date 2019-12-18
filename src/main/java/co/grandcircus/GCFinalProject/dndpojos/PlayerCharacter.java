@@ -27,6 +27,7 @@ public class PlayerCharacter {
 	private String firstName;
 	private String lastName;
 	private int weaponId;
+	private int armorId;
 	private int levelId;
 	private int classId;
 	private int gold;
@@ -60,6 +61,9 @@ public class PlayerCharacter {
 		this.intel = intel;
 		this.wis = wis;
 		this.cha = cha;
+		this.wins = 0;
+		this.losses = 0;
+		this.flees = 0;
 	}
 
 	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String firstName, String lastName,
@@ -80,6 +84,9 @@ public class PlayerCharacter {
 		this.str = str;
 		this.dex = dex;
 		this.con = con;
+		this.wins = 0;
+		this.losses = 0;
+		this.flees = 0;
 	}
 	
 	

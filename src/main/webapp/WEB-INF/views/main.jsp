@@ -50,8 +50,8 @@ h3 {
 				Intelligence: ${playerCharacter.intel}<br>
 				Wisdom: ${playerCharacter.wis}<br>
 				Charisma: ${playerCharacter.cha}<br><br>
-				Victories: <br>
-				Defeats:
+				Victories: ${playerCharacter.wins }<br>
+				Defeats: ${playerCharacter.losses }
 				</h3>
 				<br>
 				

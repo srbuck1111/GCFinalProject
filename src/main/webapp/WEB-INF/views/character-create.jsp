@@ -58,12 +58,12 @@ h5 {
 			</select></span>
 			</div>
 			<div class="column">
-				<h6>Strength</h6><span title="Strength increases your damage potential"><input class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Constitution</h6><span title = "Constitution increases your health and endurance"><input class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons"><input class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Intelligence</h6><span title = "Intelligence controls your skill with magic, and stat points per level"><input class="btn btn-outline-secondary" value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Wisdom</h6><span title = "Wisdom contributes to your ability to heal and cast certain spells"><input class="btn btn-outline-secondary" value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Charisma</h6><span title = "Charisma is all about talking your way our of tough situations"><input class="btn btn-outline-secondary" value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Strength</h6><span title="Strength increases your damage potential"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Constitution</h6><span title = "Constitution increases your health and endurance"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Intelligence</h6><span title = "Intelligence controls your skill with magic, and stat points per level"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Wisdom</h6><span title = "Wisdom contributes to your ability to heal and cast certain spells"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Charisma</h6><span title = "Charisma is all about talking your way our of tough situations"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/></Span><br/>
 				<br/>
 				<h5>Points Remaining:</h5>
 				<input class="btn btn-outline-secondary" type="text" id="pointsRemaining"/>
