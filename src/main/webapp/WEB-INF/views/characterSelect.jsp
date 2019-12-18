@@ -30,7 +30,7 @@ font-size:20px;
 
 </style>
 </head>
-<div class="jumbotron">
+<div>
 	<h1 >
 		<center>Welcome, ${loggedUser.username }! Select Your Character!</center>
 	</h1>
@@ -53,14 +53,14 @@ width: 50%}
 </style>
 
 <body onload="getLocation()">
-	<div class="jumbotron">
+	<div>
 	<div class="container">
 		<div class="row">
 			<div class="column">
 				<h4>Character Select</h4>
 				
 				<br>
-				<form action="/character-select" onSubmit="getLocation()">
+				<center><form action="/character-select" onSubmit="getLocation()">
 					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
 					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
 					<select class="btn btn-outline-primary" name="characterId">
@@ -68,13 +68,13 @@ width: 50%}
 							<option value="${c.characterId}">${c.getFirstName() } ${c.getLastName()}</option>
 						</c:forEach>
 					</select>
-					<input type="submit" class="btn btn-outline-primary" value="Choose Character"/>
+					<input type="submit" class="btn btn-outline-primary" value="Select This Character"/>
 				</form>
 			<br>
 			<form class="form-inline" action="/new-character">
 				<input class="btn btn-outline-primary" type="submit"
 					value="Create a new character!">
-			</form>
+			</form></center>
 
 			</div></div></div>
 		</div>
