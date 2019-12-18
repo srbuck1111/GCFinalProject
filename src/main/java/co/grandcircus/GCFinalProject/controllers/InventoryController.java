@@ -45,7 +45,6 @@ public class InventoryController {
 			equipmentList.add(charEquipment);
 		}
 		return new ModelAndView("InventoryList", "equipmentList", equipmentList);
-
 	}
 
 	@RequestMapping("equip")
