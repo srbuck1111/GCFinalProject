@@ -1,9 +1,15 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ArmorClass {
+public class ArmorClass implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int base;
 	@JsonProperty("dex_bonus")
 	private boolean dexBonus;
