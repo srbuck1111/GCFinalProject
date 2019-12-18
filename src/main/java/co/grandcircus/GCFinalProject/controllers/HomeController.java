@@ -91,7 +91,7 @@ public class HomeController {
 		PlayerCharacter currentP = (PlayerCharacter) session.getAttribute("playerCharacter");
 		currentP.getGold();
 		//if (currentP.getGold() > 15) {
-			currentP.setGold(currentP.getGold() - 15);
+			currentP.setGold(currentP.getGold() - (30 - currentP.getCha()));
 			//List<Inventory> playerInv = currentP.getInventory();
 			//String potionURL = "http://www.dnd5eapi.co/api/equipment/129";
 			Inventory potion = new Inventory(currentP, 129, 1);

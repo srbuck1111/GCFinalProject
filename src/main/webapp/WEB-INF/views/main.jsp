@@ -16,33 +16,46 @@
 	.column {
   		float: left;
   		width: 50%;
+  		margin: 0 auto;
 	}
 	.row:after {
 	  content: "";
 	  display: table;
 	  clear: both;
+	  margin: 0 auto;
 	}
 	h1 {
- font-family: 'Cinzel Decorative'; font-size: 45px;
+ font-family: 'Cinzel Decorative'; font-size: 50px;
  text-shadow: black 0.3em 0.2em 0.2em
 }
 h2 {
- font-family: 'Cinzel Decorative'; font-size: 35px;
+ font-family: 'Cinzel Decorative'; font-size: 40px;
  text-shadow: black 0.3em 0.2em 0.2em
 }
 h3 {
- font-family: 'Cinzel Decorative'; font-size: 17px;
+ font-family: 'Cinzel Decorative'; font-size: 20px;
  text-shadow: black 0.3em 0.2em 0.2em
+ 
 }
+body {
+  background-image: url("http://getwallpapers.com/wallpaper/full/b/6/4/303635.jpg");
+background-repeat: no-repeat;
+background-position: relative;
+ background-size: cover;
+ opacity: .75;
+ 
+
+}
+
 	</style>
 </head>
 <body onload="getLocation()">
-	<div class="jumbotron">
+	<div>
 		<div class="row">
 			<div class="column">
-			 	<h1>Welcome, ${playerCharacter.firstName } ${playerCharacter.lastName }</h1>
-				<h2>Current gold: ${playerCharacter.gold}</h2>
-				<h3>Player stats: <br> HP: ${playerCharacter.hp} / ${playerCharacter.hpMax}<br> 
+			 	<center><h1>Welcome, ${playerCharacter.firstName } ${playerCharacter.lastName }</h1></center>
+				<center><h2>Current gold: ${playerCharacter.gold}</h2></center>
+				<center><h3>Player stats: <br> HP: ${playerCharacter.hp} / ${playerCharacter.hpMax}<br> 
 				Armor Class: ${playerCharacter.ac}<br>
 				Strength: ${playerCharacter.str}<br>
 				Dexterity: ${playerCharacter.dex}<br>
@@ -53,31 +66,31 @@ h3 {
 				Victories: ${playerCharacter.wins } <br>
 				Defeats: ${playerCharacter.losses } <br>
 				You fled from combat ${playerCharacter.flees} times
-				</h3>
+				</h3></center>
 				<br>
 				
-				<form action="/new-character"> 		
-		<input class="btn btn-outline-primary" type="submit" value="Create another character">
+				<center><form action="/new-character"> 		
+		<span title = "Log out of ${playerCharacter.firstName } and create a new character"><input class="btn btn-primary" type="submit" value="Create another character"></span>
 				<h4></h4>
-				</form>	
+				</form></center>
 				<br>
 				
-				<form action="/inventory-list"> 		
-		<input class="btn btn-outline-primary" type="submit" value="View Your Inventory">
-				</form>	<br>
+				<center><form action="/inventory-list"> 		
+		<span title = "View potions and equip weapons and armor in ${playerCharacter.firstName }'s inventory."><input class="btn btn-primary" type="submit" value="View Your Inventory"></span>
+				</form>	<br></center>
 				
-				<form action="/buy-potion"> 		
-		<span title = "Exchange your hard earned gold for goods. Potions are 15 gold each, but perhaps your charisma will influence the price..."><input class="btn btn-outline-primary" type="submit" value="Buy Potions"></span>
-				</form>	<!-- Checks your inventory for gold. Allows you to buy one potion at a time whenever your gold is sufficient. -->
+				<center><form action="/buy-potion"> 		
+		<span title = "Exchange your hard earned gold for goods. Potions are 30 gold each, but perhaps your charisma will influence the price..."><input class="btn btn-primary" type="submit" value="Shop"></span>
+				</form></center>	<!-- Checks your inventory for gold. Allows you to buy one potion at a time whenever your gold is sufficient. -->
 				
 			</div>
 			<div class="column">
-				<h1>Current Location</h1>
-				<br/><div id="demo"></div><br/>
-				<h1>Dungeons</h1>
+				<center><h1>Current Location</h1></center>
+				<br/><center><div id="demo"></div></center><br/>
+				<center><h1>Dungeons</h1></center>
 				<p style="color: red">${error}</p>
-				
-				<c:forEach var="r" items="${listOfResults.result}">
+							
+				<center><c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
 					<form action="/test">
 						<span title = "Click to enter a dungeon when you are withing range. If you are not within range, you will be returned to this page."><input class = "btn btn-outline-success"type="hidden" id="userLat" name="userLat"
@@ -85,10 +98,10 @@ h3 {
 							name="userLng" value="${userLng }" /> <input type="hidden"
 							name="placeLat" value="${r.geometry.location.lat }" /> <input
 							type="hidden" name="placeLng" value="${r.geometry.location.lng }" />
-						<input type="submit" class="btn btn-outline-success" value="Enter this dungeon" /></span>
+						<input type="submit" class="btn btn-danger" value="Enter this dungeon" /></span>
 					</form>
 					<br />
-				</c:forEach>
+				</c:forEach></center>
 			</div>
 		</div>
 	</div>

@@ -37,6 +37,7 @@ background-repeat: no-repeat;
 background-position: relative;
  background-size: cover;
  opacity: .85;
+ 
 
 }
 h1 {

@@ -41,6 +41,10 @@ h5 {
  font-family: 'Cinzel Decorative'; font-size: 20px; color: black;
  text-shadow: black 0.3em 0.2em 0.2em
 }
+h4 {
+ font-family: 'Cinzel Decorative'; font-size: 20px; color: white;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
 </style>
 </head>
 <body onLoad="checkPointBuy()">
@@ -48,29 +52,30 @@ h5 {
 	<div>
 		<div class="row">
 			<div class="column">
-			<input class="btn btn-secondary" placeholder="First Name" type="text" name="firstName" required/><br/><br/>
-			<input class="btn btn-secondary"placeholder="Last Name" type="text" name="lastName" required/><br/><br/>
-			Need help? Hover over fields for additional details! <br><br>
-			<span title = "Click to choose your character class!"><select class = "btn btn-warning" name="classIndex">
+			<br><br>
+			<center><input class="btn btn-secondary" placeholder="First Name" type="text" name="firstName" required/></center><br/><br/>
+			<center><input class="btn btn-secondary"placeholder="Last Name" type="text" name="lastName" required/></center><br/><br/>
+			<center><h4>Need help? Hover over fields for additional details!</h4></center> <br><br>
+			<center><span title = "Click to choose your character class!"><select class = "btn btn-secondary" name="classIndex">
 				<c:forEach var="c" items="${classes }">
 					<option value="${c.index }">${c.name }</option>
 				</c:forEach>
-			</select></span>
+			</select></span></center>
 			</div>
 			<div class="column">
-
-				<h6>Strength</h6><span title="Strength increases your damage potential"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Constitution</h6><span title = "Constitution increases your health and endurance"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Intelligence</h6><span title = "Intelligence controls your skill with magic, and stat points per level"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Wisdom</h6><span title = "Wisdom contributes to your ability to heal and cast certain spells"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/></Span><br/>
-				<h6>Charisma</h6><span title = "Charisma is all about talking your way our of tough situations"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/></Span><br/>
+<br><br>
+				<center><h6>Strength</h6><span title="Strength increases your damage potential. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Constitution</h6><span title = "Constitution increases your health and endurance. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Intelligence</h6><span title = "Intelligence controls your skill with magic, and stat points per level. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Wisdom</h6><span title = "Wisdom contributes to your ability to heal and cast certain spells. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Charisma</h6><span title = "Charisma is all about talking your way our of tough situations. You must invest at least 8 points in this stat, but 16 is the max!"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/></Span><br/>
 				<br/>
 				<h5>Points Remaining:</h5>
-				<input class="btn btn-secondary" type="text" id="pointsRemaining"/>
-				<input class="btn btn-success" type="submit" value="Create"/>
+				<span title = "This is how many points you have remaining to invest"><input class="btn btn-secondary" type="text" id="pointsRemaining"/></span>
+				<span title = "Click here to create your character"><input class="btn btn-success" type="submit" value="Create"/></span>
 				<div id="alertHigh" style="color:red"></div>
-				<div id="alertLow" style="color:red"></div>
+				<div id="alertLow" style="color:red"></div></center>
 			</div>
 		</div>
 	</div>
