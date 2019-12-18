@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
-
+<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 <style>
 * {
 	box-sizing: border-box;
@@ -30,6 +30,13 @@
 	display: table;
 	clear: both;
 }
+
+h4 {
+ font-family: 'Cinzel Decorative'; font-size: 45px;
+ text-shadow: white 0.3em 0.2em 0.2em
+}
+
+
 </style>
 
 </head>
