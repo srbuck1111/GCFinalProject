@@ -22,18 +22,14 @@ public class DndController {
 	
 	MonsterMash mm = new MonsterMash();
 	
-	@RequestMapping("encounter")
+	@RequestMapping("encounter/create")
 	public ModelAndView encounter() {
 		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
 		Integer playerLevel = pc.getLevelId();
-		ModelAndView mv = new ModelAndView("encounter");
 		Monster m = new Monster();
-		if (playerLevel != null) {
-			m = mm.generateMonsterByLevel(playerLevel);
-		} 
+		m = mm.generateMonsterByLevel(playerLevel);
 		session.setAttribute("monster", m);
-		mv.addObject(m);
-		return mv;
+		return new ModelAndView("redirect:/encounter");
 	}
 	
 	/*

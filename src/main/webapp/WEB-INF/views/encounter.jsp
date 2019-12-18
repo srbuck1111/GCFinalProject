@@ -29,7 +29,7 @@
 	<form id="aliveCheck" action="get-results">
 		<input type="hidden" value="${playerCharacter.hp }" id="playerHp">
 		<input type="hidden" value="${monster.hp }" id="monsterHp">
-		<input type="hidden" value="${encounterInfo.userTurn }" id="userTurn">
+		<input type="hidden" value="${encounterInfo.getUserTurn() }" id="userTurn">
 	</form>
 	
 	<div class="jumbotron">
@@ -41,7 +41,7 @@
 				<h6>Hp: ${playerCharacter.hp }</h6>
 				<h6>Ac: ${playerCharacter.ac }</h6>
 				<br><br><br>
-				<img alt="Player Image" src="${playerCharacter.imageUrl}">
+				<img alt="Player Image" src="${playerCharacter.imageUrl}"><br/>
 				<a style="visibility:hidden" id="attackBtn" class="btn" href="/encounter/attack">Attack</a><br/>
 				<a style="visibility:hidden" id="fleeBtn" class="btn" href="/encounter/flee">Flee</a><br/>
 				<a style="visibility:hidden" id="defendBtn" class="btn" href="/encounter/defend">Defend</a><br/>
@@ -49,7 +49,7 @@
 
 			<div class="column">
 				<h4>RollsAndStuf</h4>
-				${encounterInfo.text }
+				${encounterInfo.getText() }
 			</div>
 
 			<div class="column">
