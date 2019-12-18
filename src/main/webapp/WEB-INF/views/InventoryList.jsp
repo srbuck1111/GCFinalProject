@@ -28,6 +28,10 @@ font-size: 20px;
  
 }
 
+.btn-wide {
+width:250px;
+}
+
 </style>
 </head>
 
@@ -35,21 +39,23 @@ font-size: 20px;
 
 <body>
 <div class="container">
-	
-		<center><h1>Inventory</h1></center>
-	<table width="75%" class="table" >
-		<tr>
-			<th><h4>Item Name</h4></th>
-			<th><h4>Equip?</h4></th>
-			
-		</tr>
-
+	<div class="jumbotron">
+	<h1 align="center">Inventory</h1>
+	${weaponSet }
+		
+	<table class="table">
+			<tr>
+				<th><h4>Item Name</h4></th>
+				<th><h4>Equip?</h4></th>		
+			</tr>
 		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 			<tr>
 				<td>${inv.name }</td>
-			<td><input class="btn btn-outline-primary" type="submit" value="Equip"></td>
+				<td><a href="/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}" class="btn btn-outline-primary btn-wide">Equip Weapon</a></td>
+			</tr>
 		</c:forEach> 
 	</table> 
-	</div></div>
+	</div>
+</div>
 </body>
 </html>
