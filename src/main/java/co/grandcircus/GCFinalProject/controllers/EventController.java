@@ -106,8 +106,8 @@ public class EventController {
 		}
 		
 		cr.save(pc);
-		EncounterInfo ei = new EncounterInfo(text, 2);
 		session.setAttribute("playerCharacter", pc);
+		EncounterInfo ei = new EncounterInfo(text, 2);
 		session.setAttribute("encounterInfo", ei);
 		
 		return new ModelAndView("redirect:/encounter");
