@@ -74,9 +74,9 @@ public class CharacterController {
 	public ModelAndView addCharacter(PlayerCharacter pc) {
 		User loggedUser = (User) session.getAttribute("loggedUser");
 		pc.setArmorId(39);
-		pc.setAc();
+		pc.updateAc();
 		pc.setGold(100);
-		pc.setHpMax(50);
+		pc.updateHpMax();
 		pc.setHp(pc.getHpMax());
 		pc.setUser(loggedUser);
 		pc.setWeaponId(1);
