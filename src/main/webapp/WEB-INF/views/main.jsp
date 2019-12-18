@@ -50,21 +50,25 @@ h3 {
 				Intelligence: ${playerCharacter.intel}<br>
 				Wisdom: ${playerCharacter.wis}<br>
 				Charisma: ${playerCharacter.cha}<br><br>
-				Victories: <br>
-				Defeats:
+				Victories: ${playerCharacter.wins } <br>
+				Defeats: ${playerCharacter.losses } <br>
+				You fled from combat ${playerCharacter.flees} times
 				</h3>
 				<br>
 				
 				<form action="/new-character"> 		
 		<input class="btn btn-outline-primary" type="submit" value="Create another character">
-		
-				<h4>${player } </h4> <br>
 				<h4></h4>
 				</form>	
+				<br>
 				
 				<form action="/inventory-list"> 		
 		<input class="btn btn-outline-primary" type="submit" value="View Your Inventory">
-				</form>	
+				</form>	<br>
+				
+				<form action="/buy-potion"> 		
+		<span title = "Exchange your hard earned gold for goods. Potions are 15 gold each, but perhaps your charisma will influence the price..."><input class="btn btn-outline-primary" type="submit" value="Buy Potions"></span>
+				</form>	<!-- Checks your inventory for gold. Allows you to buy one potion at a time whenever your gold is sufficient. -->
 				
 			</div>
 			<div class="column">
@@ -72,7 +76,7 @@ h3 {
 				<br/><div id="demo"></div><br/>
 				<h1>Dungeons</h1>
 				<p style="color: red">${error}</p>
-				<br /> <br />
+				
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
 					<form action="/test">
@@ -81,7 +85,7 @@ h3 {
 							name="userLng" value="${userLng }" /> <input type="hidden"
 							name="placeLat" value="${r.geometry.location.lat }" /> <input
 							type="hidden" name="placeLng" value="${r.geometry.location.lng }" />
-						<input type="submit" value="Enter this dungeon" /></span>
+						<input type="submit" class="btn btn-outline-success" value="Enter this dungeon" /></span>
 					</form>
 					<br />
 				</c:forEach>

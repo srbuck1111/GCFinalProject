@@ -70,7 +70,7 @@ width: 50%}
 					</select>
 					<input type="submit" class="btn btn-outline-primary" value="Choose Character"/>
 				</form>
-			
+			<br>
 			<form class="form-inline" action="/new-character">
 				<input class="btn btn-outline-primary" type="submit"
 					value="Create a new character!">
