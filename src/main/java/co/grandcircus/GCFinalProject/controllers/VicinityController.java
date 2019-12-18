@@ -8,9 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.EncounterInfo;
+import co.grandcircus.GCFinalProject.dndpojos.Inventory;
+import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
+import co.grandcircus.GCFinalProject.repo.InventoryRepo;
 
 @Controller
 public class VicinityController {
+	
+	@Autowired
+	InventoryRepo ir;
+	
 	@Autowired
 	HttpSession session;
 
@@ -24,6 +31,14 @@ public class VicinityController {
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
 			EncounterInfo ei = new EncounterInfo("", 2);
+			session.setAttribute("encounterInfo", ei);
+			PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
+			for (Inventory i : ir.findByPlayerCharacter(pc)) {
+				if (i.getEquipmentId() == 129) {
+					ei.setPotions(1);
+					break;
+				}
+			}
 			session.setAttribute("encounterInfo", ei);
 			return new ModelAndView("redirect:/encounter/create");
 		}
