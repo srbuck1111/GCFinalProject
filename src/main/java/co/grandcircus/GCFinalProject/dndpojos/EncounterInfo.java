@@ -10,6 +10,7 @@ public class EncounterInfo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String text;
 	private int userTurn;
+	private int potions;
 	
 	public EncounterInfo() {
 		super();
@@ -20,6 +21,7 @@ public class EncounterInfo implements Serializable{
 		super();
 		this.text = text;
 		this.userTurn = userTurn;
+		this.potions = 0;
 	}
 
 	public String getText() {
@@ -36,6 +38,14 @@ public class EncounterInfo implements Serializable{
 
 	public void setUserTurn(int userTurn) {
 		this.userTurn = userTurn;
+	}
+
+	public int getPotions() {
+		return potions;
+	}
+
+	public void setPotions(int potions) {
+		this.potions = potions;
 	}
 	
 }

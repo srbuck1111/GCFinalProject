@@ -80,7 +80,7 @@ body {
 	<form id="aliveCheck" action="get-results">
 		<input type="hidden" value="${playerCharacter.hp }" id="playerHp">
 		<input type="hidden" value="${monster.hp }" id="monsterHp"> <input
-			type="hidden" value="${encounterInfo.getUserTurn() }" id="userTurn">
+			type="hidden" value="${encounterInfo.userTurn }" id="userTurn">
 	</form>
 
 	<div>
@@ -102,8 +102,10 @@ body {
 						class="btn btn-secondary" href="/encounter/attack">Attack</a><br />
 					<br> <a style="visibility: hidden" id="fleeBtn"
 						class="btn btn-secondary" href="/encounter/flee">Flee</a><br /> <br>
+					<a style="visibility: hidden" id="potionBtn"
+						class="btn btn-secondary" href="/encounter/drink-potion">Drink Potion</a><br />
 					<a style="visibility: hidden" id="defendBtn"
-						class="btn btn-secondary" href="/encounter/defend">Defend</a><br />
+						class="btn btn-secondary" href="/encounter/defend">Defend</a>
 					<br> <br> <br> <br> <br> <br> <br>
 					<br>
 					<h3>${encounterInfo.getText() }</h3>
@@ -131,6 +133,7 @@ body {
 		var atkBtn = document.getElementById("attackBtn");
 		var fleeBtn = document.getElementById("fleeBtn");
 		var defBtn = document.getElementById("defendBtn");
+		var potBtn = document.getElementById("potionBtn");
 
 		function load() {
 			//check for either party dead to redirect to main
@@ -149,7 +152,7 @@ body {
 			}
 			//if greater than 1 poulates bonus actions as well
 			if (userTurn.value > 1) {
-				//potions and things would go here!
+				potBtn.visibility = "visible";
 			}
 		}
 	</script>

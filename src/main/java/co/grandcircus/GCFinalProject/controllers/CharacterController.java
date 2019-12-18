@@ -85,10 +85,10 @@ public class CharacterController {
 		pc.setHp(pc.getHpMax());
 		pc.setUser(loggedUser);
 		pc.setWeaponId(1);
-		ir.save(new Inventory(pc, 1, 1));
 		pc.setLevelId(1);
 		loggedUser.addPlayerCharacter(pc);
 		cr.save(pc);
+		ir.save(new Inventory(pc, 1, 1));
 		session.setAttribute("loggedUser", loggedUser);
 		return new ModelAndView("redirect:/characterSelect");
 	}

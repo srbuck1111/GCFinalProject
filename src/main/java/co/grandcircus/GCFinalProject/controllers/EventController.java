@@ -60,6 +60,12 @@ public class EventController {
 		}
 		text += "It heals you for " + healValue + " hp!";
 		EncounterInfo ei = new EncounterInfo(text, 1);
+		for (Inventory i : ir.findByPlayerCharacter(pc)) {
+			if (i.getEquipmentId() == 129) {
+				ei.setPotions(1);
+				break;
+			}
+		}
 		session.setAttribute("encounterInfo", ei);
 		return new ModelAndView("redirect:/encounter");
 	}
