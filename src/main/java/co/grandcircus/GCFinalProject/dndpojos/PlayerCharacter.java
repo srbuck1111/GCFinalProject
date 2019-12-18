@@ -15,7 +15,7 @@ import co.grandcircus.GCFinalProject.model.User;
 
 @Entity
 public class PlayerCharacter {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer characterId;
@@ -46,6 +46,7 @@ public class PlayerCharacter {
 
 	public PlayerCharacter() {
 		super();
+		assignImage();
 	}
 	
 	
@@ -64,6 +65,7 @@ public class PlayerCharacter {
 		this.wins = 0;
 		this.losses = 0;
 		this.flees = 0;
+		assignImage();
 	}
 
 	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String firstName, String lastName,
@@ -87,11 +89,16 @@ public class PlayerCharacter {
 		this.wins = 0;
 		this.losses = 0;
 		this.flees = 0;
+		assignImage();
 	}
 	
 	
 
 	public String getImageUrl() {
+		if (imageUrl == null) {
+			assignImage();
+			
+		}
 		return imageUrl;
 	}
 
@@ -163,6 +170,15 @@ public class PlayerCharacter {
 		this.classId = classId;
 	}
 
+	public int getArmorId() {
+		return armorId;
+	}
+
+	public void setArmorId(int armorId) {
+		this.armorId = armorId;
+	}
+
+
 	public int getGold() {
 		return gold;
 	}
@@ -175,8 +191,11 @@ public class PlayerCharacter {
 		return hpMax;
 	}
 
-	public void setHpMax(int hpMax) {
-		this.hpMax = hpMax;
+	public void setHpMax() {
+		RestTemplate rt = new RestTemplate();
+		String url = "http://www.dnd5eapi.co/api/equipment/" + armorId;
+		Classes armor = rt.getForObject(url, Classes.class);
+		this.hpMax = 10;
 	}
 
 	public int getHp() {
@@ -191,8 +210,15 @@ public class PlayerCharacter {
 		return ac;
 	}
 
-	public void setAc(int ac) {
-		this.ac = ac;
+	public void setAc() {
+		RestTemplate rt = new RestTemplate();
+		String url = "http://www.dnd5eapi.co/api/equipment/" + armorId;
+		Equipment armor = rt.getForObject(url, Equipment.class);
+		if (armor.getArmorClass().isDexBonus()) {
+			this.ac = armor.getArmorClass().getBase() + getModFor(dex);			
+		} else {
+			this.ac = armor.getArmorClass().getBase();
+		}
 	}
 
 	public int getStr() {
@@ -277,9 +303,7 @@ public class PlayerCharacter {
 		return (int) Math.floor((modValue / 2) - 5);
 	}
 
-	public void ImageUrl(PlayerCharacter playChar) {
-		
-		playChar.setImageUrl("");		
+	public void assignImage() {	
 		
 		String image1Barbarian = "http://theclubgaming-dnd.weebly.com/uploads/2/5/8/4/25842993/__________7865239.jpg";
 		String image2Bard = "https://i.imgur.com/q3hCNFH.png?1";
@@ -294,41 +318,41 @@ public class PlayerCharacter {
 		String image11Warlock = "https://i.pinimg.com/originals/8a/58/a9/8a58a964b2fa14a844ad18c5d5f3056f.jpg";
 		String image12Wizard = "https://i.pinimg.com/474x/8f/d0/87/8fd0878d7e43b85da2342a1fbad4af8f.jpg";
 		
-		if (playChar.getCharacterId()==1) {
-			playChar.setImageUrl(image1Barbarian);
+		if (getCharacterId()==1) {
+			setImageUrl(image1Barbarian);
 		}
-		if (playChar.getCharacterId()==2) {
-			playChar.setImageUrl(image2Bard);
+		if ( getCharacterId()==2) {
+			 setImageUrl(image2Bard);
 		}
-		if (playChar.getCharacterId()==3) {
-			playChar.setImageUrl(image3Cleric);
+		if ( getCharacterId()==3) {
+			 setImageUrl(image3Cleric);
 		}
-		if (playChar.getCharacterId()==4) {
-			playChar.setImageUrl(image4Druid);
+		if ( getCharacterId()==4) {
+			 setImageUrl(image4Druid);
 		}
-		if (playChar.getCharacterId()==5) {
-			playChar.setImageUrl(image5Fighter);
+		if ( getCharacterId()==5) {
+			 setImageUrl(image5Fighter);
 		}
-		if (playChar.getCharacterId()==6) {
-			playChar.setImageUrl(image6Monk);
+		if ( getCharacterId()==6) {
+			 setImageUrl(image6Monk);
 		}
-		if (playChar.getCharacterId()==7) {
-			playChar.setImageUrl(image7Paladin);
+		if ( getCharacterId()==7) {
+			 setImageUrl(image7Paladin);
 		}
-		if (playChar.getCharacterId()==8) {
-			playChar.setImageUrl(image8Ranger);
+		if ( getCharacterId()==8) {
+			 setImageUrl(image8Ranger);
 		}
-		if (playChar.getCharacterId()==9) {
-			playChar.setImageUrl(image9Rogue);
+		if ( getCharacterId()==9) {
+			 setImageUrl(image9Rogue);
 		}
-		if (playChar.getCharacterId()==10) {
-			playChar.setImageUrl(image10Sorcerer);
+		if ( getCharacterId()==10) {
+			 setImageUrl(image10Sorcerer);
 		}
-		if (playChar.getCharacterId()==11) {
-			playChar.setImageUrl(image11Warlock);
+		if ( getCharacterId()==11) {
+			 setImageUrl(image11Warlock);
 		}
-		if (playChar.getCharacterId()==12) {
-			playChar.setImageUrl(image12Wizard);
+		if ( getCharacterId()==12) {
+			 setImageUrl(image12Wizard);
 		}
 		
 	}

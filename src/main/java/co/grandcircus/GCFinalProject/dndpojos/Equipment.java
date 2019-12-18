@@ -36,6 +36,13 @@ public class Equipment {
 	private int strMinimum;
 	@JsonProperty("stealth_disadvantage")
 	private boolean stealthDisadvantage;
+	
+	//Gear variables
+	@JsonProperty("gear_category")
+	private String gearCategory;
+	private String healDice;
+	
+	
 
 	public Equipment() {
 		super();
@@ -72,6 +79,18 @@ public class Equipment {
 		this.armorClass = armorClass;
 		this.strMinimum = strMinimum;
 		this.stealthDisadvantage = stealthDisadvantage;
+	}
+	
+	
+
+	public Equipment(String id, int index, String name, String equipmentCategory, String gearCategory) {
+		super();
+		this.healDice= "2d4";
+		this.id = id;
+		this.index = index;
+		this.name = name;
+		this.equipmentCategory = equipmentCategory;
+		this.gearCategory = gearCategory;
 	}
 
 	public String getId() {

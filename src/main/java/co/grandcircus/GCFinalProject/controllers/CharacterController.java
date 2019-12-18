@@ -73,7 +73,8 @@ public class CharacterController {
 	@RequestMapping("add-character")
 	public ModelAndView addCharacter(PlayerCharacter pc) {
 		User loggedUser = (User) session.getAttribute("loggedUser");
-		pc.setAc(15);
+		pc.setArmorId(39);
+		pc.setAc();
 		pc.setGold(100);
 		pc.setHpMax(50);
 		pc.setHp(pc.getHpMax());
