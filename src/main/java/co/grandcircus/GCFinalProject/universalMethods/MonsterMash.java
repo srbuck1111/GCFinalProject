@@ -102,6 +102,7 @@ public class MonsterMash {
 
 		String responseTest = rt.getForObject(url, String.class);
 		
+		List<Integer> lootTable = new ArrayList<>();
 		if (response.getIndex()==285) {
 			response.setImageUrl("https://i.pinimg.com/474x/b2/a6/ba/b2a6bac3b19f3b52f1133960232d635d.jpg");
 		} if (response.getIndex()==110){
@@ -111,6 +112,12 @@ public class MonsterMash {
 		} if (response.getIndex()==106){
 			response.setImageUrl("https://66.media.tumblr.com/073d38cae7628b7c9e105f7e031ac875/tumblr_p6n1oxFKm61ro0ixho1_400.jpg");
 		}
+		lootTable.add(2);
+		lootTable.add(22);
+		lootTable.add(28);
+		lootTable.add(40);
+		lootTable.add(129);
+		response.setLootTable(lootTable);
 		System.out.println(responseTest);
 		return response;
 		
@@ -139,6 +146,7 @@ public class MonsterMash {
 		// Monster response = rt.getForObject(url, Monster.class);
 
 		Monster response = rt.getForObject(url, Monster.class);
+		List<Integer> lootTable = new ArrayList<>();
 		if (response.getIndex()==173) {
 			response.setImageUrl("https://i.redd.it/u5edku5cc1l01.jpg");
 		} if (response.getIndex()==184) {
@@ -146,7 +154,13 @@ public class MonsterMash {
 		} if (response.getIndex()==21) {
 			response.setImageUrl("https://66.media.tumblr.com/cf15ff1f6f7bf4d1634a5b681a5908d6/tumblr_on3fy2YXIl1rxvxzbo1_400.jpg");
 		}
-
+		lootTable.add(2);
+		lootTable.add(22);
+		lootTable.add(28);
+		lootTable.add(40);
+		lootTable.add(129);
+		response.setLootTable(lootTable);
+		
 		String responseTest = rt.getForObject(url, String.class);
 		System.out.println(responseTest);
 		return response;
@@ -165,7 +179,7 @@ public class MonsterMash {
 		if (playerLevel < 4) {
 
 			gMonster = generateEasyMonster();
-		} else if (playerLevel < 6) {
+		} else if (playerLevel < 12) {
 
 			gMonster = generateMediumMonster();
 		} else {

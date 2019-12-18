@@ -12,15 +12,20 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.GCFinalProject.dndpojos.Classes;
+import co.grandcircus.GCFinalProject.dndpojos.Inventory;
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Location;
 import co.grandcircus.GCFinalProject.model.User;
 import co.grandcircus.GCFinalProject.repo.CharacterRepo;
+import co.grandcircus.GCFinalProject.repo.InventoryRepo;
 import co.grandcircus.GCFinalProject.repo.UserRepo;
 
 @Controller
 public class CharacterController {
 
+	@Autowired
+	InventoryRepo ir;
+	
 	@Autowired
 	HttpSession session;
 
@@ -80,6 +85,7 @@ public class CharacterController {
 		pc.setHp(pc.getHpMax());
 		pc.setUser(loggedUser);
 		pc.setWeaponId(1);
+		ir.save(new Inventory(pc, 1, 1));
 		pc.setLevelId(1);
 		loggedUser.addPlayerCharacter(pc);
 		cr.save(pc);

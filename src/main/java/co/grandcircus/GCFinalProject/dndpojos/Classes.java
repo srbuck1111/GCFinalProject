@@ -1,11 +1,17 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Classes {
+public class Classes implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@JsonProperty("_id")
 	private String id;
 	private Integer index;

@@ -1,6 +1,13 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
-public class Dice {
+import java.io.Serializable;
+
+public class Dice implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static int roll(int d) {
 		return (int) (Math.random() * d) + 1;
