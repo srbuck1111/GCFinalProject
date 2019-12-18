@@ -152,7 +152,7 @@ body {
 			}
 			//if greater than 1 poulates bonus actions as well
 			if (userTurn.value > 1) {
-				potBtn.visibility = "visible";
+				potBtn.style.visibility = "visible";
 			}
 		}
 	</script>

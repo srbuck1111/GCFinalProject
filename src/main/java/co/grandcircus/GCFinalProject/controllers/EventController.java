@@ -58,6 +58,7 @@ public class EventController {
 		for (int i = 0; i < 2; i++) {
 			healValue += Dice.roll(4) + 1;
 		}
+		pc.setHp(pc.getHp() + healValue);
 		text += "It heals you for " + healValue + " hp!";
 		EncounterInfo ei = new EncounterInfo(text, 1);
 		for (Inventory i : ir.findByPlayerCharacter(pc)) {
@@ -67,6 +68,8 @@ public class EventController {
 			}
 		}
 		session.setAttribute("encounterInfo", ei);
+		session.setAttribute("playerCharacter", pc);
+		cr.save(pc);
 		return new ModelAndView("redirect:/encounter");
 	}
 	
@@ -83,7 +86,7 @@ public class EventController {
 		if (toHit > m.getAc()) {
 			Equipment weapon = rt.getForObject("http://dnd5eapi.co/api/equipment/" + pc.getWeaponId(), Equipment.class);
 			dmg = 0;
-			for (int i = 0; i <= weapon.getDamage().getDiceCount(); i++) {
+			for (int i = 0; i < weapon.getDamage().getDiceCount(); i++) {
 				dmg += Dice.roll(weapon.getDamage().getDiceValue());
 			}
 			dmg += PlayerCharacter.getModFor(pc.getStr());

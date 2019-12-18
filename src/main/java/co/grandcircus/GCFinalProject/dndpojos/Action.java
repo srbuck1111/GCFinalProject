@@ -87,7 +87,7 @@ public class Action implements Serializable{
 		int numDice = Integer.parseInt(strngDmg[0]);
 		int diceValue = Integer.parseInt(strngDmg[1]);
 		int dmg = 0;
-		for (int i = 0; i <= numDice; i++) {
+		for (int i = 0; i < numDice; i++) {
 			dmg += Dice.roll(diceValue);
 		}
 		dmg += damageBonus;

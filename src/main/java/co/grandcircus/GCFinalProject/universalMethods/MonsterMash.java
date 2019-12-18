@@ -190,4 +190,8 @@ public class MonsterMash {
 		return gMonster;
 	}
 
+	private List<Integer> addLootRarity(int itemId, int rarity) {
+		return null;
+	}
+	
 }

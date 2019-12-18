@@ -76,7 +76,7 @@ td {
 			</tr>
 			<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 				<tr>
-					<td>${inv.name }</td>
+					<td>${inv.name } <c:if test="${inv.equipmentCategory=='Weapon'}"><c:out value="${inv.damage.diceCount }d${inv.damage.diceValue } damage"></c:out></c:if></td>
 
 					<td><c:if
 							test="${inv.equipmentCategory=='Weapon' and playerCharacter.weaponId!=inv.index}">
@@ -84,7 +84,15 @@ td {
 								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
 								class='btn btn-outline-primary btn-wide'><c:out
 									value="Equip Weapon"></c:out></a>
-						</c:if> <c:if test="${playerCharacter.weaponId==inv.index }">
+						</c:if>
+						<c:if
+							test="${inv.equipmentCategory=='Armor' and playerCharacter.armorId!=inv.index}">
+							<a
+								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
+								class='btn btn-outline-primary btn-wide'><c:out
+									value="Equip Armor"></c:out></a>
+						</c:if> 
+						<c:if test="${playerCharacter.weaponId==inv.index or playerCharacter.armorId==inv.index}">
 							<c:out value="Equipped"></c:out>
 						</c:if></td>
 				</tr>
