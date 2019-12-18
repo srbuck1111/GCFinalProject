@@ -97,7 +97,9 @@ public class HomeController {
 			Inventory potion = new Inventory(currentP, 129, 1);
 			//Equipment potion = rt.getForObject(potionURL, Equipment.class);
 			//currentP.setInventory(currentP.getInventory().add(potion));
-			
+			//currentP.addInventory(potion);
+			inventoryRepo.save(potion);
+			System.out.println("got here!");
 			cr.save(currentP);
 			session.setAttribute("playerCharacter", currentP);
 			ModelAndView mv = new ModelAndView("redirect:/get-results");
