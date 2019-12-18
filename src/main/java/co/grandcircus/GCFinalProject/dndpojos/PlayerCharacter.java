@@ -1,5 +1,6 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -14,8 +15,12 @@ import org.springframework.web.client.RestTemplate;
 import co.grandcircus.GCFinalProject.model.User;
 
 @Entity
-public class PlayerCharacter {
+public class PlayerCharacter implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer characterId;
