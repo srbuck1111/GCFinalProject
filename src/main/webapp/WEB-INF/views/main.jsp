@@ -11,6 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 	<style>
 	.column {
   		float: left;
@@ -21,14 +22,37 @@
 	  display: table;
 	  clear: both;
 	}
+	h1 {
+ font-family: 'Cinzel Decorative'; font-size: 45px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+h2 {
+ font-family: 'Cinzel Decorative'; font-size: 35px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+h3 {
+ font-family: 'Cinzel Decorative'; font-size: 17px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
 	</style>
 </head>
 <body onload="getLocation()">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			 	<h2>Hi ${playerCharacter.firstName } ${playerCharacter.lastName },</h2>
-				<h3>you currently have $${playerCharacter.gold} in gold.</h3>
+			 	<h1>Welcome, ${playerCharacter.firstName } ${playerCharacter.lastName }</h1>
+				<h2>Current gold: ${playerCharacter.gold}</h2>
+				<h3>Player stats: <br> HP: ${playerCharacter.hp} / ${playerCharacter.hpMax}<br> 
+				Armor Class: ${playerCharacter.ac}<br>
+				Strength: ${playerCharacter.str}<br>
+				Dexterity: ${playerCharacter.dex}<br>
+				Constitution: ${playerCharacter.con}<br>
+				Intelligence: ${playerCharacter.intel}<br>
+				Wisdom: ${playerCharacter.wis}<br>
+				Charisma: ${playerCharacter.cha}<br><br>
+				Victories: <br>
+				Defeats:
+				</h3>
 				<br>
 				
 				<form action="/new-character"> 		
@@ -45,19 +69,19 @@
 			</div>
 			<div class="column">
 				<h1>Current Location</h1>
-				<button on="getLocation()">Update Location</button><br/><br/>
-				<div id="demo"></div>
+				<br/><div id="demo"></div><br/>
+				<h1>Dungeons</h1>
 				<p style="color: red">${error}</p>
 				<br /> <br />
 				<c:forEach var="r" items="${listOfResults.result}">
 					<h3>${r.name }</h3>
 					<form action="/test">
-						<input type="hidden" id="userLat" name="userLat"
+						<span title = "Click to enter a dungeon when you are withing range. If you are not within range, you will be returned to this page."><input class = "btn btn-outline-success"type="hidden" id="userLat" name="userLat"
 							value="${userLat }" /> <input type="hidden" id="userLng"
 							name="userLng" value="${userLng }" /> <input type="hidden"
 							name="placeLat" value="${r.geometry.location.lat }" /> <input
 							type="hidden" name="placeLng" value="${r.geometry.location.lng }" />
-						<input type="submit" value="I'm here" />
+						<input type="submit" value="Enter this dungeon" /></span>
 					</form>
 					<br />
 				</c:forEach>

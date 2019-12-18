@@ -53,7 +53,7 @@ public class MonsterMash {
 		// Monster response = rt.getForObject(url, Monster.class);
 
 		Monster response = rt.getForObject(url, Monster.class);
-		if (response.getIndex()==203) {
+		if (response.getIndex()==259) {
 			response.setImageUrl("https://artfiles.alphacoders.com/593/thumb-59316.jpg");
 		} if (response.getIndex()==325) {
 			response.setImageUrl("https://i.pinimg.com/originals/f2/ce/5d/f2ce5d196f7f5658fec067c8f1de1bbe.jpg");

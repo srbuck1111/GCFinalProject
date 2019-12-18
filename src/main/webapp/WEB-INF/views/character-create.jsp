@@ -11,7 +11,9 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 <style>
+
 .column {
 	float: left;
 	width: 50%;
@@ -22,6 +24,23 @@
 	display: table;
 	clear: both;
 }
+body {
+  background-image: url("https://wallpaperplay.com/walls/full/8/c/6/102152.jpg");
+background-repeat: no-repeat;
+background-position: relative;
+ background-size: cover;
+ opacity: .85;
+ 
+
+}
+h6 {
+ font-family: 'Cinzel Decorative'; font-size: 30px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+h5 {
+ font-family: 'Cinzel Decorative'; font-size: 20px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
 </style>
 </head>
 <body onLoad="checkPointBuy()">
@@ -29,25 +48,26 @@
 	<div class="jumbotron">
 		<div class="row">
 			<div class="column">
-			<input placeholder="First Name" type="text" name="firstName"/><br/><br/>
-			<input placeholder="Last Name" type="text" name="lastName"/><br/><br/>
-			<select name="classIndex">
+			<input class="btn btn-outline-secondary" placeholder="First Name" type="text" name="firstName" required/><br/><br/>
+			<input class="btn btn-outline-secondary"placeholder="Last Name" type="text" name="lastName" required/><br/><br/>
+			Need help? Hover over fields for additional details! <br><br>
+			<span title = "Click to choose your character class!"><select class = "btn btn-outline-warning" name="classIndex">
 				<c:forEach var="c" items="${classes }">
 					<option value="${c.index }">${c.name }</option>
 				</c:forEach>
-			</select>
+			</select></span>
 			</div>
 			<div class="column">
-				<h6>STR</h6><input value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/><br/>
-				<h6>CON</h6><input value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/><br/>
-				<h6>DEX</h6><input value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/><br/>
-				<h6>INT</h6><input value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/><br/>
-				<h6>WIS</h6><input value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/><br/>
-				<h6>CHA</h6><input value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/><br/>
+				<h6>Strength</h6><span title="Strength increases your damage potential"><input class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Constitution</h6><span title = "Constitution increases your health and endurance"><input class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons"><input class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Intelligence</h6><span title = "Intelligence controls your skill with magic, and stat points per level"><input class="btn btn-outline-secondary" value="10" id="int" type="number" name="intel" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Wisdom</h6><span title = "Wisdom contributes to your ability to heal and cast certain spells"><input class="btn btn-outline-secondary" value="10" id="wis" type="number" name="wis" oninput="checkPointBuy()"/></Span><br/>
+				<h6>Charisma</h6><span title = "Charisma is all about talking your way our of tough situations"><input class="btn btn-outline-secondary" value="10" id="cha" type="number" name="cha" oninput="checkPointBuy()"/></Span><br/>
 				<br/>
-				Points Remaining:<br/>
-				<input type="text" id="pointsRemaining"/>
-				<input type="submit" value="Create"/>
+				<h5>Points Remaining:</h5>
+				<input class="btn btn-outline-secondary" type="text" id="pointsRemaining"/>
+				<input class="btn btn-outline-success" type="submit" value="Create"/>
 				<div id="alertHigh" style="color:red"></div>
 				<div id="alertLow" style="color:red"></div>
 			</div>
