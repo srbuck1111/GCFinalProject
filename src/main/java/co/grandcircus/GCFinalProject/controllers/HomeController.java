@@ -1,7 +1,5 @@
 package co.grandcircus.GCFinalProject.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.Equipment;
 import co.grandcircus.GCFinalProject.dndpojos.Inventory;
 import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Location;
@@ -94,9 +93,11 @@ public class HomeController {
 		//if (currentP.getGold() > 15) {
 			currentP.setGold(currentP.getGold() - 15);
 			//List<Inventory> playerInv = currentP.getInventory();
-			String potionURL = "http://www.dnd5eapi.co/api/equipment/129";
-			Inventory potion = rt.getForObject(potionURL, Inventory.class);
-			currentP.setInventory(currentP.getInventory().add(potion));
+			//String potionURL = "http://www.dnd5eapi.co/api/equipment/129";
+			Inventory potion = new Inventory(currentP, 129, 1);
+			//Equipment potion = rt.getForObject(potionURL, Equipment.class);
+			//currentP.setInventory(currentP.getInventory().add(potion));
+			
 			cr.save(currentP);
 			session.setAttribute("playerCharacter", currentP);
 			ModelAndView mv = new ModelAndView("redirect:/get-results");

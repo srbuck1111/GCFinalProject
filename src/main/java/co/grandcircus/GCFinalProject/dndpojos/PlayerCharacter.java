@@ -15,7 +15,7 @@ import co.grandcircus.GCFinalProject.model.User;
 
 @Entity
 public class PlayerCharacter {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer characterId;
@@ -27,6 +27,7 @@ public class PlayerCharacter {
 	private String firstName;
 	private String lastName;
 	private int weaponId;
+	private int armorId;
 	private int levelId;
 	private int classId;
 	private int gold;
@@ -60,18 +61,24 @@ public class PlayerCharacter {
 		this.intel = intel;
 		this.wis = wis;
 		this.cha = cha;
+		this.wins = 0;
+		this.losses = 0;
+		this.flees = 0;
 		assignImage();
 	}
-
-	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String firstName, String lastName,
-			int weaponId, int levelId, int classId, int gold, int hpMax, int hp, int ac, int str, int dex, int con) {
+	
+	public PlayerCharacter(Integer characterId, User user, List<Inventory> inventory, String imageUrl, String firstName,
+			String lastName, int weaponId, int armorId, int levelId, int classId, int gold, int hpMax, int hp, int ac,
+			int str, int dex, int con, int intel, int wis, int cha, int wins, int losses, int flees) {
 		super();
 		this.characterId = characterId;
 		this.user = user;
 		this.inventory = inventory;
+		this.imageUrl = imageUrl;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.weaponId = weaponId;
+		this.armorId = armorId;
 		this.levelId = levelId;
 		this.classId = classId;
 		this.gold = gold;
@@ -81,9 +88,14 @@ public class PlayerCharacter {
 		this.str = str;
 		this.dex = dex;
 		this.con = con;
+		this.intel = intel;
+		this.wis = wis;
+		this.cha = cha;
+		this.wins = wins;
+		this.losses = losses;
+		this.flees = flees;
 	}
-	
-	
+
 
 	public String getImageUrl() {
 		if (imageUrl == null) {
@@ -119,6 +131,10 @@ public class PlayerCharacter {
 
 	public void setInventory(List<Inventory> inventory) {
 		this.inventory = inventory;
+	}
+	
+	public void addInventory(Inventory i) {
+		this.inventory.add(i);
 	}
 
 	public String getFirstName() {
@@ -161,6 +177,15 @@ public class PlayerCharacter {
 		this.classId = classId;
 	}
 
+	public int getArmorId() {
+		return armorId;
+	}
+
+	public void setArmorId(int armorId) {
+		this.armorId = armorId;
+	}
+
+
 	public int getGold() {
 		return gold;
 	}
@@ -177,6 +202,13 @@ public class PlayerCharacter {
 		this.hpMax = hpMax;
 	}
 
+	public void updateHpMax() {
+		RestTemplate rt = new RestTemplate();
+		String url = "http://www.dnd5eapi.co/api/equipment/" + armorId;
+		Classes clss = rt.getForObject(url, Classes.class);
+		this.hpMax = clss.getHitDie() + Dice.roll(clss.getHitDie()) + 2 * getModFor(con);
+	}
+
 	public int getHp() {
 		return hp;
 	}
@@ -191,6 +223,17 @@ public class PlayerCharacter {
 
 	public void setAc(int ac) {
 		this.ac = ac;
+	}
+
+	public void updateAc() {
+		RestTemplate rt = new RestTemplate();
+		String url = "http://www.dnd5eapi.co/api/equipment/" + armorId;
+		Equipment armor = rt.getForObject(url, Equipment.class);
+		if (armor.getArmorClass().isDexBonus()) {
+			this.ac = armor.getArmorClass().getBase() + getModFor(dex);			
+		} else {
+			this.ac = armor.getArmorClass().getBase();
+		}
 	}
 
 	public int getStr() {
@@ -327,26 +370,6 @@ public class PlayerCharacter {
 			 setImageUrl(image12Wizard);
 		}
 		
-	}
-	
-	public String hit(Monster m) {
-		RestTemplate rt = new RestTemplate();
-		String text = "You roll to hit the " + m.getName() + "!<br/>";
-		int toHit = Dice.roll(20) + getModFor(str);
-		int dmg = 0;
-		if (toHit > m.getAc()) {
-			Equipment weapon = rt.getForObject("http://dnd5eapi.co/api/equipment/" + weaponId, Equipment.class);
-			dmg = 0;
-			for (int i = 0; i <= weapon.getDamage().getDiceCount(); i++) {
-				dmg += Dice.roll(weapon.getDamage().getDiceValue());
-			}
-			dmg += getModFor(str);
-			text += "With a " + toHit + " you are able to deal " + dmg + " damage!";
-			m.setHp(m.getHp() - dmg);
-		} else {
-			text += "With a " + toHit + " you are unable to hit the " + m.getName();
-		}
-		return text;
 	}
 
 }
