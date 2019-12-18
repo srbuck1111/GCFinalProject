@@ -36,11 +36,7 @@ public class InventoryController {
 
 		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
 
-		/*
-		 * for (Inventory i : pc.getInventory()) { String url =
-		 * "http://dnd5eapi.co/api/equipment/" + i.getEquipmentId();
-		 * equipmentList.add(rt.getForObject(url, Equipment.class)); }
-		 */
+		
 		List<Inventory> inventory = inventoryRepo.findByPlayerCharacter(pc);
 		String url;
 		ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();

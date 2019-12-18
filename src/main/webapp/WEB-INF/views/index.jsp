@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
-
+<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 <style>
 * {
 	box-sizing: border-box;
@@ -30,16 +30,34 @@
 	display: table;
 	clear: both;
 }
+
+body {
+  background-image: url("https://rpgrunkleplaysgames.files.wordpress.com/2017/06/65_header_dmscreen2017.jpg?w=1440");
+background-repeat: no-repeat;
+background-position: relative;
+ background-size: cover;
+ opacity: .85;
+ 
+
+}
+h1 {
+ font-family: 'Cinzel Decorative'; font-size: 75px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
 </style>
 
 </head>
 <body>
-<h1>Welcome to Dungeon Go!</h1>
+<br>
+<br>
+<br>
+<center><h1>Welcome to Dungeon Go!</h1></center>
+
 
 
 <div class="container">
 		<div class="jumbotron">
-		
+		<center>
 <form method="post" action="/login">
 	
 		Username <input type="text" name="userName" size="22" required>
@@ -55,7 +73,7 @@
 	</form>
 <br>
 
-
+</center>
 	
 	</div>
 	</div>

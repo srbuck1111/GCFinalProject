@@ -5,28 +5,51 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Inventory List</title>
+<title>Inventory</title>
 <link
-	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css"
 	rel="stylesheet"
-	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
+	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+	<style>
+* h1 {
+ font-family: 'Cinzel Decorative'; font-size: 75px;
+ text-shadow: white 0.3em 0.2em 0.2em
+}
+
+h4 {
+ font-family: 'Cinzel Decorative'; font-size: 45px; 
+ text-shadow: white 0.3em 0.2em 0.2em
+}
+
+td {
+font-size: 20px; 
+ 
+}
+
+</style>
 </head>
+
+
+
 <body>
-	<table class="table">
+<div class="container">
+	
+		<center><h1>Inventory</h1></center>
+	<table width="75%" class="table" >
 		<tr>
-			<th>Item Name</th>
-			<th>Hi</th>
-			<th>QTY</th>
+			<th><h4>Item Name</h4></th>
+			<th><h4>Equip?</h4></th>
 			
 		</tr>
 
 		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 			<tr>
 				<td>${inv.name }</td>
-			<td>Hi</td>
-				<td>Hi</td>
+			<td><input class="btn btn-outline-primary" type="submit" value="Equip"></td>
 		</c:forEach> 
 	</table> 
+	</div></div>
 </body>
 </html>
