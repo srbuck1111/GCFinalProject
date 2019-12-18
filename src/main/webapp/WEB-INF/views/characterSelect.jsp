@@ -18,17 +18,27 @@
 * h1 {
 	font-family: 'Cinzel Decorative';
 	font-size: 65px;
-	text-shadow: black 0.3em 0.2em 0.2em
+	text-shadow: white 0.3em 0.2em 0.2em;
+	color: black;
 }
 
 h4 {
 	font-family: 'Cinzel Decorative';
 	font-size: 45px;
-	text-shadow: black 0.3em 0.2em 0.2em
+	text-shadow: white 0.3em 0.2em 0.2em;
+	color: black;
 }
 
 option {
 	font-size: 20px;
+}
+body {
+	background-image:
+		url("https://www.tokkoro.com/picsup/5466774-fantasy-waterfall-wallpapers.jpg");
+	background-repeat: no-repeat;
+	background-position: relative;
+	background-size: cover;
+	opacity: .75;
 }
 </style>
 
@@ -55,7 +65,11 @@ option {
 <div>
 	<h1>
 		<center>Welcome, ${loggedUser.username }! Select Your
-			Character!</center>
+			Character! <form class="form-inline" action="/new-character">
+							<center><input class="btn btn-primary" type="submit"
+								value="Create a new character!"></center>
+						</form></center>
+			
 	</h1>
 </div>
 <style>
@@ -77,11 +91,10 @@ option {
 </style>
 
 <body onload="getLocation()">
-	<div>
 		<div class="container">
 			<div class="row">
 				<div class="column">
-					<h4>Character Select</h4>
+					<center><h4>Character Select</h4></center>
 
 					<br>
 					<center>
@@ -89,25 +102,25 @@ option {
 							<input type="hidden" id="userLat" name="userLat"
 								value="${userLat }" /> <input type="hidden" id="userLng"
 								name="userLng" value="${userLng }" /> <select
-								class="btn btn-outline-primary" name="characterId">
+								class="btn btn-primary" name="characterId">
 								<c:forEach var="c" items="${loggedUser.playerCharacters}">
 									<option value="${c.characterId}">${c.getFirstName() }
 										${c.getLastName()}</option>
 								</c:forEach>
-							</select> <input type="submit" class="btn btn-outline-primary"
-								value="Select This Character" />
+							</select> <input type="submit" class="btn btn-primary"
+								value="Select This Character" /></center>
 						</form>
-						<br>
-						<form class="form-inline" action="/new-character">
-							<input class="btn btn-outline-primary" type="submit"
-								value="Create a new character!">
-						</form>
-					</center>
+						<br><br><br>
+						
+					
 
 				</div>
+					
 			</div>
+			
 		</div>
-	</div>
+		
+
 
 	<script>
 		var x = document.getElementById("demo");

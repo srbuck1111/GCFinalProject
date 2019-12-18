@@ -103,7 +103,7 @@ public class MonsterMash {
 		String responseTest = rt.getForObject(url, String.class);
 		
 		if (response.getIndex()==285) {
-			response.setImageUrl("https://i.pinimg.com/564x/81/c1/b2/81c1b295231252a1d6b0b92eb6fbff89.jpg");
+			response.setImageUrl("https://i.pinimg.com/474x/b2/a6/ba/b2a6bac3b19f3b52f1133960232d635d.jpg");
 		} if (response.getIndex()==110){
 			response.setImageUrl("http://photos.geni.com/p7/3808/2288/53444836dc30ba37/frost_giant_large.jpg");
 		} if (response.getIndex()==104){
@@ -142,7 +142,7 @@ public class MonsterMash {
 		if (response.getIndex()==173) {
 			response.setImageUrl("https://i.redd.it/u5edku5cc1l01.jpg");
 		} if (response.getIndex()==184) {
-			response.setImageUrl("https://i.pinimg.com/originals/f1/39/5c/f1395cc0dd51f6791955177f86ffeaef.jpg");
+			response.setImageUrl("https://i.pinimg.com/564x/d8/f8/89/d8f889c1e8f640460d0b518cbd1c91db.jpg");
 		} if (response.getIndex()==21) {
 			response.setImageUrl("https://66.media.tumblr.com/cf15ff1f6f7bf4d1634a5b681a5908d6/tumblr_on3fy2YXIl1rxvxzbo1_400.jpg");
 		}
