@@ -32,6 +32,7 @@ font-size: 20px;
 width:250px;
 }
 
+
 </style>
 </head>
 
@@ -42,20 +43,31 @@ width:250px;
 	<div class="jumbotron">
 	<h1 align="center">Inventory</h1>
 	${weaponSet }
-		
 	<table class="table">
 			<tr>
 				<th><h4>Item Name</h4></th>
-				<th><h4>Equip?</h4></th>		
+				<th><h4>Equip Weapon?</h4></th>
+				
 			</tr>
 		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 			<tr>
 				<td>${inv.name }</td>
-				<td><a href="/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}" class="btn btn-outline-primary btn-wide">Equip Weapon</a></td>
+				
+				<td><c:if test = "${inv.equipmentCategory=='Weapon' }">
+				<a href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}' class='btn btn-outline-primary btn-wide'><c:out value = "Equip Weapon"></c:out></a>
+				</c:if>
+			
+				</td>
 			</tr>
 		</c:forEach> 
 	</table> 
+	
+	<div style="text-align: left">
+		<a href="/get-results" class="btn btn-outline-primary btn-wide">Back to Main</a>
+		</div>
 	</div>
 </div>
+
+
 </body>
 </html>
