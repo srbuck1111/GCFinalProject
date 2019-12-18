@@ -31,6 +31,11 @@ public class EventController {
 
 	RestTemplate rt = new RestTemplate();
 
+	@RequestMapping("encounter")
+	public ModelAndView continueEncounter() {
+		return new ModelAndView("encounter");
+	}
+	
 	@RequestMapping("encounter/attack")
 	public ModelAndView attack() {
 		
@@ -89,7 +94,7 @@ public class EventController {
 		}
 		
 		if (pc.getHp() <= 0) {
-			pc.setHp(0);
+			pc.setHp(pc.getHpMax());
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			text = "With a " + toHit + " to hit, dealing " + dmg + ", the" + m.getName() + " has slayed you.";
 			mvEnd.addObject("win", false);

@@ -21,7 +21,7 @@ public class VicinityController {
 		session.setAttribute("userLat", userLat);
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
-			return new ModelAndView("redirect:/encounter");//!needs to change to new encounter redirect!//
+			return new ModelAndView("redirect:/encounter/create");//!needs to change to new encounter redirect!//
 		}
 		return new ModelAndView("redirect:/get-results?error=true");
 	}
