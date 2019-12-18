@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Inventory implements Serializable{
 
+	
 	/**
 	 * 
 	 */

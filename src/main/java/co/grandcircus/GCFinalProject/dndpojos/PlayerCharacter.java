@@ -15,7 +15,8 @@ import org.springframework.web.client.RestTemplate;
 import co.grandcircus.GCFinalProject.model.User;
 
 @Entity
-public class PlayerCharacter implements Serializable {
+public class PlayerCharacter implements Serializable{
+	
 	
 	/**
 	 * 
