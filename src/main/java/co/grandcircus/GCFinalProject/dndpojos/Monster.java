@@ -44,6 +44,8 @@ public class Monster {
 	private Integer challengeRating;
 	
 	private List<Action> actions;
+	
+	private List<Integer> lootTable;
 
 	public Integer getIndex() {
 		return index;
@@ -203,6 +205,14 @@ public class Monster {
 
 	public void setActions(List<Action> actions) {
 		this.actions = actions;
+	}
+
+	public List<Integer> getLootTable() {
+		return lootTable;
+	}
+
+	public void setLootTable(List<Integer> lootTable) {
+		this.lootTable = lootTable;
 	}
 
 	public Monster(Integer index, String name, String size, String type, String alignment, Integer ac, Integer hp,

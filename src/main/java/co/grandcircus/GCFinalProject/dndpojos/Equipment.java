@@ -213,4 +213,20 @@ public class Equipment {
 		this.stealthDisadvantage = stealthDisadvantage;
 	}
 
+	public String getGearCategory() {
+		return gearCategory;
+	}
+
+	public void setGearCategory(String gearCategory) {
+		this.gearCategory = gearCategory;
+	}
+
+	public String getHealDice() {
+		return healDice;
+	}
+
+	public void setHealDice(String healDice) {
+		this.healDice = healDice;
+	}
+
 }

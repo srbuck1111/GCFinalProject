@@ -51,7 +51,7 @@ h5 {
 			<input class="btn btn-secondary" placeholder="First Name" type="text" name="firstName" required/><br/><br/>
 			<input class="btn btn-secondary"placeholder="Last Name" type="text" name="lastName" required/><br/><br/>
 			Need help? Hover over fields for additional details! <br><br>
-			<span title = "Click to choose your character class!"><select class = "btn btn-warning" name="classIndex">
+			<span title = "Click to choose your character class!"><select class = "btn btn-warning" name="classId">
 				<c:forEach var="c" items="${classes }">
 					<option value="${c.index }">${c.name }</option>
 				</c:forEach>

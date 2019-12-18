@@ -1,11 +1,11 @@
 package co.grandcircus.GCFinalProject.universalMethods;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.GCFinalProject.dndpojos.Monster;
-import co.grandcircus.GCFinalProject.mappojos.Place;
 
 public class MonsterMash {
 
@@ -55,6 +55,12 @@ public class MonsterMash {
 		Monster response = rt.getForObject(url, Monster.class);
 		if (response.getIndex()==259) {
 			response.setImageUrl("https://artfiles.alphacoders.com/593/thumb-59316.jpg");
+			List<Integer> lootTable = new ArrayList<Integer>();
+			lootTable.add(2);
+			lootTable.add(22);
+			lootTable.add(28);
+			lootTable.add(129);
+			response.setLootTable(lootTable);
 		} if (response.getIndex()==325) {
 			response.setImageUrl("https://i.pinimg.com/originals/f2/ce/5d/f2ce5d196f7f5658fec067c8f1de1bbe.jpg");
 		} if (response.getIndex()==177) {
