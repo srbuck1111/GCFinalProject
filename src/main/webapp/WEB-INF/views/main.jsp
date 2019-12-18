@@ -56,7 +56,7 @@ body {
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/get-results">Dungeon Go!</a>
+	<a class="navbar-brand">Dungeon Go!</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarColor02" aria-controls="navbarColor02"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -65,11 +65,10 @@ body {
 
 	<div class="collapse navbar-collapse" id="navbarColor02">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="/get-results">Home
-			</a></li>
 			<li class="nav-item"><a class="nav-link" href="/characterSelect">Select
 					Character</a></li>
-			<li class="nav-item"><a class="nav-link" href=""></a></li>
+			<li class="nav-item"><a class="nav-link" href="/inventory-list">View
+					Inventory</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 		</ul>
 		<button class="btn btn-secondary my-2 my-sm-0" type="submit">
@@ -99,8 +98,8 @@ body {
 						Dexterity: ${playerCharacter.dex}<br> Constitution:
 						${playerCharacter.con}<br> Intelligence:
 						${playerCharacter.intel}<br> Wisdom: ${playerCharacter.wis}<br>
-						Charisma: ${playerCharacter.cha}<br>
-						<br> Victories: ${playerCharacter.wins } <br> Defeats:
+						Charisma: ${playerCharacter.cha}<br> <br> Victories:
+						${playerCharacter.wins } <br> Defeats:
 						${playerCharacter.losses } <br> You fled from combat
 						${playerCharacter.flees} times
 					</h3>
@@ -118,14 +117,14 @@ body {
 				</center>
 				<br>
 
-				<center>
-					<form action="/inventory-list">
+			<!--	<center>
+					 <form action="/inventory-list">
 						<span
 							title="View potions and equip weapons and armor in ${playerCharacter.firstName }'s inventory."><input
 							class="btn btn-primary" type="submit" value="View Your Inventory"></span>
-					</form>
+					</form> 
 					<br>
-				</center>
+				</center>-->
 
 				<center>
 					<form action="/buy-potion">

@@ -11,27 +11,29 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-	
-	<style>
+<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative'
+	rel='stylesheet'>
+
+<style>
 * h1 {
- font-family: 'Cinzel Decorative'; font-size: 65px;
- text-shadow: black 0.3em 0.2em 0.2em
+	font-family: 'Cinzel Decorative';
+	font-size: 65px;
+	text-shadow: black 0.3em 0.2em 0.2em
 }
 
 h4 {
- font-family: 'Cinzel Decorative'; font-size: 45px; 
- text-shadow: black 0.3em 0.2em 0.2em
+	font-family: 'Cinzel Decorative';
+	font-size: 45px;
+	text-shadow: black 0.3em 0.2em 0.2em
 }
 
 option {
-font-size:20px;
+	font-size: 20px;
 }
-
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/get-results">Dungeon Go!</a>
+	<a class="navbar-brand">Dungeon Go!</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarColor02" aria-controls="navbarColor02"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -40,11 +42,6 @@ font-size:20px;
 
 	<div class="collapse navbar-collapse" id="navbarColor02">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link"
-				href="/get-results">Home </a></li>
-			<li class="nav-item"><a class="nav-link" href="/characterSelect">Select
-					Character</a></li>
-			<li class="nav-item"><a class="nav-link" href=""></a></li>
 			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 		</ul>
 		<button class="btn btn-secondary my-2 my-sm-0" type="submit">
@@ -56,8 +53,9 @@ font-size:20px;
 </nav>
 </head>
 <div>
-	<h1 >
-		<center>Welcome, ${loggedUser.username }! Select Your Character!</center>
+	<h1>
+		<center>Welcome, ${loggedUser.username }! Select Your
+			Character!</center>
 	</h1>
 </div>
 <style>
@@ -67,8 +65,9 @@ font-size:20px;
 }
 
 .column2 {
-float: right;
-width: 50%}
+	float: right;
+	width: 50%
+}
 
 .row:after {
 	content: "";
@@ -79,30 +78,36 @@ width: 50%}
 
 <body onload="getLocation()">
 	<div>
-	<div class="container">
-		<div class="row">
-			<div class="column">
-				<h4>Character Select</h4>
-				
-				<br>
-				<center><form action="/character-select" onSubmit="getLocation()">
-					<input type="hidden" id="userLat" name="userLat" value="${userLat }" />
-					<input type="hidden" id="userLng" name="userLng" value="${userLng }" />
-					<select class="btn btn-outline-primary" name="characterId">
-						<c:forEach var="c" items="${loggedUser.playerCharacters}">
-							<option value="${c.characterId}">${c.getFirstName() } ${c.getLastName()}</option>
-						</c:forEach>
-					</select>
-					<input type="submit" class="btn btn-outline-primary" value="Select This Character"/>
-				</form>
-			<br>
-			<form class="form-inline" action="/new-character">
-				<input class="btn btn-outline-primary" type="submit"
-					value="Create a new character!">
-			</form></center>
+		<div class="container">
+			<div class="row">
+				<div class="column">
+					<h4>Character Select</h4>
 
-			</div></div></div>
+					<br>
+					<center>
+						<form action="/character-select" onSubmit="getLocation()">
+							<input type="hidden" id="userLat" name="userLat"
+								value="${userLat }" /> <input type="hidden" id="userLng"
+								name="userLng" value="${userLng }" /> <select
+								class="btn btn-outline-primary" name="characterId">
+								<c:forEach var="c" items="${loggedUser.playerCharacters}">
+									<option value="${c.characterId}">${c.getFirstName() }
+										${c.getLastName()}</option>
+								</c:forEach>
+							</select> <input type="submit" class="btn btn-outline-primary"
+								value="Select This Character" />
+						</form>
+						<br>
+						<form class="form-inline" action="/new-character">
+							<input class="btn btn-outline-primary" type="submit"
+								value="Create a new character!">
+						</form>
+					</center>
+
+				</div>
+			</div>
 		</div>
+	</div>
 
 	<script>
 		var x = document.getElementById("demo");

@@ -54,7 +54,7 @@ body {
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/get-results">Dungeon Go!</a>
+	<a class="navbar-brand">Dungeon Go!</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarColor02" aria-controls="navbarColor02"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -63,12 +63,9 @@ body {
 
 	<div class="collapse navbar-collapse" id="navbarColor02">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="/get-results">Home
-			</a></li>
-			<li class="nav-item"><a class="nav-link" href="/characterSelect">Select
-					Character</a></li>
-			<li class="nav-item"><a class="nav-link" href=""></a></li>
-			<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+			<li class="nav-item"><a class="nav-link"> </a></li>
+			<li class="nav-item"><a class="nav-link"></a></li>
+			<li class="nav-item"><a class="nav-link"></a></li>
 		</ul>
 		<button class="btn btn-secondary my-2 my-sm-0" type="submit">
 			<a href="/">Logout</a>
@@ -101,20 +98,13 @@ body {
 			<div class="column">
 				<center>
 					<h4>Combat Info</h4>
-					<br>
-					<br> <a style="visibility: hidden" id="attackBtn"
+					<br> <br> <a style="visibility: hidden" id="attackBtn"
 						class="btn btn-secondary" href="/encounter/attack">Attack</a><br />
 					<br> <a style="visibility: hidden" id="fleeBtn"
-						class="btn btn-secondary" href="/encounter/flee">Flee</a><br />
-					<br> <a style="visibility: hidden" id="defendBtn"
+						class="btn btn-secondary" href="/encounter/flee">Flee</a><br /> <br>
+					<a style="visibility: hidden" id="defendBtn"
 						class="btn btn-secondary" href="/encounter/defend">Defend</a><br />
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
+					<br> <br> <br> <br> <br> <br> <br>
 					<br>
 					<h3>${encounterInfo.getText() }</h3>
 				</center>
