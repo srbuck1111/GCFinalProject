@@ -64,13 +64,15 @@ background-position: relative;
 				<h6>Ac: ${playerCharacter.ac }</h6>
 				<br>
 				<img alt="Player Image" src="${playerCharacter.imageUrl}"><br/>
-				<a style="visibility:hidden" id="attackBtn" class="btn btn-secondary" href="/encounter/attack">Attack</a><br/>
-				<a style="visibility:hidden" id="fleeBtn" class="btn btn-secondary" href="/encounter/flee">Flee</a><br/>
-				<a style="visibility:hidden" id="defendBtn" class="btn btn-secondary" href="/encounter/defend">Defend</a><br/></center>
+			</center>
 			</div>
 
 			<div class="column">
-				<center><h4>Combat Info</h4><br><br><br><br><br><br><br><br><br><br>
+				<center><h4>Combat Info</h4><br><br>
+				<a style="visibility:hidden" id="attackBtn" class="btn btn-secondary" href="/encounter/attack">Attack</a><br/><br>
+				<a style="visibility:hidden" id="fleeBtn" class="btn btn-secondary" href="/encounter/flee">Flee</a><br/><br>
+				<a style="visibility:hidden" id="defendBtn" class="btn btn-secondary" href="/encounter/defend">Defend</a><br/>
+				<br><br><br><br><br><br><br><br>
 				<h3>${encounterInfo.getText() }</h3></center>
 			</div>
 
