@@ -39,6 +39,9 @@ public class PlayerCharacter {
 	private int intel;
 	private int wis;
 	private int cha;
+	private int wins;
+	private int losses;
+	private int flees;
 
 	public PlayerCharacter() {
 		super();
@@ -232,6 +235,36 @@ public class PlayerCharacter {
 	public void setCha(int cha) {
 		this.cha = cha;
 	}
+
+	public int getWins() {
+		return wins;
+	}
+
+
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+
+	public int getLosses() {
+		return losses;
+	}
+
+
+	public void setLosses(int losses) {
+		this.losses = losses;
+	}
+
+
+	public int getFlees() {
+		return flees;
+	}
+
+
+	public void setFlees(int flees) {
+		this.flees = flees;
+	}
+
 
 	public static int getModFor(int modValue) {
 		return (int) Math.floor((modValue / 2) - 5);

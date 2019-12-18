@@ -61,6 +61,8 @@ public class EventController {
 		
 		if (m.getHp() <= 0) {
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
+			pc.setWins(pc.getWins() + 1);
+			cr.save(pc);
 			text = "With a " + toHit + " to hit, dealing " + dmg + ", you slayed the " + m.getName() + "!";
 			mvEnd.addObject("win", true);
 			return mvEnd;
@@ -95,6 +97,8 @@ public class EventController {
 		
 		if (pc.getHp() <= 0) {
 			pc.setHp(pc.getHpMax());
+			pc.setLosses(pc.getLosses() + 1);
+			cr.save(pc);
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			text = "With a " + toHit + " to hit, dealing " + dmg + ", the" + m.getName() + " has slayed you.";
 			mvEnd.addObject("win", false);
@@ -111,6 +115,9 @@ public class EventController {
 	
 	@RequestMapping("encounter/flee")
 	public ModelAndView flee() {
+		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
+		pc.setFlees(pc.getFlees() + 1);
+		cr.save(pc);
 		return new ModelAndView("redirect:/get-results");
 	}
 
