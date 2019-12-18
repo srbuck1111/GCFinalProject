@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.EncounterInfo;
+
 @Controller
 public class VicinityController {
 	@Autowired
@@ -21,7 +23,9 @@ public class VicinityController {
 		session.setAttribute("userLat", userLat);
 		session.setAttribute("userLng" ,userLng);
 		if (theseAreClose(parsedLat, parsedLng, parsedPlaceLat, parsedPlaceLng)) {
-			return new ModelAndView("redirect:/encounter/create");//!needs to change to new encounter redirect!//
+			EncounterInfo ei = new EncounterInfo("", 2);
+			session.setAttribute("encounterInfo", ei);
+			return new ModelAndView("redirect:/encounter/create");
 		}
 		return new ModelAndView("redirect:/get-results?error=true");
 	}
