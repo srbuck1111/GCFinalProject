@@ -8,7 +8,7 @@ public class Equipment {
 
 	@JsonProperty("_id")
 	private String id;
-	private int index;
+	private Integer index;
 	private String name;
 	@JsonProperty("equipment_category")
 	private String equipmentCategory;

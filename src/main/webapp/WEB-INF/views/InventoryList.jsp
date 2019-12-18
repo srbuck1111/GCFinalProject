@@ -11,45 +11,71 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-	<style>
-* h1 {
- font-family: 'Cinzel Decorative'; font-size: 75px;
- text-shadow: white 0.3em 0.2em 0.2em
+<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative'
+	rel='stylesheet'>
+<style>
+
+
+
+h1 {
+	font-family: 'Cinzel Decorative';
+	font-size: 75px;
+	text-shadow: white 0.3em 0.2em 0.2em
 }
 
 h4 {
- font-family: 'Cinzel Decorative'; font-size: 45px; 
- text-shadow: white 0.3em 0.2em 0.2em
+	font-family: 'Cinzel Decorative';
+	font-size: 45px;
+	text-shadow: white 0.3em 0.2em 0.2em
 }
 
 td {
-font-size: 20px; 
- 
+	font-size: 20px;
 }
 
+.btn-wide {
+	width: 250px;
+}
 </style>
 </head>
 
 
 
 <body>
-<div class="container">
-	
-		<center><h1>Inventory</h1></center>
-	<table width="75%" class="table" >
-		<tr>
-			<th><h4>Item Name</h4></th>
-			<th><h4>Equip?</h4></th>
-			
-		</tr>
+	<div class="container">
 
-		<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
+		<h1 align="center">Inventory</h1>
+		
+		${weaponSet }
+		<table class="table">
 			<tr>
-				<td>${inv.name }</td>
-			<td><input class="btn btn-outline-primary" type="submit" value="Equip"></td>
-		</c:forEach> 
-	</table> 
-	</div></div>
+				<th><h4>Item Name</h4></th>
+				<th><h4>Equip Weapon?</h4></th>
+
+			</tr>
+			<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
+				<tr>
+					<td>${inv.name }</td>
+
+					<td><c:if
+							test="${inv.equipmentCategory=='Weapon' and playerCharacter.weaponId!=inv.index}">
+							<a
+								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
+								class='btn btn-outline-primary btn-wide'><c:out
+									value="Equip Weapon"></c:out></a>
+						</c:if>
+						<c:if test="${playerCharacter.weaponId==inv.index }"><c:out value="Equipped"></c:out></c:if></td>
+				</tr>
+			</c:forEach>
+		</table>
+
+		<div style="text-align: left">
+			<a href="/get-results" class="btn btn-outline-primary btn-wide">Back
+				to Main</a>
+		</div>
+	</div>
+	</div>
+
+
 </body>
 </html>

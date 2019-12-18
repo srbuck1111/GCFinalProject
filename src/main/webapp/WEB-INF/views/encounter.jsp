@@ -11,6 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-mtS696VnV9qeIoC8w/PrPoRzJ5gwydRVn0oQ9b+RJOPxE1Z1jXuuJcyeNxvNZhdx"
 	crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 <style>
 .column {
 	float: left;
@@ -22,6 +23,28 @@
 	display: table;
 	clear: both;
 }
+h6 {
+ font-family: 'Cinzel Decorative'; font-size: 30px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+h4 {
+ font-family: 'Cinzel Decorative'; font-size: 45px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+h3 {
+ font-family: 'Cinzel Decorative'; font-size: 20px;
+ text-shadow: black 0.3em 0.2em 0.2em
+}
+body {
+  background-image: url("http://getwallpapers.com/wallpaper/full/a/d/f/373564.jpg");
+background-repeat: no-repeat;
+background-position: relative;
+ background-size: cover;
+ opacity: .75;
+ 
+
+}
+
 </style>
 </head>
 <body onLoad="load()">
@@ -32,33 +55,31 @@
 		<input type="hidden" value="${encounterInfo.getUserTurn() }" id="userTurn">
 	</form>
 	
-	<div class="jumbotron">
+	<div>
 		<div class="row">
 		
 			<div class="column">
-				<h4>UserDeets</h4>
-				<h6>${playerCharacter.firstName } ${playerCharacter.lastName }</h6>
+				<center><h4>${playerCharacter.firstName } ${playerCharacter.lastName }</h4>
 				<h6>Hp: ${playerCharacter.hp }</h6>
 				<h6>Ac: ${playerCharacter.ac }</h6>
-				<br><br><br>
+				<br>
 				<img alt="Player Image" src="${playerCharacter.imageUrl}"><br/>
-				<a style="visibility:hidden" id="attackBtn" class="btn" href="/encounter/attack">Attack</a><br/>
-				<a style="visibility:hidden" id="fleeBtn" class="btn" href="/encounter/flee">Flee</a><br/>
-				<a style="visibility:hidden" id="defendBtn" class="btn" href="/encounter/defend">Defend</a><br/>
+				<a style="visibility:hidden" id="attackBtn" class="btn btn-secondary" href="/encounter/attack">Attack</a><br/>
+				<a style="visibility:hidden" id="fleeBtn" class="btn btn-secondary" href="/encounter/flee">Flee</a><br/>
+				<a style="visibility:hidden" id="defendBtn" class="btn btn-secondary" href="/encounter/defend">Defend</a><br/></center>
 			</div>
 
 			<div class="column">
-				<h4>RollsAndStuf</h4>
-				${encounterInfo.getText() }
+				<center><h4>Combat Info</h4><br><br><br><br><br><br><br><br><br><br>
+				<h3>${encounterInfo.getText() }</h3></center>
 			</div>
 
 			<div class="column">
-				<h4>EnemyDeets</h4>
-				<h6>${monster.name }</h6>
+				<center><h4>${monster.name }</h4>
 				<h6>Hp: ${monster.hp }</h6>
 				<h6>Ac: ${monster.ac }</h6>
 				<br>
-				<img alt="Enemy Image" src="${monster.imageUrl}">
+				<img alt="Enemy Image" src="${monster.imageUrl}"></center>
 				
 			</div>		
 		</div>

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.GCFinalProject.dndpojos.Equipment;
+import co.grandcircus.GCFinalProject.dndpojos.Inventory;
+import co.grandcircus.GCFinalProject.dndpojos.PlayerCharacter;
 import co.grandcircus.GCFinalProject.mappojos.Location;
 import co.grandcircus.GCFinalProject.mappojos.Place;
 import co.grandcircus.GCFinalProject.model.User;
@@ -79,6 +82,31 @@ public class HomeController {
 		*/
 		
 		return mv;
+	}
+	
+	@RequestMapping("/buy-potion")
+	public ModelAndView addPotion() {
+		
+		//User user = (User) session.getAttribute("loggedUser");
+		PlayerCharacter currentP = (PlayerCharacter) session.getAttribute("playerCharacter");
+		currentP.getGold();
+		//if (currentP.getGold() > 15) {
+			currentP.setGold(currentP.getGold() - (30 - currentP.getCha()));
+			//List<Inventory> playerInv = currentP.getInventory();
+			//String potionURL = "http://www.dnd5eapi.co/api/equipment/129";
+			Inventory potion = new Inventory(currentP, 129, 1);
+			//Equipment potion = rt.getForObject(potionURL, Equipment.class);
+			//currentP.setInventory(currentP.getInventory().add(potion));
+			//currentP.addInventory(potion);
+			inventoryRepo.save(potion);
+			System.out.println("got here!");
+			cr.save(currentP);
+			session.setAttribute("playerCharacter", currentP);
+			ModelAndView mv = new ModelAndView("redirect:/get-results");
+			return mv;
+			//redirect to get-results
+		//}
+		
 	}
 	
 	public boolean theseAreClose(double lat1, double lng1, double lat2, double lng2) {

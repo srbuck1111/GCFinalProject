@@ -36,7 +36,6 @@ public class InventoryController {
 
 		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
 
-		
 		List<Inventory> inventory = inventoryRepo.findByPlayerCharacter(pc);
 		String url;
 		ArrayList<Equipment> equipmentList = new ArrayList<Equipment>();
@@ -45,9 +44,19 @@ public class InventoryController {
 			Equipment charEquipment = rt.getForObject(url, Equipment.class);
 			equipmentList.add(charEquipment);
 		}
-
 		return new ModelAndView("InventoryList", "equipmentList", equipmentList);
+	}
 
+	@RequestMapping("equip")
+	public ModelAndView equipItem(String eCategory, Integer eId) {
+		PlayerCharacter pc = (PlayerCharacter) session.getAttribute("playerCharacter");
+		if (eCategory.equals("Weapon")) {
+			pc.setWeaponId(eId);
+			characterRepo.save(pc);
+			session.setAttribute("playerCharacter", pc);
+			return new ModelAndView("redirect:/inventory-list", "weaponSet", "Weapon Equipped!");
+		} else
+			return new ModelAndView("redirect:/inventory-list", "weaponSet", "Not Equipped");
 	}
 
 }
