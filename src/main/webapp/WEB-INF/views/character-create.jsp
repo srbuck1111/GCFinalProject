@@ -58,6 +58,7 @@ h5 {
 			</select></span>
 			</div>
 			<div class="column">
+
 				<h6>Strength</h6><span title="Strength increases your damage potential"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="str" type="number" name="str" oninput="checkPointBuy()"/></Span><br/>
 				<h6>Constitution</h6><span title = "Constitution increases your health and endurance"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="con" type="number" name="con" oninput="checkPointBuy()"/></Span><br/>
 				<h6>Dexterity</h6><span title = "Dexterity increases damage with ranged weapons"><input min="8" max="16" class="btn btn-outline-secondary" value="10" id="dex" type="number" name="dex" oninput="checkPointBuy()"/></Span><br/>
