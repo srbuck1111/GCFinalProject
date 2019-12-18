@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.web.client.RestTemplate;
+
 import co.grandcircus.GCFinalProject.model.User;
 
 @Entity
@@ -289,6 +291,26 @@ public class PlayerCharacter {
 			playChar.setImageUrl(image12Wizard);
 		}
 		
+	}
+	
+	public String hit(Monster m) {
+		RestTemplate rt = new RestTemplate();
+		String text = "You roll to hit the " + m.getName() + "!<br/>";
+		int toHit = Dice.roll(20) + getModFor(str);
+		int dmg = 0;
+		if (toHit > m.getAc()) {
+			Equipment weapon = rt.getForObject("http://dnd5eapi.co/api/equipment/" + weaponId, Equipment.class);
+			dmg = 0;
+			for (int i = 0; i <= weapon.getDamage().getDiceCount(); i++) {
+				dmg += Dice.roll(weapon.getDamage().getDiceValue());
+			}
+			dmg += getModFor(str);
+			text += "With a " + toHit + " you are able to deal " + dmg + " damage!";
+			m.setHp(m.getHp() - dmg);
+		} else {
+			text += "With a " + toHit + " you are unable to hit the " + m.getName();
+		}
+		return text;
 	}
 
 }

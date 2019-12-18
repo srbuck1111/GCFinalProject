@@ -25,11 +25,13 @@
 </style>
 </head>
 <body onLoad="load()">
-	<!-- this checks if the enemy is alive and redirects to main if it's dead -->
-	<form id="enemyAliveCheck" action="get-results">
+	<!-- this checks if either you or the enemy is alive and redirects to main if either is dead -->
+	<form id="aliveCheck" action="get-results">
+		<input type="hidden" value="${playerCharacter.hp }" id="playerHp">
 		<input type="hidden" value="${monster.hp }" id="monsterHp">
-		<input type="hidden" value="${userTurn }" id="userTurn">
+		<input type="hidden" value="${encounterInfo.userTurn }" id="userTurn">
 	</form>
+	
 	<div class="jumbotron">
 		<div class="row">
 		
@@ -40,41 +42,57 @@
 				<h6>Ac: ${playerCharacter.ac }</h6>
 				<br><br><br>
 				<img alt="Player Image" src="${playerCharacter.imageUrl}">
-				<a id="attackBtn" class="btn" href="/encounter/attack">Attack</a>
-				<a id="fleeBtn" class="btn" href="/encounter/flee">Flee</a>
-				<a id="defendBtn" class="btn" href="/encounter/defend">Defend</a>
+				<a style="visibility:hidden" id="attackBtn" class="btn" href="/encounter/attack">Attack</a><br/>
+				<a style="visibility:hidden" id="fleeBtn" class="btn" href="/encounter/flee">Flee</a><br/>
+				<a style="visibility:hidden" id="defendBtn" class="btn" href="/encounter/defend">Defend</a><br/>
 			</div>
 
 			<div class="column">
 				<h4>RollsAndStuf</h4>
-				${text }
+				${encounterInfo.text }
 			</div>
 
 			<div class="column">
 				<h4>EnemyDeets</h4>
 				<h6>${monster.name }</h6>
-				<br><br><br>
+				<h6>Hp: ${monster.hp }</h6>
+				<h6>Ac: ${monster.ac }</h6>
+				<br>
 				<img alt="Enemy Image" src="${monster.imageUrl}">
 				
-			</div>
-			
+			</div>		
 		</div>
 	</div>
 	
 	<script>
 	
+		var mHp = document.getElementById("monsterHp");
+		var pHp = document.getElementById("playerHp");
+		
+		var userTurn = document.getElementById("userTurn");
+		
+		var atkBtn = document.getElementById("attackBtn");
+		var fleeBtn = document.getElementById("fleeBtn");
+		var defBtn = document.getElementById("defendBtn");
+		
 		function load() {
-			if (document.getElementById("monsterHp").value <= 0) {
-				document.getElementById("enemyAliveCheck").submit();
+			//check for either party dead to redirect to main
+			if (mHp.value <= 0 || pHp.value <= 0) {
+				document.getElementById("aliveCheck").submit();
 			}
-			if (document.getElementById("userTurn").value == 1) {
-				document.getElementById("attackBtn").style.visibility = "visible";
-				document.getElementById("fleeBtn").style.visibility = "visible";
-				document.getElementById("defendBtn").style.visibility = "hidden";
-			} else {
-				document.getElementById("attackBtn").style.visibility = "hidden";
-				document.getElementById("fleeBtn").style.visibility = "hidden";
-				document.getElementById("defendBtn").style.visibility = "visible";
+			//dependent on userTurn value populates correct values
+			//if 0, only option is defend
+			if (userTurn.value == 0) {
+				defBtn.style.visibility = "visible";
+			}
+			//if 1 or greater populates main actions
+			if (userTurn.value >= 1) {
+				atkBtn.style.visibility = "visible";
+				fleeBtn.style.visibility = "visible";
+			} 
+			//if greater than 1 poulates bonus actions as well
+			if (userTurn.value > 1) {
+				//potions and things would go here!
 			}
 		}
 	
