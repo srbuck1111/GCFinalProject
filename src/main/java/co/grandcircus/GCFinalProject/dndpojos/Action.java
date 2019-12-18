@@ -1,11 +1,17 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Action {
+public class Action implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@JsonProperty("damage_bonus")
 	private int damageBonus;
 	@JsonProperty("damage_dice")

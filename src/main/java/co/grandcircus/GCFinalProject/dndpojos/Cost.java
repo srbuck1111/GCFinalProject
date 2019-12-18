@@ -1,8 +1,14 @@
 
 package co.grandcircus.GCFinalProject.dndpojos;
 
-public class Cost {
+import java.io.Serializable;
 
+public class Cost implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int quantity;
 	private String unit;
 	

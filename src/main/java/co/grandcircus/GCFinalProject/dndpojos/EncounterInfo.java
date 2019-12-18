@@ -1,7 +1,13 @@
 package co.grandcircus.GCFinalProject.dndpojos;
 
-public class EncounterInfo {
+import java.io.Serializable;
 
+public class EncounterInfo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String text;
 	private int userTurn;
 	
