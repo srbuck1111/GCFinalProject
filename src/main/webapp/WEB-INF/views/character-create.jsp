@@ -81,8 +81,8 @@ h4 {
 </head>
 <body onLoad="checkPointBuy()">
 	<form action="/add-character" onSubmit="checkPointBuy()">
-	<audio controls autoplay>
-   <source src="http://www.ffmages.com/ffvii/ost/disc-2/09-in-search-of-the-man-in-black.mp3" type="audio/mpeg">
+	<audio controls autoplay> 
+   <source src="http://www.ffmages.com/ffvii/ost/disc-3/19-aeriths-theme.mp3" type="audio/mpeg">
 </audio>
 		<div>
 			<div class="row">

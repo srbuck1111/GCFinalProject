@@ -46,6 +46,7 @@ body {
 	background-size: cover;
 	opacity: .75;
 }
+audio { display:none;}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -71,6 +72,10 @@ body {
 </nav>
 </head>
 <body>
+<audio controls autoplay> 
+   <source src="http://www.ffmages.com/ffvii/ost/disc-2/09-in-search-of-the-man-in-black.mp3" type="audio/mpeg">
+</audio>
+
 
 	<div class="container">
 		<div class="jumbotron">
