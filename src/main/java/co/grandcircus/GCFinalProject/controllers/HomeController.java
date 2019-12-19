@@ -90,7 +90,7 @@ public class HomeController {
 		//User user = (User) session.getAttribute("loggedUser");
 		PlayerCharacter currentP = (PlayerCharacter) session.getAttribute("playerCharacter");
 		currentP.getGold();
-		//if (currentP.getGold() > 15) {
+		if (currentP.getGold() > (30 - currentP.getCha())) {
 			currentP.setGold(currentP.getGold() - (30 - currentP.getCha()));
 			//List<Inventory> playerInv = currentP.getInventory();
 			//String potionURL = "http://www.dnd5eapi.co/api/equipment/129";
@@ -105,7 +105,10 @@ public class HomeController {
 			ModelAndView mv = new ModelAndView("redirect:/get-results");
 			return mv;
 			//redirect to get-results
-		//}
+		} else {
+			ModelAndView mv = new ModelAndView("redirect:/get-results");
+			return mv;
+		}
 		
 	}
 	

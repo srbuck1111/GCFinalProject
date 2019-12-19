@@ -79,7 +79,7 @@ body {
 	</div>
 </nav>
 </head>
-<body onload="getLocation()">
+<body onload="getLocation()" onload="shopLoad()">
 	<div>
 		<div class="row">
 			<div class="column">
@@ -90,6 +90,7 @@ body {
 				<center>
 					<h2>Current gold: ${playerCharacter.gold}</h2>
 				</center>
+				<input type="hidden" value="${playerCharacter.gold}" id="goldAmount">
 				<center>
 					<h3>
 						Player stats: <br> HP: ${playerCharacter.hp} /
@@ -124,12 +125,13 @@ body {
 							class="btn btn-primary" type="submit" value="View Your Inventory"></span>
 					</form> 
 					<br>
-				</center>-->
+				</center>--><a style="visibility: hidden" id="attackBtn"
+						class="btn btn-secondary" href="/encounter/attack">Attack</a>
 
 				<center>
-					<form action="/buy-potion">
+					<form action="/buy-potion" style ="visibility: visible" id="buyPtn">
 						<span
-							title="Exchange your hard earned gold for goods. Potions are 30 gold each, but perhaps your charisma will influence the price..."><input
+							title="Exchange your hard earned gold for goods. Potions are 30 gold each, but your charisma will influence the price. You will not be able to buy a potion if you cannot afford one!"><input
 							class="btn btn-primary" type="submit" value="Shop"></span>
 					</form>
 				</center>
@@ -217,6 +219,15 @@ body {
 			}
 			return false;
 		}
+
+		/*var buyPotion = document.getElementById("buyPtn");
+		var gold = document.getElementById("goldAmount")
+		function shopLoad() {
+			
+			if (gold.value < 20) {
+				buyPotion.style.visibility = "hidden";
+			}
+		}*/
 	</script>
 
 </body>

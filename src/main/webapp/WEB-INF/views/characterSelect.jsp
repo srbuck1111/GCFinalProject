@@ -65,7 +65,7 @@ body {
 <div>
 	<h1>
 		<center>Welcome, ${loggedUser.username }! Select Your
-			Character! <form class="form-inline" action="/new-character">
+			Character! <t><form class="form-inline" action="/new-character">
 							<center><input class="btn btn-primary" type="submit"
 								value="Create a new character!"></center>
 						</form></center>
