@@ -33,6 +33,7 @@
 }
 
 body {
+
 	background-image:
 		url("https://rpgrunkleplaysgames.files.wordpress.com/2017/06/65_header_dmscreen2017.jpg?w=1440");
 	background-repeat: no-repeat;

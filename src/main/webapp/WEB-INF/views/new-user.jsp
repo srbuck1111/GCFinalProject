@@ -37,6 +37,15 @@ h4 {
 	font-size: 45px;
 	text-shadow: white 0.3em 0.2em 0.2em
 }
+
+body {
+	background-image:
+		url("https://wallpapercave.com/wp/1Xklfvu.jpg");
+	background-repeat: no-repeat;
+	background-position: relative;
+	background-size: cover;
+	opacity: .75;
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -60,7 +69,6 @@ h4 {
 
 	</div>
 </nav>
-
 </head>
 <body>
 

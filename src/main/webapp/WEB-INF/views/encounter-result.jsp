@@ -71,9 +71,14 @@ body {
 	opacity: .75;
 	justify-content: center;
 }
+audio { display:none;}
 </style>
 </head>
 <body>
+<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-1/11-fanfare.mp3" type="audio/mpeg">
+</audio>
+
 
 
 	<div class="column">

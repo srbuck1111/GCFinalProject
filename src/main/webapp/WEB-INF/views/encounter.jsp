@@ -53,7 +53,8 @@ body {
 }
 audio { display:none;}
 </style>
-
+<!-- On click for combat buttons sound https://www.shockwave-sound.com/sound-effects/fighting-sounds/sword%20clank%20with%20scrape%20MP3.mp3
+ -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<a class="navbar-brand">Dungeon Go!</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
