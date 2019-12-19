@@ -78,13 +78,14 @@ audio { display:none;}
 <audio controls autoplay>
    <source src="http://www.ffmages.com/ffvii/ost/disc-1/11-fanfare.mp3" type="audio/mpeg">
 </audio>
+<!-- http://www.ffmages.com/ffvii/ost/disc-2/15-continue.mp3 song URL for losses-->
 
 
 
 	<div class="column">
 		<center>
-			<c:if test="${win }">
-				<h1>
+			<c:if test="${win }"> 
+				<h1> 
 					<c:out value="You slayed the ${monster.name }!" />
 				</h1>
 
@@ -93,7 +94,9 @@ audio { display:none;}
 				<h1>
 					<c:out value="You were slain by ${monster.name }!" />
 				</h1>
-
+<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-2/15-continue.mp3 song URL for losses" type="audio/mpeg">
+</audio>
 			</c:if>
 			<h2>${resultText }</h2>
 			<br> <a href="/get-results" class="btn btn-outline-secondary">Back
@@ -104,6 +107,9 @@ audio { display:none;}
 	<div class="column">
 	<center>
 		<c:if test="${win }">
+		<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-1/11-fanfare.mp3" type="audio/mpeg">
+</audio>
 			<center>
 				<h1>You have been rewarded with:</h1>
 				<h2>
@@ -112,6 +118,7 @@ audio { display:none;}
 				</h2>
 		<h3>Go back home and check out your updated stats, and your
 			inventory where you can equip any new weapons!</h3>
+			
 		</c:if>
 		<c:if test="${!win }">
 <h1>Better luck next time. </h1>

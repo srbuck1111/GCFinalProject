@@ -33,6 +33,15 @@ td {
 .btn-wide {
 	width: 250px;
 }
+body {
+	background-image:
+		url("https://i.pinimg.com/originals/76/85/b3/7685b3863bfa9689afbb31705e49f7f2.jpg");
+	background-repeat: no-repeat;
+	background-position: relative;
+	background-size: cover;
+	opacity: .75;
+}
+audio { display:none;}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -60,9 +69,11 @@ td {
 </nav>
 </head>
 
-
-
 <body>
+	<audio controls autoplay> 
+   <source src="http://www.ffmages.com/ffvii/ost/disc-4/13-judgement-day.mp3" type="audio/mpeg">
+</audio>
+
 	<div class="container">
 
 		<h1 align="center">Inventory</h1>
@@ -82,14 +93,14 @@ td {
 							test="${inv.equipmentCategory=='Weapon' and playerCharacter.weaponId!=inv.index}">
 							<a
 								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
-								class='btn btn-outline-primary btn-wide'><c:out
+								class='btn btn-primary btn-wide'><c:out
 									value="Equip Weapon"></c:out></a>
 						</c:if>
 						<c:if
 							test="${inv.equipmentCategory=='Armor' and playerCharacter.armorId!=inv.index}">
 							<a
 								href='/equip?eCategory=${inv.equipmentCategory }&eId=${inv.index}'
-								class='btn btn-outline-primary btn-wide'><c:out
+								class='btn btn-primary btn-wide'><c:out
 									value="Equip Armor"></c:out></a>
 						</c:if> 
 						<c:if test="${playerCharacter.weaponId==inv.index or playerCharacter.armorId==inv.index}">
