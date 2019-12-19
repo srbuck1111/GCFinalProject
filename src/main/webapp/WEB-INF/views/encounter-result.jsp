@@ -75,9 +75,7 @@ audio { display:none;}
 </style>
 </head>
 <body>
-<audio controls autoplay>
-   <source src="http://www.ffmages.com/ffvii/ost/disc-1/11-fanfare.mp3" type="audio/mpeg">
-</audio>
+
 <!-- http://www.ffmages.com/ffvii/ost/disc-2/15-continue.mp3 song URL for losses-->
 
 
@@ -99,7 +97,7 @@ audio { display:none;}
 </audio>
 			</c:if>
 			<h2>${resultText }</h2>
-			<br> <a href="/get-results" class="btn btn-outline-secondary">Back
+			<br> <a href="/get-results" class="btn btn-secondary">Back
 				to Home</a>
 		</center>
 	</div>
