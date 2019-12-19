@@ -51,6 +51,7 @@ body {
 	background-size: cover;
 	opacity: .75;
 }
+audio { display:none;}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -76,6 +77,10 @@ body {
 </nav>
 </head>
 <body onLoad="load()">
+<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-1/10-let-the-battles-begin.mp3" type="audio/mpeg">
+</audio>
+	
 	<!-- this checks if either you or the enemy is alive and redirects to main if either is dead -->
 	<form id="aliveCheck" action="get-results">
 		<input type="hidden" value="${playerCharacter.hp }" id="playerHp">

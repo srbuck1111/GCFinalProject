@@ -53,6 +53,7 @@ body {
 	background-size: cover;
 	opacity: .75;
 }
+audio { display:none;}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -80,6 +81,9 @@ body {
 </nav>
 </head>
 <body onload="getLocation()" onload="shopLoad()">
+<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-3/17-forested-temple.mp3" type="audio/mpeg">
+</audio>
 	<div>
 		<div class="row">
 			<div class="column">
@@ -132,7 +136,7 @@ body {
 					<form action="/buy-potion" style ="visibility: visible" id="buyPtn">
 						<span
 							title="Exchange your hard earned gold for goods. Potions are 30 gold each, but your charisma will influence the price. You will not be able to buy a potion if you cannot afford one!"><input
-							class="btn btn-primary" type="submit" value="Shop"></span>
+							class="btn btn-primary" type="submit" value="Buy a Potion"></span>
 					</form>
 				</center>
 				<!-- Checks your inventory for gold. Allows you to buy one potion at a time whenever your gold is sufficient. -->

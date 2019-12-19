@@ -24,6 +24,7 @@
 	display: table;
 	clear: both;
 }
+audio { display:none;}
 
 body {
 	background-image:
@@ -80,6 +81,9 @@ h4 {
 </head>
 <body onLoad="checkPointBuy()">
 	<form action="/add-character" onSubmit="checkPointBuy()">
+	<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-2/09-in-search-of-the-man-in-black.mp3" type="audio/mpeg">
+</audio>
 		<div>
 			<div class="row">
 				<div class="column">
@@ -127,7 +131,7 @@ h4 {
 							id="con" type="number" name="con" oninput="checkPointBuy()" /></Span><br />
 						<h6>Dexterity</h6>
 						<span
-							title="Dexterity increases damage with ranged weapons. You must invest at least 8 points in this stat, but 16 is the max!"><input
+							title="Dexterity allows you to flee without taking damage. You must invest at least 8 points in this stat, but 16 is the max!"><input
 							min="8" max="16" class="btn btn-outline-secondary" value="10"
 							id="dex" type="number" name="dex" oninput="checkPointBuy()" /></Span><br />
 						<h6>Intelligence</h6>
@@ -137,12 +141,12 @@ h4 {
 							id="int" type="number" name="intel" oninput="checkPointBuy()" /></Span><br />
 						<h6>Wisdom</h6>
 						<span
-							title="Wisdom contributes to your ability to heal and cast certain spells. You must invest at least 8 points in this stat, but 16 is the max!"><input
+							title="Wisdom contributes to your ability to heal from potions. You must invest at least 8 points in this stat, but 16 is the max!"><input
 							min="8" max="16" class="btn btn-outline-secondary" value="10"
 							id="wis" type="number" name="wis" oninput="checkPointBuy()" /></Span><br />
 						<h6>Charisma</h6>
 						<span
-							title="Charisma is all about talking your way our of tough situations. You must invest at least 8 points in this stat, but 16 is the max!"><input
+							title="Charisma reduces the cost of goods in the shop. You must invest at least 8 points in this stat, but 16 is the max!"><input
 							min="8" max="16" class="btn btn-outline-secondary" value="10"
 							id="cha" type="number" name="cha" oninput="checkPointBuy()" /></Span><br />
 						<br />

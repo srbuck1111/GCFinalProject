@@ -65,7 +65,7 @@ body {
 <div>
 	<h1>
 		<center>Welcome, ${loggedUser.username }! Select Your
-			Character! <t><form class="form-inline" action="/new-character">
+			Character! <form class="form-inline" action="/new-character">
 							<center><input class="btn btn-primary" type="submit"
 								value="Create a new character!"></center>
 						</form></center>
@@ -88,9 +88,15 @@ body {
 	display: table;
 	clear: both;
 }
+audio { display:none;}
 </style>
 
+
 <body onload="getLocation()">
+<audio controls autoplay>
+   <source src="http://www.ffmages.com/ffvii/ost/disc-1/06-barrets-theme.mp3" type="audio/mpeg">
+</audio>
+
 		<div class="container">
 			<div class="row">
 				<div class="column">
