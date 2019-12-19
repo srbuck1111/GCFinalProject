@@ -41,6 +41,10 @@ body {
 	background-size: cover;
 	opacity: .75;
 }
+td, th {
+color: white;
+
+}
 audio { display:none;}
 </style>
 
@@ -87,7 +91,7 @@ audio { display:none;}
 			</tr>
 			<c:forEach var="inv" varStatus="loop" items="${equipmentList }">
 				<tr>
-					<td>${inv.name } <c:if test="${inv.equipmentCategory=='Weapon'}"><c:out value="${inv.damage.diceCount }d${inv.damage.diceValue } damage"></c:out></c:if></td>
+					<td>${inv.name }</h1> <c:if test="${inv.equipmentCategory=='Weapon'}"><c:out value="${inv.damage.diceCount }d${inv.damage.diceValue } damage"></c:out></c:if></td>
 
 					<td><c:if
 							test="${inv.equipmentCategory=='Weapon' and playerCharacter.weaponId!=inv.index}">
