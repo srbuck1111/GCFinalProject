@@ -152,7 +152,7 @@ public class EventController {
 			text = "With a " + toHit + " to hit, dealing " + dmg + " in damage, the " + m.getName() + " has slayed you.";
 			mvEnd.addObject("resultText", text);
 			mvEnd.addObject("win", false);
-			pc.setGold(pc.getGold() -25 + PlayerCharacter.getModFor(pc.getWis()));
+			pc.setGold(pc.getGold() -24 + PlayerCharacter.getModFor(pc.getWis()));
 			mvEnd.addObject("gold", 25);
 	
 			//!LOSSES GO HERE!//
