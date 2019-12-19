@@ -41,23 +41,25 @@
 	float: left;
 	width: 50%;
 	margin: 0 auto;
+	align-items: center;
 }
+
 h1 {
 	font-family: 'Cinzel Decorative';
-	font-size: 50px;
-	text-shadow: white 0.4em 0.3em 0.3em
+	font-size: 45px;
+	text-shadow: black 0.4em 0.3em 0.3em
 }
 
 h2 {
 	font-family: 'Cinzel Decorative';
-	font-size: 40px;
-	text-shadow: white 0.4em 0.3em 0.3em
+	font-size: 30px;
+	text-shadow: black 0.4em 0.3em 0.3em
 }
 
 h3 {
 	font-family: 'Cinzel Decorative';
 	font-size: 20px;
-	text-shadow: white 0.4em 0.3em 0.3em
+	text-shadow: black 0.4em 0.3em 0.3em
 }
 
 body {
@@ -67,29 +69,53 @@ body {
 	background-position: relative;
 	background-size: cover;
 	opacity: .75;
+	justify-content: center;
 }
 </style>
 </head>
 <body>
 
 
-<div class="column">
-	<c:if test="${win }">
-		<h2>
-			<c:out value="You slayed the ${monster.name }!" />
-		</h2>
-		<h3>${resultText }</h3>
+	<div class="column">
+		<center>
+			<c:if test="${win }">
+				<h1>
+					<c:out value="You slayed the ${monster.name }!" />
+				</h1>
 
-	</c:if>
-	<c:if test="${!win }">
-		<h2>
-			<c:out value="You were slain by ${monster.name }!" />
-		</h2>
-	<h3>${resultText }</h3>
-	</c:if>
-	<br>
-	<a href="/get-results" class="btn btn-outline-secondary">Back to
-		Home</a>
-		</div>
+			</c:if>
+			<c:if test="${!win }">
+				<h1>
+					<c:out value="You were slain by ${monster.name }!" />
+				</h1>
+
+			</c:if>
+			<h2>${resultText }</h2>
+			<br> <a href="/get-results" class="btn btn-outline-secondary">Back
+				to Home</a>
+		</center>
+	</div>
+
+	<div class="column">
+	<center>
+		<c:if test="${win }">
+			<center>
+				<h1>You have been rewarded with:</h1>
+				<h2>
+					${loot.equipmentCategory }, ${loot.name }! <br> and <br>
+					$${gold } in gold! <br>
+				</h2>
+		<h3>Go back home and check out your updated stats, and your
+			inventory where you can equip any new weapons!</h3>
+		</c:if>
+		<c:if test="${!win }">
+<h1>Better luck next time. </h1>
+				<h2>You lost $${gold } in gold because of your loss.
+				
+				
+				</h2>
+		</c:if>
+		</center>
+	</div>
 </body>
 </html>

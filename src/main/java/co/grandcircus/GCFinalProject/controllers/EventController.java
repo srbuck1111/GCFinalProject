@@ -100,7 +100,8 @@ public class EventController {
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			pc.setWins(pc.getWins() + 1);
 			cr.save(pc);
-			text = "With a " + toHit + " to hit, dealing " + dmg + ", you slayed the " + m.getName() + "!";
+			text = "With a " + toHit + " to hit, dealing " + dmg + ", you defeated the " + m.getName() + "!";
+			mvEnd.addObject("resultText", text);
 			mvEnd.addObject("win", true);
 			
 			//!LOOT GOES HERE!//
@@ -110,7 +111,7 @@ public class EventController {
 			mvEnd.addObject("loot", loot);
 			ir.save(new Inventory(pc, lootId, 1));
 			pc.setGold(pc.getGold() + 50 + PlayerCharacter.getModFor(pc.getWis()));
-			
+			mvEnd.addObject("gold", 50);
 			//!LOOT GOES HERE!//
 			
 			return mvEnd;
@@ -148,9 +149,11 @@ public class EventController {
 			pc.setLosses(pc.getLosses() + 1);
 			cr.save(pc);
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
-			text = "With a " + toHit + " to hit, dealing " + dmg + ", the " + m.getName() + " has slayed you.";
+			text = "With a " + toHit + " to hit, dealing " + dmg + " in damage, the " + m.getName() + " has slayed you.";
 			mvEnd.addObject("resultText", text);
 			mvEnd.addObject("win", false);
+			pc.setGold(pc.getGold() -25 + PlayerCharacter.getModFor(pc.getWis()));
+			mvEnd.addObject("gold", 25);
 	
 			//!LOSSES GO HERE!//
 			
