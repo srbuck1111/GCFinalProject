@@ -148,7 +148,7 @@ public class EventController {
 			pc.setLosses(pc.getLosses() + 1);
 			cr.save(pc);
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
-			text = "With a " + toHit + " to hit, dealing " + dmg + ", the" + m.getName() + " has slayed you.";
+			text = "With a " + toHit + " to hit, dealing " + dmg + ", the " + m.getName() + " has slayed you.";
 			mvEnd.addObject("resultText", text);
 			mvEnd.addObject("win", false);
 	
