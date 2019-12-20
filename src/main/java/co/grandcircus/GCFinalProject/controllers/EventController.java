@@ -59,6 +59,9 @@ public class EventController {
 			healValue += Dice.roll(4) + 1;
 		}
 		pc.setHp(pc.getHp() + healValue);
+		if (pc.getHp() > pc.getHpMax()) {
+			pc.setHp(pc.getHpMax());
+		}
 		text += "It heals you for " + healValue + " hp!";
 		EncounterInfo ei = new EncounterInfo(text, 1);
 		for (Inventory i : ir.findByPlayerCharacter(pc)) {
@@ -110,14 +113,21 @@ public class EventController {
 			Equipment loot = rt.getForObject("http://dnd5eapi.co/api/equipment/" + lootId, Equipment.class);
 			mvEnd.addObject("loot", loot);
 			ir.save(new Inventory(pc, lootId, 1));
-			pc.setGold(pc.getGold() + 50 + PlayerCharacter.getModFor(pc.getWis()));
-			mvEnd.addObject("gold", 50);
+			int gold = 50 + PlayerCharacter.getModFor(pc.getWis());
+			pc.setGold(pc.getGold() + gold);
+			mvEnd.addObject("gold", gold);
 			//!LOOT GOES HERE!//
 			
 			return mvEnd;
 		}
 		
 		EncounterInfo ei = new EncounterInfo(text, 0);
+		for (Inventory i : ir.findByPlayerCharacter(pc)) {
+			if (i.getEquipmentId() == 129) {
+				ei.setPotions(1);
+				break;
+			}
+		}
 		session.setAttribute("monster", m);
 		session.setAttribute("encounterInfo", ei);
 		return new ModelAndView("redirect:/encounter");
@@ -165,6 +175,12 @@ public class EventController {
 		cr.save(pc);
 		session.setAttribute("playerCharacter", pc);
 		EncounterInfo ei = new EncounterInfo(text, 2);
+		for (Inventory i : ir.findByPlayerCharacter(pc)) {
+			if (i.getEquipmentId() == 129) {
+				ei.setPotions(1);
+				break;
+			}
+		}
 		session.setAttribute("encounterInfo", ei);
 		
 		return new ModelAndView("redirect:/encounter");

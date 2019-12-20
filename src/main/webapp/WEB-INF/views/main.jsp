@@ -133,10 +133,10 @@ audio { display:none;}
 						class="btn btn-secondary" href="/encounter/attack">Attack</a>
 
 				<center>
-					<form action="/buy-potion" style ="visibility: visible" id="buyPtn">
+					<form action="/buy-potion">
 						<span
 							title="Exchange your hard earned gold for goods. Potions are 30 gold each, but your charisma will influence the price. You will not be able to buy a potion if you cannot afford one!"><input
-							class="btn btn-primary" type="submit" value="Buy a Potion"></span>
+							class="btn btn-primary" type="submit" value="Buy a Potion" style ="visibility: hidden" id="buyPtn"></span>
 					</form>
 				</center>
 				<!-- Checks your inventory for gold. Allows you to buy one potion at a time whenever your gold is sufficient. -->
@@ -224,14 +224,14 @@ audio { display:none;}
 			return false;
 		}
 
-		/*var buyPotion = document.getElementById("buyPtn");
-		var gold = document.getElementById("goldAmount")
+		var buyPotion = document.getElementById("buyPtn");
+		var gold = document.getElementById("goldAmount");
 		function shopLoad() {
 			
-			if (gold.value < 20) {
-				buyPotion.style.visibility = "hidden";
+			if (gold.value >= 20) {
+				buyPotion.style.visibility = "visible";
 			}
-		}*/
+		}
 	</script>
 
 </body>

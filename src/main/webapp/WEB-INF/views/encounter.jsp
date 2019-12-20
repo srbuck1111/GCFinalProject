@@ -85,8 +85,9 @@ audio { display:none;}
 	<!-- this checks if either you or the enemy is alive and redirects to main if either is dead -->
 	<form id="aliveCheck" action="get-results">
 		<input type="hidden" value="${playerCharacter.hp }" id="playerHp">
-		<input type="hidden" value="${monster.hp }" id="monsterHp"> <input
-			type="hidden" value="${encounterInfo.userTurn }" id="userTurn">
+		<input type="hidden" value="${monster.hp }" id="monsterHp"> 
+		<input type="hidden" value="${encounterInfo.userTurn }" id="userTurn">
+		<input type="hidden" value="${encounterInfo.potions }" id="potions">	
 	</form>
 
 	<div>
@@ -135,7 +136,8 @@ audio { display:none;}
 		var pHp = document.getElementById("playerHp");
 
 		var userTurn = document.getElementById("userTurn");
-
+		var pots = document.getElementById("potions");
+		
 		var atkBtn = document.getElementById("attackBtn");
 		var fleeBtn = document.getElementById("fleeBtn");
 		var defBtn = document.getElementById("defendBtn");
@@ -158,7 +160,9 @@ audio { display:none;}
 			}
 			//if greater than 1 poulates bonus actions as well
 			if (userTurn.value > 1) {
-				potBtn.style.visibility = "visible";
+				if (pots.value > 0) {
+					potBtn.style.visibility = "visible";
+				}
 			}
 		}
 	</script>
