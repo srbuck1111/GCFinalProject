@@ -53,6 +53,9 @@ public class HomeController {
 			//userLat = 42.3359; test coords for Grand Circus		
 			//userLng = -83.049825;
 		}
+		//Below coords are for central park in NY
+		userLat = 38.8976763;
+		userLng = -77.0365298;
 		
 		int searchRadius = 250; //in meters
 		
