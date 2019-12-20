@@ -147,18 +147,20 @@ public class EventController {
 		if (pc.getHp() <= 0) {
 			pc.setHp(pc.getHpMax());
 			pc.setLosses(pc.getLosses() + 1);
-			cr.save(pc);
 			ModelAndView mvEnd = new ModelAndView("encounter-result");
 			text = "With a " + toHit + " to hit, dealing " + dmg + " in damage, the " + m.getName() + " has slayed you.";
 			mvEnd.addObject("resultText", text);
 			mvEnd.addObject("win", false);
-			pc.setGold(pc.getGold() -24 + PlayerCharacter.getModFor(pc.getWis()));
-			mvEnd.addObject("gold", 25);
 	
 			//!LOSSES GO HERE!//
+
+			int gold = 25 - PlayerCharacter.getModFor(pc.getWis());
+			mvEnd.addObject("gold", gold);
+			pc.setGold(pc.getGold() - gold);
 			
 			//!LOSSES GO HERE!//
 			
+			cr.save(pc);
 			return mvEnd;
 		}
 		
