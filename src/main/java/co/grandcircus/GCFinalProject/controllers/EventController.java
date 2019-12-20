@@ -167,6 +167,9 @@ public class EventController {
 			int gold = 25 - PlayerCharacter.getModFor(pc.getWis());
 			mvEnd.addObject("gold", gold);
 			pc.setGold(pc.getGold() - gold);
+			if (pc.getGold() < 0) {
+				pc.setGold(0);
+			}
 			
 			//!LOSSES GO HERE!//
 			
